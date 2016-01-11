@@ -1,0 +1,288 @@
+﻿
+@{
+    ViewBag.Title = "Student";
+}
+
+<h2>Student</h2>
+
+<form role="form">
+    <div class="form-group">
+        <h3>What position are you applying for?</h3>
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>Student, I want to play with a team for the next four weeks</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>Substitute, I'm available to fill in for a player if they are not available</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>What is your email address?</h3>
+        <input type="text" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <h3>How old are you?</h3>
+        <input type="text" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <h3>What region do you play on?</h3>
+        <select class="form-control">
+            <option></option>
+            <option>Brazil</option>
+            <option>EU Nordic & East</option>
+            <option>EU West</option>
+            <option>Latin America North</option>
+            <option>Latin America South</option>
+            <option>North America</option>
+            <option>Oceania</option>
+            <option>Russia</option>
+            <option>Turkey</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <h3>What is your summoner name?</h3>
+        <input type="text" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <h3>What is your ranked solo queue league?</h3>
+        <select class="form-control">
+            <option></option>
+            <option>Bronze</option>
+            <option>Silver</option>
+            <option>Gold</option>
+            <option>Platinum</option>
+            <option>Diamond</option>
+            <option>Master/Challenger</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <h3>Are you already registered on the L5 Slack?</h3>
+
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>Yes</label>
+        </div>
+
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>No</label>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="form-group">
+        <h3>What role would you like to learn most in Learning Fives?</h3>
+        <select class="form-control">
+            <option></option>
+            <option>Top Lane</option>
+            <option>Jungle</option>
+            <option>Middle Lane</option>
+            <option>Marksman</option>
+            <option>Support</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <h3>Top Lane</h3>
+        <select class="form-control">
+            <option></option>
+            <option>5 - I would really like to play top lane</option>
+            <option>4 - I would be happy to play top lane</option>
+            <option>3 - I'm fine playing top lane</option>
+            <option>2 - I don't really like playing top lane</option>
+            <option>1 - I hate playing top lane, but will play it if I cannot be matched in for any other role</option>
+            <option>0 - I do not want to play top lane in any case</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <h3>Jungle</h3>
+        <select class="form-control">
+            <option></option>
+            <option>5 - I would really like to play jungle</option>
+            <option>4 - I would be happy to play jungle</option>
+            <option>3 - I'm fine playing jungle</option>
+            <option>2 - I don't really like playing jungle</option>
+            <option>1 - I hate playing jungle, but will play it if I cannot be matched in for any other role</option>
+            <option>0 - I do not want to play jungle in any case</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <h3>Mid Lane</h3>
+        <select class="form-control">
+            <option></option>
+            <option>5 - I would really like to play mid lane</option>
+            <option>4 - I would be happy to play mid lane</option>
+            <option>3 - I'm fine playing mid lane</option>
+            <option>2 - I don't really like playing mid lane</option>
+            <option>1 - I hate playing mid lane, but will play it if I cannot be matched in for any other role</option>
+            <option>0 - I do not want to play mid lane in any case</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <h3>Marksman</h3>
+        <select class="form-control">
+            <option></option>
+            <option>5 - I would really like to play marksman</option>
+            <option>4 - I would be happy to play marksman</option>
+            <option>3 - I'm fine playing marksman</option>
+            <option>2 - I don't really like playing marksman</option>
+            <option>1 - I hate playing marksman, but will play it if I cannot be matched in for any other role</option>
+            <option>0 - I do not want to play marksman in any case</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <h3>Support</h3>
+        <select class="form-control">
+            <option></option>
+            <option>5 - I would really like to play support</option>
+            <option>4 - I would be happy to play support</option>
+            <option>3 - I'm fine playing support</option>
+            <option>2 - I don't really like playing support</option>
+            <option>1 - I hate playing support, but will play it if I cannot be matched in for any other role</option>
+            <option>0 - I do not want to play support in any case</option>
+        </select>
+    </div>
+
+    <hr/>
+
+    <div class="form-group form-inline">
+        <h3>Monday</h3>
+        Start:<input class="form-control" type="time"/>
+        End:<input class="form-control" type="time"/>
+    </div>
+
+    <div class="form-group form-inline">
+        <h3>Tuesday</h3>
+        Start:<input class="form-control" type="time"/>
+        End:<input class="form-control" type="time"/>
+    </div>
+
+    <div class="form-group form-inline">
+        <h3>Wednesday</h3>
+        Start:<input class="form-control" type="time"/>
+        End:<input class="form-control" type="time"/>
+    </div>
+
+    <div class="form-group form-inline">
+        <h3>Thursday</h3>
+        Start:<input class="form-control" type="time"/>
+        End:<input class="form-control" type="time"/>
+    </div>
+
+    <div class="form-group form-inline">
+        <h3>Friday</h3>
+        Start:<input class="form-control" type="time"/>
+        End:<input class="form-control" type="time"/>
+    </div>
+
+    <div class="form-group form-inline">
+        <h3>Saturday</h3>
+        Start:<input class="form-control" type="time"/>
+        End:<input class="form-control" type="time"/>
+    </div>
+
+    <div class="form-group form-inline">
+        <h3>Sunday</h3>
+        Start:<input class="form-control" type="time"/>
+        End:<input class="form-control" type="time"/>
+    </div>
+
+    <hr/>
+
+    <div class="form-group">
+        <h3>Which languages do you speak?</h3>
+        <input class="form-control" type="text"/>
+    </div>
+
+    <div class="form-group">
+        <h3>Do you have any players or coaches you wish to be paired with?</h3>
+        <input class="form-control" type="text"/>
+    </div>
+
+    <div class="form-group">
+        <h3>Do you consider yourself toxic?</h3>
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>Yes, I am quite toxic</label>
+        </div>
+        
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>Sometimes I can be toxic</label>
+        </div>
+        
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>No, I am not toxic</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Which of the follow punishments have been issued to you by Riot Games?</h3>
+        <div class="checkbox">
+            <label><input type="checkbox"/>Low priority queue</label>
+            <label><input type="checkbox"/>Chat restrictions</label>
+            <label><input type="checkbox"/>Ranked restrictions</label>
+            <label><input type="checkbox"/>Temporary account ban</label>
+            <label><input type="checkbox"/>Permanent account ban</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Why should a coach pick you to be on their team?</h3>
+        <textarea class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <h3>What areas of the game do you want to improve in?</h3>
+        <textarea class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <h3>What are your strong points as a player</h3>
+        <textarea class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <h3>What do you expect from this program?</h3>
+        <textarea class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <h3>Are you committed to participating with the team, twice a week, for the next five weeks?</h3>
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>Yes, I am committed to playing two days a week for five weeks.</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>I'll try my best to be online and available, but I can't formally commit to anything.</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>No, but I really want to be a part of it!</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Would you like to be contacted via email the next time sign-ups go live?</h3>
+        <div class="radio">
+            <label><input type="radio" name="optradio"/>Yes</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio" />No</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>How serious should your team be about League of Legends and Learning Fives?</h3>
+        <div class="checkbox">
+            <label><input type="checkbox"/>Serious</label>
+            <label><input type="checkbox"/>Semi-serious</label>
+            <label><input type="checkbox"/>Casual</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Is there anything else you would like us to know?</h3>
+        <textarea class="form-control"></textarea>
+    </div>
+</form>
