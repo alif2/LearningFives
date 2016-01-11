@@ -250,6 +250,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SignUp\Coach.cshtml" />
     <Content Include="Views\SignUp\Student.cshtml" />
+    <Content Include="Views\SignUp\_SummonerInfo.cshtml" />
+    <Content Include="Views\SignUp\_RoleInfo.cshtml" />
+    <Content Include="Views\SignUp\_Availability.cshtml" />
+    <Content Include="Views\SignUp\_Toxic.cshtml" />
+    <Content Include="Views\SignUp\_Commit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

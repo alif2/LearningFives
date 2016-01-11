@@ -3,174 +3,30 @@
     ViewBag.Title = "Coach";
 }
 
-<h2>Coach</h2>
+<h2>Coach Registration</h2>
 
 <form role="form">
     <div class="form-group">
-        <h3>What position are you applying for?</h3>
-        <div class="radio">
-            <label><input type="radio" name="optradio" />Coach! I want to run my own team</label>
+        <label>Registration Type:</label>
+        <div class="radio no-top-margin">
+            <label><input type="radio" name="optradio"/>Coach, I want to run my own team</label>
         </div>
         <div class="radio">
-            <label><input type="radio" name="optradio"/>Substitute! I'm available to fill in for a coach if they are not available</label>
+            <label><input type="radio" name="optradio"/>Substitute, I'm available to fill in for a coach if they are not available</label>
         </div>
         <div class="radio">
-            <label><input type="radio" name="optradio" />Understudy! I want to help and support a team</label>
+            <label><input type="radio" name="optradio"/>Understudy, I want to help and support a team</label>
         </div>
     </div>
 
-    <div class="form-group">
-        <h3>What is your email address?</h3>
-        <input type="text" class="form-control" />
-    </div>
+    @{
+        Html.RenderPartial("_SummonerInfo");
+    }
+
+    <hr/><!---------------------------------------------------------------------------------------------------------------->
 
     <div class="form-group">
-        <h3>How old are you?</h3>
-        <input type="text" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <h3>What region do you play on?</h3>
-        <select class="form-control">
-            <option></option>
-            <option>Brazil</option>
-            <option>EU Nordic & East</option>
-            <option>EU West</option>
-            <option>Latin America North</option>
-            <option>Latin America South</option>
-            <option>North America</option>
-            <option>Oceania</option>
-            <option>Russia</option>
-            <option>Turkey</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <h3>What is your summoner name?</h3>
-        <input type="text" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <h3>What is your ranked solo queue league?</h3>
-        <select class="form-control">
-            <option></option>
-            <option>Bronze</option>
-            <option>Silver</option>
-            <option>Gold</option>
-            <option>Platinum</option>
-            <option>Diamond</option>
-            <option>Master/Challenger</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <h3>What is your ranked solo queue tier?</h3>
-        <select class="form-control">
-            <option></option>
-            <option>I</option>
-            <option>II</option>
-            <option>III</option>
-            <option>IV</option>
-            <option>V</option>
-        </select>
-    </div>
-
-<div class="form-group">
-        <h3>Are you already registered on the L5 Slack?</h3>
-
-        <div class="radio">
-            <label><input type="radio" name="optradio" />Yes</label>
-        </div>
-
-        <div class="radio">
-            <label><input type="radio" name="optradio" />No</label>
-        </div>
-    </div>
-
-    <hr />
-
-    <div class="form-group">
-        <h3>Coaching Style / Philosophy</h3>
-        <textarea class="form-control"></textarea>
-    </div>
-
-    <div class="form-group">
-        <h3>Experience as a Coach</h3>
-        <textarea class="form-control"></textarea>
-    </div>
-
-    <div class="form-group">
-        <h3>Is there anything else you would like us to know?</h3>
-        <textarea class="form-control"></textarea>
-    </div>
-
-    <hr />
-
-    <div class="form-group form-inline">
-        <h3>Monday</h3>
-        Start:<input class="form-control" type="time" />
-        End:<input class="form-control" type="time" />
-    </div>
-
-    <div class="form-group form-inline">
-        <h3>Tuesday</h3>
-        Start:<input class="form-control" type="time" />
-        End:<input class="form-control" type="time" />
-    </div>
-
-    <div class="form-group form-inline">
-        <h3>Wednesday</h3>
-        Start:<input class="form-control" type="time" />
-        End:<input class="form-control" type="time" />
-    </div>
-
-    <div class="form-group form-inline">
-        <h3>Thursday</h3>
-        Start:<input class="form-control" type="time" />
-        End:<input class="form-control" type="time" />
-    </div>
-
-    <div class="form-group form-inline">
-        <h3>Friday</h3>
-        Start:<input class="form-control" type="time" />
-        End:<input class="form-control" type="time" />
-    </div>
-
-    <div class="form-group form-inline">
-        <h3>Saturday</h3>
-        Start:<input class="form-control" type="time" />
-        End:<input class="form-control" type="time" />
-    </div>
-
-    <div class="form-group form-inline">
-        <h3>Sunday</h3>
-        Start:<input class="form-control" type="time" />
-        End:<input class="form-control" type="time" />
-    </div>
-
-    <hr />
-
-    <div class="form-group">
-        <h3>What level of players are you most interested in coaching?</h3>
-        <div class="checkbox">
-            <label><input type="checkbox"/>Bronze</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox"/>Silver</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox"/>Gold</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox"/>Platinum</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" />Diamond</label>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <h3>Additionally, what level of players would you be willing to coach?</h3>
+        <label>What level of players are you most interested in coaching?</label>
         <div class="checkbox">
             <label><input type="checkbox" />Bronze</label>
         </div>
@@ -189,77 +45,65 @@
     </div>
 
     <div class="form-group">
-        <h3>Would you like to be paired with a specific student, coach, or understudy? Please list them below</h3>
+        <label>Additionally, what level of players would you be willing to coach?</label>
+        <div class="checkbox">
+            <label><input type="checkbox" />Bronze</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" />Silver</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" />Gold</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" />Platinum</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" />Diamond</label>
+        </div>
+    </div>
+
+    <hr/><!---------------------------------------------------------------------------------------------------------------->
+
+    @{
+        Html.RenderPartial("_Availability");
+    }
+
+    <hr /><!---------------------------------------------------------------------------------------------------------------->
+
+    <div class="form-group">
+        <label for="languages">List the languages you speak:</label>
+        <input class="form-control" type="text" id="languages" />
+    </div>
+
+    <div class="form-group">
+        <label>List the summoner names of students, coaches, or understudies you wish to be grouped with:</label>
         <input class="form-control" type="text" />
     </div>
 
     <div class="form-group">
-        <h3>Do you consider yourself toxic?</h3>
-        <div class="radio">
-            <label><input type="radio" name="optradio" />Yes, I am quite toxic</label>
-        </div>
-
-        <div class="radio">
-            <label><input type="radio" name="optradio" />Sometimes I can be toxic</label>
-        </div>
-
-        <div class="radio">
-            <label><input type="radio" name="optradio" />No, I am not toxic</label>
-        </div>
+        <label for="coaching-style">Coaching Style / Philosophy:</label>
+        <textarea rows="5" class="form-control" id="coaching-style"></textarea>
     </div>
 
     <div class="form-group">
-        <h3>Which of the follow punishments have been issued to you by Riot Games?</h3>
-        <div class="checkbox">
-            <label><input type="checkbox" />Low priority queue</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" />Chat restrictions</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" />Ranked restrictions</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" />Temporary account ban</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" />Permanent account ban</label>
-        </div>
+        <label for="coaching-experience">Experience as a Coach:</label>
+        <textarea rows="5" class="form-control" id="coaching-experience"></textarea>
+    </div>
+
+    @{
+        Html.RenderPartial("_Commit");
+        Html.RenderPartial("_Toxic");
+    }
+
+    <div class="form-group">
+        <label for="more-information">Is there anything else you would like us to know?</label>
+        <textarea rows="5" class="form-control" id="more-information"></textarea>
     </div>
 
     <div class="form-group">
-        <h3>Are you committed to participating with the team, twice a week, for the next five weeks?</h3>
-        <div class="radio">
-            <label><input type="radio" name="optradio" />Yes, I am committed to coaching two days a week for five weeks.</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio" />I'll try my best to be online and available, but I can't formally commit to anything.</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio" />No, but I really want to be a part of it!</label>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <h3>Would you like to be contacted via email the next time sign-ups go live?</h3>
-        <div class="radio">
-            <label><input type="radio" name="optradio" />Yes</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio" />No</label>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <h3>How serious should your players be about League of Legends and Learning Fives?</h3>
-        <div class="checkbox">
-            <label><input type="checkbox" />Serious</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" />Semi-serious</label>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox" />Casual</label>
+        <div class="checkbox no-top-margin">
+            <label><input type="checkbox"/>Email me sign-up information for future Learning Fives sessions</label>
         </div>
     </div>
 </form>
