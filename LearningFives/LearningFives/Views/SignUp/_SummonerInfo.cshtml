@@ -1,65 +1,34 @@
-﻿<div class="form-group">
-    <label for="summoner-name">Summoner name:</label>
-    <input type="text" class="form-control" id="summoner-name" />
+﻿@using ViewModels.SignUp
+@model SummonerSignUpVM
+
+<div class="form-group">
+    @Html.LabelFor(m => m.SummonerName)
+    @Html.TextBoxFor(m => m.SummonerName, new { @class="form-control" })
 </div>
 
 <div class="form-group">
-    <label for="server">Server:</label>
-    <select class="form-control" id="server">
-        <option></option>
-        <option>Brazil</option>
-        <option>EU Nordic & East</option>
-        <option>EU West</option>
-        <option>Latin America North</option>
-        <option>Latin America South</option>
-        <option>North America</option>
-        <option>Oceania</option>
-        <option>Russia</option>
-        <option>Turkey</option>
-    </select>
+    @Html.LabelFor(m => m.Server)
+    @Html.DropDownListFor(m => m.Server, SummonerSignUpVM.ServerOptions, new { @class = "form-control"})
 </div>
 
 <div class="form-group">
-    <label for="tier">Ranking:</label>
-    <div class="form-inline">
-        <select class="form-control" id="tier">
-            <option></option>
-            <option>Bronze</option>
-            <option>Silver</option>
-            <option>Gold</option>
-            <option>Platinum</option>
-            <option>Diamond</option>
-            <option>Master/Challenger</option>
-        </select>
-
-        <select class="form-control" id="division">
-            <option></option>
-            <option>I</option>
-            <option>II</option>
-            <option>III</option>
-            <option>IV</option>
-            <option>V</option>
-        </select>
-    </div>
+    @Html.LabelFor(m => m.RankTier)
+    @Html.DropDownListFor(m => m.RankTier, SummonerSignUpVM.RankTierOptions, new { @class="form-control form-inline"})
+    @Html.DropDownListFor(m => m.RankDivision, SummonerSignUpVM.RankDivionOptions, new { @class = "form-control form-inline"})
 </div>
 
 <div class="form-group">
-    <label for="age">Age:</label>
-    <input type="text" class="form-control" id="age" />
+    @Html.LabelFor(m => m.Age)
+    @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
 </div>
 
 <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="text" class="form-control" id="email" />
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
 </div>
 
 <div class="form-group">
-    <label>Are you already registered on the L5 Slack?</label>
-    <div class="radio no-top-margin">
-        <label><input type="radio" name="optradio" />Yes</label>
-    </div>
-
-    <div class="radio">
-        <label><input type="radio" name="optradio" />No</label>
-    </div>
+    @Html.LabelFor(m => m.HasSlackAccount)
+    <label>@Html.RadioButtonFor(m=> m.HasSlackAccount, true) Yes</label>
+    <label>@Html.RadioButtonFor(m => m.HasSlackAccount, false) No</label>
 </div>

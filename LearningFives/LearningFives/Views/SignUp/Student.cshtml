@@ -1,26 +1,21 @@
-﻿@using ViewModels
-@model ViewModels.StudentSignUpVM
+﻿@using ViewModels.SignUp
+@model StudentSignUpVM
 @{
     ViewBag.Title = "Student Registration";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Coach", "SignUp", FormMethod.Post, new {@role = "form"}))
+@using (Html.BeginForm("Student", "SignUp", FormMethod.Post, new { @role = "form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
-    //TODO:
     <div class="form-group">
-        <label>Registration Type:</label>
-        <div class="radio no-top-margin">
-            <label><input type="radio" name="optradio" />Student, I want to play with a team for the next five weeks</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio" />Substitute, I'm available to fill in for a player if they are not available</label>
-        </div>
-    </div>
+        @Html.LabelFor(m => m.StudentStatus)
+        <label>@Html.RadioButtonFor(m => m.StudentStatus, 1) Student, I want to play with a team for the next five weeks</label>
+        <label>@Html.RadioButtonFor(m => m.StudentStatus, 0) Substitute, I'm available to fill in for a player if they are not available</label>
+</div>
 
     Html.RenderPartial("_SummonerInfo", new SummonerSignUpVM());
     <hr/>
@@ -28,46 +23,43 @@
     Html.RenderPartial("_RoleInfo", new RoleSignUpVM());
     <hr/>
 
-    Html.RenderPartial("_Availability");
+    Html.RenderPartial("_Availability", new AvailabilitySignUpVM());
     <hr/>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Languages)
-        
-        <input class="form-control" type="text" id="languages"/>
+        @Html.TextBoxFor(m => m.Languages, new { @class="form-control" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.PairedPlayers)
-        @Html.TextBoxFor(m => m.PairedPlayers)
+        @Html.TextBoxFor(m => m.PairedPlayers, new { @class="form-control" })
     </div>
 
     <div class="form-group">
-        <label for="player-strengths">What are your strengths as a player?</label>
-        <textarea rows="5" class="form-control" id="player-strengths"></textarea>
+        @Html.LabelFor(m => m.PlayerStrengths)
+        @Html.TextAreaFor(m => m.PlayerStrengths, new { @class="form-control", rows="5" })
     </div>
 
     <div class="form-group">
-        <label for="player-improvement">What skill(s) do you want to improve?</label>
-        <textarea rows="5" class="form-control" id="player-improvement"></textarea>
+        @Html.LabelFor(m => m.PlayerImprovement)
+        @Html.TextAreaFor(m => m.PlayerImprovement, new { @class="form-control", rows="5" })
     </div>
 
     <div class="form-group">
-        <label for="player-expectations">What do you expect from this program?</label>
-        <textarea rows="5" class="form-control" id="player-expectations"></textarea>
+        @Html.LabelFor(m => m.PlayerExpectations)
+        @Html.TextAreaFor(m => m.PlayerExpectations, new { @class="form-control", rows="5" })
     </div>
 
-    Html.RenderPartial("_Commit");
-    Html.RenderPartial("_Toxic");
+    Html.RenderPartial("_Commit", new CommitmentSignUpVM());
+    Html.RenderPartial("_Toxic", new ToxicSignUpVM());
 
     <div class="form-group">
-        <label for="more-information">Is there anything else you would like us to know?</label>
-        <textarea rows="5" class="form-control" id="more-information"></textarea>
+        @Html.LabelFor(m => m.MoreInformation)
+        @Html.TextAreaFor(m => m.MoreInformation, new { @class="form-control", rows="5" })
     </div>
 
     <div class="form-group">
-        <div class="checkbox no-top-margin">
-            <label><input type="checkbox"/>Email me sign-up information for future Learning Fives sessions</label>
-        </div>
+        <label>@Html.CheckBoxFor(m => m.EmailSignUp) Email me sign-up information for future Learning Fives sessions</label>
     </div>
 }

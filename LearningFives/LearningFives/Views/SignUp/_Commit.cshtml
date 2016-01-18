@@ -1,27 +1,16 @@
-﻿<div class="form-group">
-    <label>Are you committed to participating with the team, twice a week, for the next five weeks?</label>
-    <div class="radio no-top-margin">
-        <label><input type="radio" name="optradio" />Yes, I am fully committed</label>
-    </div>
+﻿@using ViewModels.SignUp
+@model CommitmentSignUpVM
 
-    <div class="radio">
-        <label><input type="radio" name="optradio" />I'll try my best to be online and available, but I can't formally commit</label>
-    </div>
-
-    <div class="radio">
-        <label><input type="radio" name="optradio" />No, but I really want to be a part of it!</label>
-    </div>
+<div class="form-group">
+    @Html.LabelFor(m => m.CommitmentLevel)
+    <label>@Html.RadioButtonFor(m => m.CommitmentLevel, 2) Yes, I am fully committed</label>
+    <label>@Html.RadioButtonFor(m => m.CommitmentLevel, 1) I'll try my best to be online and available, but I can't formally commit</label>
+    <label>@Html.RadioButtonFor(m => m.CommitmentLevel, 0) No, but I really want to be a part of it!</label>
 </div>
 
 <div class="form-group">
-    <label>How serious should your team be about League of Legends and Learning Fives?</label>
-    <div class="checkbox no-top-margin">
-        <label><input type="checkbox" />Serious</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" />Semi-serious</label>
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox" />Casual</label>
-    </div>
+    @Html.LabelFor(m => m.SeriousnessLevel)
+    <label>@Html.RadioButtonFor(m => m.SeriousnessLevel, 2) Serious</label>
+    <label>@Html.RadioButtonFor(m => m.SeriousnessLevel, 1) Semi-serious</label>
+    <label>@Html.RadioButtonFor(m => m.SeriousnessLevel, 0) Casual</label>
 </div>

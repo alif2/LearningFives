@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using ViewModels;
+using ViewModels.SignUp;
 
 namespace LearningFives.Controllers
 {
@@ -11,15 +11,13 @@ namespace LearningFives.Controllers
             return View();
         }
 
-        // POST: SignUp
         [HttpPost]
-        public ActionResult Coach(StudentSignUpVM studentSignUp)
+        public ActionResult Coach(CoachSignUpVM coachSignUp)
         {
             return View();
         }
 
-        // GET: SignUp
-        public ActionResult Student()
+        public ActionResult Student(StudentSignUpVM studentSignUp)
         {
             return View();
         }
