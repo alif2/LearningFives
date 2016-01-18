@@ -20,6 +20,11 @@ namespace LearningFives.Controllers
             return View();
         }
 
+        public ActionResult Student()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<ActionResult> Coach(CoachSignUpVM coachSignUp)
         {
@@ -27,6 +32,7 @@ namespace LearningFives.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<ActionResult> Student(StudentSignUpVM studentSignUp)
         {
             await _signUpManager.RegisterStudent(studentSignUp);

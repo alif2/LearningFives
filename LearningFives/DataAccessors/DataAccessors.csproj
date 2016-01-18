@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +50,10 @@
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{23E27263-F84B-4A9E-9ED1-78CCEA20A5F3}</Project>
       <Name>DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{912280a6-f1cd-402a-b018-78f6e201db28}</Project>
+      <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{83B85EBC-E0A6-43AB-8A0F-171580A613DD}</Project>
