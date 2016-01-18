@@ -1,10 +1,11 @@
-﻿using DataModels.SignUp;
+﻿using System.Threading.Tasks;
+using DataModels.SignUp;
 
 namespace Interfaces.DataAccessors
 {
     public interface ISignUpDataAccessor
     {
-        bool RegisterStudent(StudentSignUpDM studentSignUp);
-        bool RegisterCoach(CoachSignUpDM coachSignUp);
+        Task<bool> RegisterStudent(StudentSignUpDM studentSignUp);
+        Task<bool> RegisterCoach(CoachSignUpDM coachSignUp);
     }
 }

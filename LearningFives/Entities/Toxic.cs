@@ -17,8 +17,8 @@ namespace Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Toxic()
         {
-            this.CoachSignUps = new HashSet<CoachSignUp>();
             this.StudentSignUps = new HashSet<StudentSignUp>();
+            this.CoachSignUps = new HashSet<CoachSignUp>();
         }
     
         public int ToxicID { get; set; }
@@ -30,8 +30,8 @@ namespace Entities
         public bool HadPermanentBan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoachSignUp> CoachSignUps { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentSignUp> StudentSignUps { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoachSignUp> CoachSignUps { get; set; }
     }
 }

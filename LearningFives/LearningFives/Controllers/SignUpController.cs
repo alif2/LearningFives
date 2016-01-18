@@ -1,4 +1,5 @@
-﻿using Interfaces.Managers;
+﻿using System.Threading.Tasks;
+using Interfaces.Managers;
 using System.Web.Mvc;
 using ViewModels.SignUp;
 
@@ -20,15 +21,15 @@ namespace LearningFives.Controllers
         }
 
         [HttpPost]
-        public ActionResult Coach(CoachSignUpVM coachSignUp)
+        public async Task<ActionResult> Coach(CoachSignUpVM coachSignUp)
         {
-            _signUpManager.RegisterCoach(coachSignUp);
+            await _signUpManager.RegisterCoach(coachSignUp);
             return View();
         }
 
-        public ActionResult Student(StudentSignUpVM studentSignUp)
+        public async Task<ActionResult> Student(StudentSignUpVM studentSignUp)
         {
-            _signUpManager.RegisterStudent(studentSignUp);
+            await _signUpManager.RegisterStudent(studentSignUp);
             return View();
         }
     }

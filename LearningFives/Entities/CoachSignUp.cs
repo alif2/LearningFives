@@ -15,6 +15,8 @@ namespace Entities
     public partial class CoachSignUp
     {
         public int CoachSignUpID { get; set; }
+        public int CoachStatus { get; set; }
+        public int SummonerInfoID { get; set; }
         public bool InterestedBronze { get; set; }
         public bool InterestedSilver { get; set; }
         public bool InterestedGold { get; set; }
@@ -36,6 +38,7 @@ namespace Entities
         public bool EmailSignUp { get; set; }
     
         public virtual AvailabilityInfo AvailabilityInfo { get; set; }
+        public virtual SummonerInfo SummonerInfo { get; set; }
         public virtual Commitment Commitment { get; set; }
         public virtual Toxic Toxic { get; set; }
     }

@@ -17,8 +17,8 @@ namespace Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AvailabilityInfo()
         {
-            this.CoachSignUps = new HashSet<CoachSignUp>();
             this.StudentSignUps = new HashSet<StudentSignUp>();
+            this.CoachSignUps = new HashSet<CoachSignUp>();
         }
     
         public int AvailabilityInfoID { get; set; }
@@ -38,8 +38,8 @@ namespace Entities
         public System.DateTime SundayEnd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CoachSignUp> CoachSignUps { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentSignUp> StudentSignUps { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoachSignUp> CoachSignUps { get; set; }
     }
 }

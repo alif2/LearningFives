@@ -1,10 +1,11 @@
-﻿using ViewModels.SignUp;
+﻿using System.Threading.Tasks;
+using ViewModels.SignUp;
 
 namespace Interfaces.Managers
 {
     public interface ISignUpManager
     {
-        bool RegisterStudent(StudentSignUpVM studentSignUp);
-        bool RegisterCoach(CoachSignUpVM coachSignUp);
+        Task<bool> RegisterStudent(StudentSignUpVM studentSignUp);
+        Task<bool> RegisterCoach(CoachSignUpVM coachSignUp);
     }
 }

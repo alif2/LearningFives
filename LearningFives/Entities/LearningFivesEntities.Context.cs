@@ -13,10 +13,10 @@ namespace Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sornvruc_learningfivesEntities : DbContext
+    public partial class LearningFivesEntities : DbContext
     {
-        public sornvruc_learningfivesEntities()
-            : base("name=sornvruc_learningfivesEntities")
+        public LearningFivesEntities()
+            : base("name=LearningFivesEntities")
         {
         }
     
@@ -26,11 +26,11 @@ namespace Entities
         }
     
         public virtual DbSet<AvailabilityInfo> AvailabilityInfoes { get; set; }
-        public virtual DbSet<CoachSignUp> CoachSignUps { get; set; }
         public virtual DbSet<Commitment> Commitments { get; set; }
         public virtual DbSet<RoleInfo> RoleInfoes { get; set; }
         public virtual DbSet<StudentSignUp> StudentSignUps { get; set; }
         public virtual DbSet<SummonerInfo> SummonerInfoes { get; set; }
         public virtual DbSet<Toxic> Toxics { get; set; }
+        public virtual DbSet<CoachSignUp> CoachSignUps { get; set; }
     }
 }

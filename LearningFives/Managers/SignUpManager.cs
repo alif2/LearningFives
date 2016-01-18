@@ -1,4 +1,5 @@
-﻿using DataModels.SignUp;
+﻿using System.Threading.Tasks;
+using DataModels.SignUp;
 using Interfaces.Engines;
 using Interfaces.Managers;
 using ViewModels.SignUp;
@@ -14,9 +15,9 @@ namespace Managers
             _signUpEngine = signUpEngine;
         }
 
-        public bool RegisterStudent(StudentSignUpVM studentSignUp)
+        public async Task<bool> RegisterStudent(StudentSignUpVM studentSignUp)
         {
-            return _signUpEngine.RegisterStudent(new StudentSignUpDM
+            return await _signUpEngine.RegisterStudent(new StudentSignUpDM
             {
                 StudentStatus = studentSignUp.StudentStatus,
                 SummonerInfo = new SummonerSignUpDM
@@ -79,9 +80,9 @@ namespace Managers
             });
         }
 
-        public bool RegisterCoach(CoachSignUpVM coachSignUp)
+        public async Task<bool> RegisterCoach(CoachSignUpVM coachSignUp)
         {
-            return _signUpEngine.RegisterCoach(new CoachSignUpDM
+            return await _signUpEngine.RegisterCoach(new CoachSignUpDM
             {
                 CoachStatus = coachSignUp.CoachStatus,
                 SummonerInfo = new SummonerSignUpDM

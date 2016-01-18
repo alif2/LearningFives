@@ -18,6 +18,7 @@ namespace Entities
         public SummonerInfo()
         {
             this.StudentSignUps = new HashSet<StudentSignUp>();
+            this.CoachSignUps = new HashSet<CoachSignUp>();
         }
     
         public int SummonerInfoID { get; set; }
@@ -31,5 +32,7 @@ namespace Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentSignUp> StudentSignUps { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoachSignUp> CoachSignUps { get; set; }
     }
 }

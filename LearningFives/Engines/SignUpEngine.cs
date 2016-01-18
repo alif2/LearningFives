@@ -1,6 +1,7 @@
 ﻿using DataModels.SignUp;
 using Interfaces.DataAccessors;
 using Interfaces.Engines;
+using System.Threading.Tasks;
 
 namespace Engines
 {
@@ -13,14 +14,14 @@ namespace Engines
             _signUpDataAccessor = signUpDataAccessor;
         }
 
-        public bool RegisterStudent(StudentSignUpDM studentSignUp)
+        public async Task<bool> RegisterStudent(StudentSignUpDM studentSignUp)
         {
-            return _signUpDataAccessor.RegisterStudent(studentSignUp);
+            return await _signUpDataAccessor.RegisterStudent(studentSignUp);
         }
 
-        public bool RegisterCoach(CoachSignUpDM coachSignUp)
+        public async Task<bool> RegisterCoach(CoachSignUpDM coachSignUp)
         {
-            return _signUpDataAccessor.RegisterCoach(coachSignUp);
+            return await _signUpDataAccessor.RegisterCoach(coachSignUp);
         }
     }
 }
