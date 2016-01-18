@@ -1,4 +1,4 @@
-﻿using DataModels;
+﻿using DataModels.SignUp;
 using Interfaces.DataAccessors;
 using Interfaces.Engines;
 
@@ -11,6 +11,11 @@ namespace Engines
         public SignUpEngine(ISignUpDataAccessor signUpDataAccessor)
         {
             _signUpDataAccessor = signUpDataAccessor;
+        }
+
+        public bool RegisterStudent(StudentSignUpDM studentSignUp)
+        {
+            return _signUpDataAccessor.RegisterStudent(studentSignUp);
         }
 
         public bool RegisterCoach(CoachSignUpDM coachSignUp)

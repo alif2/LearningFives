@@ -1,4 +1,4 @@
-﻿using DataModels;
+﻿using DataModels.SignUp;
 
 namespace Interfaces.DataAccessors
 {

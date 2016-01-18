@@ -282,6 +282,10 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{83B85EBC-E0A6-43AB-8A0F-171580A613DD}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{7BF77070-252C-4A00-9868-E64F915C5771}</Project>
       <Name>ViewModels</Name>
