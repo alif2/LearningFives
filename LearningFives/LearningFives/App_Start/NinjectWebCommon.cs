@@ -1,7 +1,13 @@
 using System;
 using System.Web;
+using DataAccessors;
+using Engines;
+using Interfaces.DataAccessors;
+using Interfaces.Engines;
+using Interfaces.Managers;
 using LearningFives;
 using LearningFives.Models;
+using Managers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -64,6 +70,10 @@ namespace LearningFives
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<ISignUpManager>().To<SignUpManager>();
+            kernel.Bind<ISignUpEngine>().To<SignUpEngine>();
+            kernel.Bind<ISignUpDataAccessor>().To<SignUpDataAccessor>();
+
             kernel.Bind<ApplicationDbContext>().ToSelf();
             kernel.Bind<IAuthenticationManager>().ToMethod(c => HttpContext.Current.GetOwinContext().Authentication).InRequestScope();
             kernel.Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>().WithConstructorArgument("context", kernel.Get<ApplicationDbContext>());
