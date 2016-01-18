@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using ViewModels;
 
 namespace LearningFives.Controllers
 {
@@ -10,6 +7,13 @@ namespace LearningFives.Controllers
     {
         // GET: SignUp
         public ActionResult Coach()
+        {
+            return View();
+        }
+
+        // POST: SignUp
+        [HttpPost]
+        public ActionResult Coach(StudentSignUpVM studentSignUp)
         {
             return View();
         }

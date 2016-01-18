@@ -1,47 +1,45 @@
-﻿
+﻿@using ViewModels
+@model ViewModels.StudentSignUpVM
 @{
-    ViewBag.Title = "Student";
+    ViewBag.Title = "Student Registration";
 }
 
-<h2>Student Registration</h2>
+<h2>@ViewBag.Title</h2>
 
-<form role="form">
+@using (Html.BeginForm("Coach", "SignUp", FormMethod.Post, new {@role = "form"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    //TODO:
     <div class="form-group">
         <label>Registration Type:</label>
         <div class="radio no-top-margin">
-            <label><input type="radio" name="optradio"/>Student, I want to play with a team for the next five weeks</label>
+            <label><input type="radio" name="optradio" />Student, I want to play with a team for the next five weeks</label>
         </div>
         <div class="radio">
-            <label><input type="radio" name="optradio"/>Substitute, I'm available to fill in for a player if they are not available</label>
+            <label><input type="radio" name="optradio" />Substitute, I'm available to fill in for a player if they are not available</label>
         </div>
     </div>
 
-    @{
-        Html.RenderPartial("_SummonerInfo");
-    }
-    
-    <hr/><!---------------------------------------------------------------------------------------------------------------->
+    Html.RenderPartial("_SummonerInfo", new SummonerSignUpVM());
+    <hr/>
 
-    @{
-        Html.RenderPartial("_RoleInfo");
-    }
+    Html.RenderPartial("_RoleInfo", new RoleSignUpVM());
+    <hr/>
 
-    <hr/><!---------------------------------------------------------------------------------------------------------------->
-
-    @{
-        Html.RenderPartial("_Availability");
-    }
-
-    <hr/><!---------------------------------------------------------------------------------------------------------------->
+    Html.RenderPartial("_Availability");
+    <hr/>
 
     <div class="form-group">
-        <label for="languages">List the languages you speak:</label>
+        @Html.LabelFor(m => m.Languages)
+        
         <input class="form-control" type="text" id="languages"/>
     </div>
 
     <div class="form-group">
-        <label for="preferred-players">List the summoner names of players or coaches you wish to be grouped with:</label>
-        <input class="form-control" type="text" id="preferred-players"/>
+        @Html.LabelFor(m => m.PairedPlayers)
+        @Html.TextBoxFor(m => m.PairedPlayers)
     </div>
 
     <div class="form-group">
@@ -59,10 +57,8 @@
         <textarea rows="5" class="form-control" id="player-expectations"></textarea>
     </div>
 
-    @{
-        Html.RenderPartial("_Commit");
-        Html.RenderPartial("_Toxic");
-    }
+    Html.RenderPartial("_Commit");
+    Html.RenderPartial("_Toxic");
 
     <div class="form-group">
         <label for="more-information">Is there anything else you would like us to know?</label>
@@ -74,4 +70,4 @@
             <label><input type="checkbox"/>Email me sign-up information for future Learning Fives sessions</label>
         </div>
     </div>
-</form>
+}

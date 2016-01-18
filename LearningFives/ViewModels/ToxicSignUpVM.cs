@@ -1,0 +1,12 @@
+﻿namespace ViewModels
+{
+    public class ToxicSignUpVM
+    {
+        public int ToxicLevel { get; set; }
+        public bool HadLowPriorityPunish { get; set; }
+        public bool HadChatRestrictions { get; set; }
+        public bool HadRankedRestrictions { get; set; }
+        public bool HadTemporaryBan { get; set; }
+        public bool HadPermanentBan { get; set; }
+    }
+}

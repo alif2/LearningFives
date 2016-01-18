@@ -82,3 +82,12 @@ D:\git\LearningFives\LearningFives\LearningFives\bin\roslyn\System.IO.FileSystem
 D:\git\LearningFives\LearningFives\LearningFives\bin\roslyn\System.IO.FileSystem.Primitives.dll
 D:\git\LearningFives\LearningFives\LearningFives\bin\roslyn\vbc.exe.config
 D:\git\LearningFives\LearningFives\LearningFives\bin\roslyn\vbc.rsp
+D:\git\LearningFives\LearningFives\LearningFives\bin\Ninject.dll
+D:\git\LearningFives\LearningFives\LearningFives\bin\Ninject.Web.Common.dll
+D:\git\LearningFives\LearningFives\LearningFives\bin\Ninject.Web.Mvc.dll
+D:\git\LearningFives\LearningFives\LearningFives\bin\ViewModels.dll
+D:\git\LearningFives\LearningFives\LearningFives\bin\WebActivatorEx.dll
+D:\git\LearningFives\LearningFives\LearningFives\bin\ViewModels.pdb
+D:\git\LearningFives\LearningFives\LearningFives\bin\Ninject.xml
+D:\git\LearningFives\LearningFives\LearningFives\bin\Ninject.Web.Common.xml
+D:\git\LearningFives\LearningFives\LearningFives\bin\Ninject.Web.Mvc.xml
