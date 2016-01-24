@@ -1,5 +1,8 @@
 syntax: glob
 
+#Project specific files
+L5DBConnections.config
+
 #User files
 *.sln.docstates
 *.suo
