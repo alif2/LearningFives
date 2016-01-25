@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessors\IAdminDataAccessor.cs" />
     <Compile Include="DataAccessors\ISignUpDataAccessor.cs" />
+    <Compile Include="Engines\IAdminEngine.cs" />
     <Compile Include="Engines\ISignUpEngine.cs" />
+    <Compile Include="Managers\IAdminManager.cs" />
     <Compile Include="Managers\ISignUpManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

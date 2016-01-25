@@ -74,6 +74,10 @@ namespace LearningFives
             kernel.Bind<ISignUpEngine>().To<SignUpEngine>();
             kernel.Bind<ISignUpDataAccessor>().To<SignUpDataAccessor>();
 
+            kernel.Bind<IAdminManager>().To<AdminManager>();
+            kernel.Bind<IAdminEngine>().To<AdminEngine>();
+            kernel.Bind<IAdminDataAccessor>().To<AdminDataAccessor>();
+
             kernel.Bind<ApplicationDbContext>().ToSelf();
             kernel.Bind<IAuthenticationManager>().ToMethod(c => HttpContext.Current.GetOwinContext().Authentication).InRequestScope();
             kernel.Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>().WithConstructorArgument("context", kernel.Get<ApplicationDbContext>());
