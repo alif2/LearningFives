@@ -1,0 +1,78 @@
+﻿@using ViewModels.SignUp
+@model AvailabilitySignUpVM
+
+<div class="form-group">
+    @Html.Label("Monday")
+    <div class="form-inline">
+        @Html.LabelFor(m => m.MondayStart)
+        @Html.TextBoxFor(m => m.MondayStart, new { @type = "time", @class="form-control" })
+        @Html.LabelFor(m => m.MondayEnd)
+        @Html.TextBoxFor(m => m.MondayEnd, new { @type = "time", @class = "form-control" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.Label("Tuesday")
+
+    <div class="form-inline">
+        @Html.LabelFor(m => m.TuesdayStart)
+        @Html.TextBoxFor(m => m.TuesdayStart, new { @type = "time", @class = "form-control" })
+        @Html.LabelFor(m => m.TuesdayEnd)
+        @Html.TextBoxFor(m => m.TuesdayEnd, new { @type = "time", @class = "form-control" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.Label("Wednesday")
+
+    <div class="form-inline">
+        @Html.LabelFor(m => m.WednesdayStart)
+        @Html.TextBoxFor(m => m.WednesdayStart, new { @type = "time", @class = "form-control" })
+        @Html.LabelFor(m => m.WednesdayEnd)
+        @Html.TextBoxFor(m => m.WednesdayEnd, new { @type = "time", @class = "form-control" })
+    </div>
+</div>
+
+<div class="form-group form-inline">
+    @Html.Label("Thursday")
+
+    <div class="form-inline">
+        @Html.LabelFor(m => m.ThursdayStart)
+        @Html.TextBoxFor(m => m.ThursdayStart, new { @type = "time", @class = "form-control" })
+        @Html.LabelFor(m => m.ThursdayEnd)
+        @Html.TextBoxFor(m => m.ThursdayEnd, new { @type = "time", @class = "form-control" })
+    </div>
+</div>
+
+<div class="form-group form-inline">
+    @Html.Label("Friday")
+
+    <div class="form-inline">
+        @Html.LabelFor(m => m.FridayStart)
+        @Html.TextBoxFor(m => m.FridayStart, new { @type = "time", @class = "form-control" })
+        @Html.LabelFor(m => m.FridayEnd)
+        @Html.TextBoxFor(m => m.FridayEnd, new { @type = "time", @class = "form-control" })
+    </div>
+</div>
+
+<div class="form-group form-inline">
+    @Html.Label("Saturday")
+
+    <div class="form-inline">
+        @Html.LabelFor(m => m.SaturdayStart)
+        @Html.TextBoxFor(m => m.SaturdayStart, new { @type = "time", @class = "form-control" })
+        @Html.LabelFor(m => m.SaturdayEnd)
+        @Html.TextBoxFor(m => m.SaturdayEnd, new { @type = "time", @class = "form-control" })
+    </div>
+</div>
+
+<div class="form-group form-inline">
+    @Html.Label("Sunday")
+
+    <div class="form-inline">
+        @Html.LabelFor(m => m.SundayStart)
+        @Html.TextBoxFor(m => m.SundayStart, new { @type = "time", @class = "form-control" })
+        @Html.LabelFor(m => m.SundayEnd)
+        @Html.TextBoxFor(m => m.SundayEnd, new { @type = "time", @class = "form-control" })
+    </div>
+</div>

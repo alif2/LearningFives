@@ -1,0 +1,68 @@
+﻿@using ViewModels.SignUp
+@model StudentSignUpVM
+@{
+    ViewBag.Title = "Student Registration";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Student", "SignUp", FormMethod.Post, new { @role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StudentStatus)
+        <label>@Html.RadioButtonFor(m => m.StudentStatus, 1) Student, I want to play with a team for the next five weeks</label>
+        <label>@Html.RadioButtonFor(m => m.StudentStatus, 0) Substitute, I'm available to fill in for a player if they are not available</label>
+</div>
+    @Html.EditorFor(m => m.SummonerInfo, "~/Views/SignUp/_SummonerInfo.cshtml", new { htmlAttributes = new { @class = "form-control" }})
+    <hr/>
+
+    @Html.EditorFor(m => m.RoleInfo, "~/Views/SignUp/_RoleInfo.cshtml", new { htmlAttributes = new { @class = "form-control" } })
+    <hr/>
+
+    @Html.EditorFor(m => m.AvailabilityInfo, "~/Views/SignUp/_Availability.cshtml", new { htmlAttributes = new { @class = "form-control" } })
+    <hr/>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Languages)
+        @Html.TextBoxFor(m => m.Languages, new { @class="form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PairedPlayers)
+        @Html.TextBoxFor(m => m.PairedPlayers, new { @class="form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PlayerStrengths)
+        @Html.TextAreaFor(m => m.PlayerStrengths, new { @class="form-control", rows="5" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PlayerImprovement)
+        @Html.TextAreaFor(m => m.PlayerImprovement, new { @class="form-control", rows="5" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PlayerExpectations)
+        @Html.TextAreaFor(m => m.PlayerExpectations, new { @class="form-control", rows="5" })
+    </div>
+
+    @Html.EditorFor(m => m.Commitment, "~/Views/SignUp/_Commit.cshtml", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(m => m.Toxic, "~/Views/SignUp/_Toxic.cshtml", new { htmlAttributes = new { @class = "form-control" } })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MoreInformation)
+        @Html.TextAreaFor(m => m.MoreInformation, new { @class="form-control", rows="5" })
+    </div>
+
+    <div class="form-group">
+        <label>@Html.CheckBoxFor(m => m.EmailSignUp) Email me sign-up information for future Learning Fives sessions</label>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+}

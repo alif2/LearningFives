@@ -1,0 +1,18 @@
+﻿@using ViewModels.SignUp
+@model ToxicSignUpVM
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ToxicLevel)
+    <label>@Html.RadioButtonFor(m => m.ToxicLevel, 2) Yes, I am quite toxic</label>
+    <label>@Html.RadioButtonFor(m => m.ToxicLevel, 1) Sometimes I can be toxic</label>
+    <label>@Html.RadioButtonFor(m => m.ToxicLevel, 0) No, I am not toxic</label>
+</div>
+
+<div class="form-group">
+    @Html.Label("Select any punishments you have received:")
+    <label>@Html.CheckBoxFor(m => m.HadLowPriorityPunish) Low priority queue</label>
+    <label>@Html.CheckBoxFor(m => m.HadChatRestrictions) Chat restrictions</label>
+    <label>@Html.CheckBoxFor(m => m.HadRankedRestrictions) Ranked restrictions</label>
+    <label>@Html.CheckBoxFor(m => m.HadTemporaryBan) Temporary account ban</label>
+    <label>@Html.CheckBoxFor(m => m.HadPermanentBan) Permanent account ban</label>
+</div>

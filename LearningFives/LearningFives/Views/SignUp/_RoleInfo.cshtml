@@ -1,0 +1,32 @@
+﻿@using ViewModels.SignUp
+@model RoleSignUpVM
+
+<div class="form-group">
+    @Html.LabelFor(m => m.PreferredRole)
+    @Html.DropDownListFor(m => m.PreferredRole, RoleSignUpVM.PreferredRoleOptions)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.TopLaneComfort)
+    @Html.DropDownListFor(m => m.TopLaneComfort, RoleSignUpVM.TopLaneComfortOptions)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.JungleComfort)
+    @Html.DropDownListFor(m => m.JungleComfort, RoleSignUpVM.JungleComfortOptions)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MidComfort)
+    @Html.DropDownListFor(m => m.MidComfort, RoleSignUpVM.MidComfortOptions)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.MarksmanComfort)
+    @Html.DropDownListFor(m => m.MarksmanComfort, RoleSignUpVM.MarksmanComfortOptions)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.SupportComfort)
+    @Html.DropDownListFor(m => m.SupportComfort, RoleSignUpVM.SupportComfortOptions)
+</div>
