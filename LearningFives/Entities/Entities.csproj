@@ -103,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="L5DBConnections.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <EntityDeploy Include="LearningFivesEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LearningFivesEntities.Designer.cs</LastGenOutput>
