@@ -135,7 +135,7 @@ namespace Managers
                 },
                 Toxic = new ToxicSignUpDM
                 {
-                    ToxicLevel   = coachSignUp.Toxic.ToxicLevel,
+                    ToxicLevel = coachSignUp.Toxic.ToxicLevel,
                     HadLowPriorityPunish = coachSignUp.Toxic.HadLowPriorityPunish,
                     HadChatRestrictions = coachSignUp.Toxic.HadChatRestrictions,
                     HadRankedRestrictions = coachSignUp.Toxic.HadRankedRestrictions,
