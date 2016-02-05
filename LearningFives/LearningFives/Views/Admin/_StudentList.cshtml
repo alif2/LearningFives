@@ -1,0 +1,75 @@
+﻿@using ViewModels.SignUp
+@model List<StudentSignUpVM>
+
+
+<table class="table table-bordered container-fluid">
+    <thead>
+    <tr>
+        <th>Student Status</th>
+        <th>Summoner Name</th>
+        <th>Server</th>
+        <th>Rank Tier</th>
+        <th>Rank Division</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Has Slack Account</th>
+        <th>Preferred Role</th>
+        <th>Top Lane</th>
+        <th>Jungle</th>
+        <th>Mid Lane</th>
+        <th>Marksman</th>
+        <th>Support</th>
+        <th>Availability Info</th>
+        <th>Languages</th>
+        <th>Paired Players</th>
+        <th>Player Strengths</th>
+        <th>Player Improvement</th>
+        <th>Player Expectations</th>
+        <th>Commitment Level</th>
+        <th>Seriousness Level</th>
+        <th>Toxic Level</th>
+        <th>Low Priority Queue</th>
+        <th>Chat Restrictions</th>
+        <th>Ranked Restrictions</th>
+        <th>Temp Ban</th>
+        <th>Perma Ban</th>
+        <th>More Information</th>
+        <th>Email Sign Up</th>
+    </tr>
+    </thead>
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.StudentStatus</td>
+            <td>@student.SummonerInfo.SummonerName</td>
+            <td>@student.SummonerInfo.Server</td>
+            <td>@student.SummonerInfo.RankTier</td>
+            <td>@student.SummonerInfo.RankDivision</td>
+            <td>@student.SummonerInfo.Age</td>
+            <td>@student.SummonerInfo.Email</td>
+            <td>@student.SummonerInfo.HasSlackAccount</td>
+            <td>@student.RoleInfo.PreferredRole</td>
+            <td>@student.RoleInfo.TopLaneComfort</td>
+            <td>@student.RoleInfo.JungleComfort</td>
+            <td>@student.RoleInfo.MidComfort</td>
+            <td>@student.RoleInfo.MarksmanComfort</td>
+            <td>@student.RoleInfo.SupportComfort</td>
+            <td>@student.AvailabilityInfo</td>
+            <td>@student.Languages</td>
+            <td>@student.PairedPlayers</td>
+            <td>@student.PlayerStrengths</td>
+            <td>@student.PlayerImprovement</td>
+            <td>@student.PlayerExpectations</td>
+            <td>@student.Commitment.CommitmentLevel</td>
+            <td>@student.Commitment.SeriousnessLevel</td>
+            <td>@student.Toxic.ToxicLevel</td>
+            <td>@student.Toxic.HadLowPriorityPunish</td>
+            <td>@student.Toxic.HadChatRestrictions</td>
+            <td>@student.Toxic.HadRankedRestrictions</td>
+            <td>@student.Toxic.HadTemporaryBan</td>
+            <td>@student.Toxic.HadPermanentBan</td>
+            <td>@student.MoreInformation</td>
+            <td>@student.EmailSignUp</td>
+        </tr>
+    }
+</table>

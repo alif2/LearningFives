@@ -3,28 +3,28 @@
 
 <div class="form-group">
     @Html.LabelFor(m => m.SummonerName)
-    @Html.TextBoxFor(m => m.SummonerName, new { @class="form-control" })
+    @Html.TextBoxFor(m => m.SummonerName)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.Server)
-    @Html.DropDownListFor(m => m.Server, SummonerSignUpVM.ServerOptions, new { @class = "form-control"})
+    @Html.DropDownListFor(m => m.Server, SummonerSignUpVM.ServerOptions)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.RankTier)
-    @Html.DropDownListFor(m => m.RankTier, SummonerSignUpVM.RankTierOptions, new { @class="form-control form-inline"})
-    @Html.DropDownListFor(m => m.RankDivision, SummonerSignUpVM.RankDivionOptions, new { @class = "form-control form-inline"})
+    @Html.DropDownListFor(m => m.RankTier, SummonerSignUpVM.RankTierOptions)
+    @Html.DropDownListFor(m => m.RankDivision, SummonerSignUpVM.RankDivionOptions)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.Age)
-    @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.Age)
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.Email)
 </div>
 
 <div class="form-group">

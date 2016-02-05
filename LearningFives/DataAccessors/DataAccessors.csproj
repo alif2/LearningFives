@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDataAccessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpDataAccessor.cs" />
   </ItemGroup>

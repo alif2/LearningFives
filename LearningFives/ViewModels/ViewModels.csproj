@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AllSignUpsVM.cs" />
     <Compile Include="SignUp\AvailabilitySignUpVM.cs" />
     <Compile Include="SignUp\CoachSignUpVM.cs" />
     <Compile Include="SignUp\CommitmentSignUpVM.cs" />

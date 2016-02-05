@@ -35,7 +35,11 @@ namespace LearningFives.Controllers
         [HttpPost]
         public async Task<ActionResult> Student(StudentSignUpVM studentSignUp)
         {
-            await _signUpManager.RegisterStudent(studentSignUp);
+            //If database insert succeeded
+            if(await _signUpManager.RegisterStudent(studentSignUp))
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
             return View();
         }
     }

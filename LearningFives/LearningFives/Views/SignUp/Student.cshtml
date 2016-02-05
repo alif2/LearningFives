@@ -16,14 +16,13 @@
         <label>@Html.RadioButtonFor(m => m.StudentStatus, 1) Student, I want to play with a team for the next five weeks</label>
         <label>@Html.RadioButtonFor(m => m.StudentStatus, 0) Substitute, I'm available to fill in for a player if they are not available</label>
 </div>
-
-    Html.RenderPartial("_SummonerInfo", new SummonerSignUpVM());
+    @Html.EditorFor(m => m.SummonerInfo, "~/Views/SignUp/_SummonerInfo.cshtml", new { htmlAttributes = new { @class = "form-control" }})
     <hr/>
 
-    Html.RenderPartial("_RoleInfo", new RoleSignUpVM());
+    @Html.EditorFor(m => m.RoleInfo, "~/Views/SignUp/_RoleInfo.cshtml", new { htmlAttributes = new { @class = "form-control" } })
     <hr/>
 
-    Html.RenderPartial("_Availability", new AvailabilitySignUpVM());
+    @Html.EditorFor(m => m.AvailabilityInfo, "~/Views/SignUp/_Availability.cshtml", new { htmlAttributes = new { @class = "form-control" } })
     <hr/>
 
     <div class="form-group">
@@ -51,8 +50,8 @@
         @Html.TextAreaFor(m => m.PlayerExpectations, new { @class="form-control", rows="5" })
     </div>
 
-    Html.RenderPartial("_Commit", new CommitmentSignUpVM());
-    Html.RenderPartial("_Toxic", new ToxicSignUpVM());
+    @Html.EditorFor(m => m.Commitment, "~/Views/SignUp/_Commit.cshtml", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(m => m.Toxic, "~/Views/SignUp/_Toxic.cshtml", new { htmlAttributes = new { @class = "form-control" } })
 
     <div class="form-group">
         @Html.LabelFor(m => m.MoreInformation)
