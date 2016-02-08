@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Interfaces.Managers;
+﻿using Interfaces.Managers;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using ViewModels.SignUp;
 
