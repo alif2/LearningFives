@@ -28,7 +28,11 @@ namespace LearningFives.Controllers
         [HttpPost]
         public async Task<ActionResult> Coach(CoachSignUpVM coachSignUp)
         {
-            await _signUpManager.RegisterCoach(coachSignUp);
+            //If database insert succeeded
+            if (await _signUpManager.RegisterCoach(coachSignUp))
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
             return View();
         }
 

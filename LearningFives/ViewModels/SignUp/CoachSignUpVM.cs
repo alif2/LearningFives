@@ -17,7 +17,6 @@ namespace ViewModels.SignUp
         public bool InterestedGold { get; set; }
         public bool InterestedPlat { get; set; }
         public bool InterestedDiamond { get; set; }
-
         public bool WillingBronze { get; set; }
         public bool WillingSilver { get; set; }
         public bool WillingGold { get; set; }

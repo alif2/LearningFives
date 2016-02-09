@@ -1,14 +1,13 @@
-﻿@using ViewModels.Admin
-@model AllSignUpsVM
+﻿@model ViewModels.Admin.AllSignUpsVM
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 @{
     Html.RenderPartial("~/Views/Admin/_StudentList.cshtml", Model.Students);
-    //Html.RenderPartial("~/Views/Admin/_CoachList.cshtml", Model.Coaches);
+    Html.RenderPartial("~/Views/Admin/_CoachList.cshtml", Model.Coaches);
 }

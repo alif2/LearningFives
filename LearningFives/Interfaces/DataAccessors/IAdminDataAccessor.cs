@@ -7,5 +7,6 @@ namespace Interfaces.DataAccessors
     public interface IAdminDataAccessor
     {
         Task<List<StudentSignUpDM>> GetAllStudentsAsync();
+        Task<List<CoachSignUpDM>> GetAllCoachesAsync();
     }
 }

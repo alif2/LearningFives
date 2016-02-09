@@ -1,2 +1,81 @@
-﻿@using ViewModels.SignUp
-@model List<CoachSignUpVM>
+﻿@model List<ViewModels.SignUp.CoachSignUpVM>
+
+<table class="table table-bordered container-fluid">
+    <thead>
+    <tr>
+        <th>Coach Status</th>
+        <th>Summoner Name</th>
+        <th>Server</th>
+        <th>Rank Tier</th>
+        <th>Rank Division</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Slack</th>
+        <th>Interested Bronze</th>
+        <th>Interested Silver</th>
+        <th>Interested Gold</th>
+        <th>Interested Plat</th>
+        <th>Interested Diamond</th>
+        <th>Willing Bronze</th>
+        <th>Willing Silver</th>
+        <th>Willing Gold</th>
+        <th>Willing Plat</th>
+        <th>Willing Diamond</th>
+        <th>Availability</th>
+        <th>Languages</th>
+        <th>Paired Players</th>
+        <th>Coaching Style</th>
+        <th>Coaching Experience</th>
+        <th>Commitment Level</th>
+        <th>Seriousness Level</th>
+        <th>Toxic Level</th>
+        <th>Had Low Priority</th>
+        <th>Had Chat Restrictions</th>
+        <th>Had Ranked Restrictions</th>
+        <th>Had Temp Ban</th>
+        <th>Had Permaban</th>
+        <th>More Information</th>
+        <th>Email Signup</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var coach in Model)
+    {
+        <tr>
+            <td>@coach.CoachStatus</td>
+            <td>@coach.SummonerInfo.SummonerName</td>
+            <td>@coach.SummonerInfo.Server</td>
+            <td>@coach.SummonerInfo.RankTier</td>
+            <td>@coach.SummonerInfo.RankDivision</td>
+            <td>@coach.SummonerInfo.Age</td>
+            <td>@coach.SummonerInfo.Email</td>
+            <td>@coach.SummonerInfo.HasSlackAccount</td>
+            <td>@coach.InterestedBronze</td>
+            <td>@coach.InterestedSilver</td>
+            <td>@coach.InterestedGold</td>
+            <td>@coach.InterestedPlat</td>
+            <td>@coach.InterestedDiamond</td>
+            <td>@coach.WillingBronze</td>
+            <td>@coach.WillingSilver</td>
+            <td>@coach.WillingGold</td>
+            <td>@coach.WillingPlat</td>
+            <td>@coach.WillingDiamond</td>
+            <td>@coach.AvailabilityInfo</td>
+            <td>@coach.Languages</td>
+            <td>@coach.PairedPlayers</td>
+            <td>@coach.CoachingStyle</td>
+            <td>@coach.CoachingExperience</td>
+            <td>@coach.Commitment.CommitmentLevel</td>
+            <td>@coach.Commitment.SeriousnessLevel</td>
+            <td>@coach.Toxic.ToxicLevel</td>
+            <td>@coach.Toxic.HadLowPriorityPunish</td>
+            <td>@coach.Toxic.HadChatRestrictions</td>
+            <td>@coach.Toxic.HadRankedRestrictions</td>
+            <td>@coach.Toxic.HadTemporaryBan</td>
+            <td>@coach.Toxic.HadPermanentBan</td>
+            <td>@coach.MoreInformation</td>
+            <td>@coach.EmailSignUp</td>
+        </tr>
+    }
+    </tbody>
+</table>

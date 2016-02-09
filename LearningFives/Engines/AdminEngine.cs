@@ -19,5 +19,10 @@ namespace Engines
         {
             return await _adminDataAccessor.GetAllStudentsAsync();
         }
+
+        public async Task<List<CoachSignUpDM>> GetAllCoachesAsync()
+        {
+            return await _adminDataAccessor.GetAllCoachesAsync();
+        }
     }
 }

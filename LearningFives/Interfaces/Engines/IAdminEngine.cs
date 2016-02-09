@@ -7,5 +7,6 @@ namespace Interfaces.Engines
     public interface IAdminEngine
     {
         Task<List<StudentSignUpDM>> GetAllStudentsAsync();
+        Task<List<CoachSignUpDM>> GetAllCoachesAsync();
     }
 }

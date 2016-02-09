@@ -77,5 +77,73 @@ namespace DataAccessors
                 }).ToListAsync();
             }
         }
+
+        public async Task<List<CoachSignUpDM>> GetAllCoachesAsync()
+        {
+            using (var context = new LearningFivesEntities())
+            {
+                return await context.CoachSignUps.Select(coach => new CoachSignUpDM
+                {
+                    CoachStatus = coach.CoachStatus,
+                    SummonerInfo = new SummonerSignUpDM
+                    {
+                        SummonerName = coach.SummonerInfo.SummonerName,
+                        Server = coach.SummonerInfo.ServerName,
+                        RankTier = coach.SummonerInfo.RankTier,
+                        RankDivision = coach.SummonerInfo.RankDivision,
+                        Age = coach.SummonerInfo.Age,
+                        Email = coach.SummonerInfo.Email,
+                        HasSlackAccount = coach.SummonerInfo.HasSlackAccount
+                    },
+                    InterestedBronze = coach.InterestedBronze,
+                    InterestedSilver = coach.InterestedSilver,
+                    InterestedGold = coach.InterestedGold,
+                    InterestedPlat = coach.InterestedPlat,
+                    InterestedDiamond = coach.InterestedDiamond,
+                    WillingBronze = coach.WillingBronze,
+                    WillingSilver = coach.WillingSilver,
+                    WillingGold = coach.WillingGold,
+                    WillingPlat = coach.WillingPlat,
+                    WillingDiamond = coach.WillingDiamond,
+                    AvailabilityInfo = new AvailabilitySignUpDM
+                    {
+                        MondayStart = coach.AvailabilityInfo.MondayStart,
+                        MondayEnd = coach.AvailabilityInfo.MondayEnd,
+                        TuesdayStart = coach.AvailabilityInfo.TuesdayStart,
+                        TuesdayEnd = coach.AvailabilityInfo.TuesdayEnd,
+                        WednesdayStart = coach.AvailabilityInfo.WednesdayStart,
+                        WednesdayEnd = coach.AvailabilityInfo.WednesdayEnd,
+                        ThursdayStart = coach.AvailabilityInfo.ThursdayStart,
+                        ThursdayEnd = coach.AvailabilityInfo.ThursdayEnd,
+                        FridayStart = coach.AvailabilityInfo.FridayStart,
+                        FridayEnd = coach.AvailabilityInfo.FridayEnd,
+                        SaturdayStart = coach.AvailabilityInfo.SaturdayStart,
+                        SaturdayEnd = coach.AvailabilityInfo.SaturdayEnd,
+                        SundayStart = coach.AvailabilityInfo.SundayStart,
+                        SundayEnd = coach.AvailabilityInfo.SundayEnd
+                    },
+                    Languages = coach.Languages,
+                    PairedPlayers = coach.PairedPlayers,
+                    CoachingStyle = coach.CoachingStyle,
+                    CoachingExperience = coach.CoachingExperience,
+                    Commitment = new CommitmentSignUpDM
+                    {
+                        CommitmentLevel = coach.Commitment.CommitmentLevel,
+                        SeriousnessLevel = coach.Commitment.SeriousnessLevel
+                    },
+                    Toxic = new ToxicSignUpDM
+                    {
+                        ToxicLevel = coach.Toxic.ToxicLevel,
+                        HadLowPriorityPunish = coach.Toxic.HadLowPriorityPunish,
+                        HadChatRestrictions = coach.Toxic.HadChatRestriction,
+                        HadRankedRestrictions = coach.Toxic.HadRankedRestrictions,
+                        HadTemporaryBan = coach.Toxic.HadTemporaryBan,
+                        HadPermanentBan = coach.Toxic.HadPermanentBan
+                    },
+                    MoreInformation = coach.MoreInformation,
+                    EmailSignUp = coach.EmailSignUp
+                }).ToListAsync();
+            }
+        }
     }
 }

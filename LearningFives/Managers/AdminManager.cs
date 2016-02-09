@@ -20,7 +20,7 @@ namespace Managers
         {
             return (await _adminEngine.GetAllStudentsAsync())
                 .Select(student => new StudentSignUpVM
-            {
+                {
                     StudentStatus = student.StudentStatus,
                     SummonerInfo = new SummonerSignUpVM
                     {
@@ -79,7 +79,73 @@ namespace Managers
                     },
                     MoreInformation = student.MoreInformation,
                     EmailSignUp = student.EmailSignUp
-            }).ToList();
+                }).ToList();
+        }
+
+        public async Task<List<CoachSignUpVM>> GetAllCoachesAsync()
+        {
+            return (await _adminEngine.GetAllCoachesAsync())
+                .Select(coach => new CoachSignUpVM
+                {
+                    CoachStatus = coach.CoachStatus,
+                    SummonerInfo = new SummonerSignUpVM
+                    {
+                        SummonerName = coach.SummonerInfo.SummonerName,
+                        Server = coach.SummonerInfo.Server,
+                        RankTier = coach.SummonerInfo.RankTier,
+                        RankDivision = coach.SummonerInfo.RankDivision,
+                        Age = coach.SummonerInfo.Age,
+                        Email = coach.SummonerInfo.Email,
+                        HasSlackAccount = coach.SummonerInfo.HasSlackAccount
+                    },
+                    InterestedBronze = coach.InterestedBronze,
+                    InterestedSilver = coach.InterestedSilver,
+                    InterestedGold = coach.InterestedGold,
+                    InterestedPlat = coach.InterestedPlat,
+                    InterestedDiamond = coach.InterestedDiamond,
+                    WillingBronze = coach.WillingBronze,
+                    WillingSilver = coach.WillingSilver,
+                    WillingGold = coach.WillingGold,
+                    WillingPlat = coach.WillingPlat,
+                    WillingDiamond = coach.WillingDiamond,
+                    AvailabilityInfo = new AvailabilitySignUpVM
+                    {
+                        MondayStart = coach.AvailabilityInfo.MondayStart,
+                        MondayEnd = coach.AvailabilityInfo.MondayEnd,
+                        TuesdayStart = coach.AvailabilityInfo.TuesdayStart,
+                        TuesdayEnd = coach.AvailabilityInfo.TuesdayEnd,
+                        WednesdayStart = coach.AvailabilityInfo.WednesdayStart,
+                        WednesdayEnd = coach.AvailabilityInfo.WednesdayEnd,
+                        ThursdayStart = coach.AvailabilityInfo.ThursdayStart,
+                        ThursdayEnd = coach.AvailabilityInfo.ThursdayEnd,
+                        FridayStart = coach.AvailabilityInfo.FridayStart,
+                        FridayEnd = coach.AvailabilityInfo.FridayEnd,
+                        SaturdayStart = coach.AvailabilityInfo.SaturdayStart,
+                        SaturdayEnd = coach.AvailabilityInfo.SaturdayEnd,
+                        SundayStart = coach.AvailabilityInfo.SundayStart,
+                        SundayEnd = coach.AvailabilityInfo.SundayEnd
+                    },
+                    Languages = coach.Languages,
+                    PairedPlayers = coach.PairedPlayers,
+                    CoachingStyle = coach.CoachingStyle,
+                    CoachingExperience = coach.CoachingExperience,
+                    Commitment = new CommitmentSignUpVM
+                    {
+                        CommitmentLevel = coach.Commitment.CommitmentLevel,
+                        SeriousnessLevel = coach.Commitment.SeriousnessLevel
+                    },
+                    Toxic = new ToxicSignUpVM
+                    {
+                        ToxicLevel = coach.Toxic.ToxicLevel,
+                        HadLowPriorityPunish = coach.Toxic.HadLowPriorityPunish,
+                        HadChatRestrictions = coach.Toxic.HadChatRestrictions,
+                        HadRankedRestrictions = coach.Toxic.HadRankedRestrictions,
+                        HadTemporaryBan = coach.Toxic.HadTemporaryBan,
+                        HadPermanentBan = coach.Toxic.HadPermanentBan
+                    },
+                    MoreInformation = coach.MoreInformation,
+                    EmailSignUp = coach.EmailSignUp
+                }).ToList();
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using Interfaces.Managers;
+using System.Threading.Tasks;
 using System.Web.Mvc;
-using Interfaces.Managers;
 using ViewModels.Admin;
 
 namespace LearningFives.Controllers
@@ -20,7 +20,7 @@ namespace LearningFives.Controllers
             return View(new AllSignUpsVM
             {
                 Students = await _adminManager.GetAllStudentsAsync(),
-                Coaches = null
+                Coaches = await _adminManager.GetAllCoachesAsync()
             });
         }
     }
