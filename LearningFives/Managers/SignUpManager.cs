@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using DataModels.SignUp;
+﻿using DataModels.SignUp;
 using Interfaces.Engines;
 using Interfaces.Managers;
+using System.Threading.Tasks;
 using ViewModels.SignUp;
 
 namespace Managers

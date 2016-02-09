@@ -15,14 +15,147 @@
         @Html.LabelFor(m => m.StudentStatus)
         <label>@Html.RadioButtonFor(m => m.StudentStatus, 1) Student, I want to play with a team for the next five weeks</label>
         <label>@Html.RadioButtonFor(m => m.StudentStatus, 0) Substitute, I'm available to fill in for a player if they are not available</label>
-</div>
-    @Html.EditorFor(m => m.SummonerInfo, "~/Views/SignUp/_SummonerInfo.cshtml", new { htmlAttributes = new { @class = "form-control" }})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SummonerInfo.SummonerName)
+        @Html.TextBoxFor(m => m.SummonerInfo.SummonerName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SummonerInfo.Server)
+        @Html.DropDownListFor(m => m.SummonerInfo.Server, SummonerSignUpVM.ServerOptions, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SummonerInfo.RankTier)
+        @Html.DropDownListFor(m => m.SummonerInfo.RankTier, SummonerSignUpVM.RankTierOptions, null, new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.SummonerInfo.RankDivision, SummonerSignUpVM.RankDivionOptions, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SummonerInfo.Age)
+        @Html.TextBoxFor(m => m.SummonerInfo.Age, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SummonerInfo.Email)
+        @Html.TextBoxFor(m => m.SummonerInfo.Email, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SummonerInfo.HasSlackAccount)
+        <label>@Html.RadioButtonFor(m => m.SummonerInfo.HasSlackAccount, true) Yes</label>
+        <label>@Html.RadioButtonFor(m => m.SummonerInfo.HasSlackAccount, false) No</label>
+    </div>
     <hr/>
 
-    @Html.EditorFor(m => m.RoleInfo, "~/Views/SignUp/_RoleInfo.cshtml", new { htmlAttributes = new { @class = "form-control" } })
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleInfo.PreferredRole)
+        @Html.DropDownListFor(m => m.RoleInfo.PreferredRole, RoleSignUpVM.PreferredRoleOptions, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleInfo.TopLaneComfort)
+        @Html.DropDownListFor(m => m.RoleInfo.TopLaneComfort, RoleSignUpVM.TopLaneComfortOptions, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleInfo.JungleComfort)
+        @Html.DropDownListFor(m => m.RoleInfo.JungleComfort, RoleSignUpVM.JungleComfortOptions, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleInfo.MidComfort)
+        @Html.DropDownListFor(m => m.RoleInfo.MidComfort, RoleSignUpVM.MidComfortOptions, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleInfo.MarksmanComfort)
+        @Html.DropDownListFor(m => m.RoleInfo.MarksmanComfort, RoleSignUpVM.MarksmanComfortOptions, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleInfo.SupportComfort)
+        @Html.DropDownListFor(m => m.RoleInfo.SupportComfort, RoleSignUpVM.SupportComfortOptions, null, new { @class = "form-control" })
+    </div>
     <hr/>
 
-    @Html.EditorFor(m => m.AvailabilityInfo, "~/Views/SignUp/_Availability.cshtml", new { htmlAttributes = new { @class = "form-control" } })
+    <div class="form-group">
+        @Html.Label("Monday")
+        <div class="form-inline">
+            @Html.LabelFor(m => m.AvailabilityInfo.MondayStart)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.MondayStart, new { @type = "time", @class = "form-control" })
+            @Html.LabelFor(m => m.AvailabilityInfo.MondayEnd)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.MondayEnd, new { @type = "time", @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Tuesday")
+
+        <div class="form-inline">
+            @Html.LabelFor(m => m.AvailabilityInfo.TuesdayStart)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.TuesdayStart, new { @type = "time", @class = "form-control" })
+            @Html.LabelFor(m => m.AvailabilityInfo.TuesdayEnd)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.TuesdayEnd, new { @type = "time", @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Wednesday")
+
+        <div class="form-inline">
+            @Html.LabelFor(m => m.AvailabilityInfo.WednesdayStart)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.WednesdayStart, new { @type = "time", @class = "form-control" })
+            @Html.LabelFor(m => m.AvailabilityInfo.WednesdayEnd)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.WednesdayEnd, new { @type = "time", @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-inline">
+        @Html.Label("Thursday")
+
+        <div class="form-inline">
+            @Html.LabelFor(m => m.AvailabilityInfo.ThursdayStart)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.ThursdayStart, new { @type = "time", @class = "form-control" })
+            @Html.LabelFor(m => m.AvailabilityInfo.ThursdayEnd)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.ThursdayEnd, new { @type = "time", @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-inline">
+        @Html.Label("Friday")
+
+        <div class="form-inline">
+            @Html.LabelFor(m => m.AvailabilityInfo.FridayStart)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.FridayStart, new { @type = "time", @class = "form-control" })
+            @Html.LabelFor(m => m.AvailabilityInfo.FridayEnd)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.FridayEnd, new { @type = "time", @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-inline">
+        @Html.Label("Saturday")
+
+        <div class="form-inline">
+            @Html.LabelFor(m => m.AvailabilityInfo.SaturdayStart)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.SaturdayStart, new { @type = "time", @class = "form-control" })
+            @Html.LabelFor(m => m.AvailabilityInfo.SaturdayEnd)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.SaturdayEnd, new { @type = "time", @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-inline">
+        @Html.Label("Sunday")
+
+        <div class="form-inline">
+            @Html.LabelFor(m => m.AvailabilityInfo.SundayStart)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.SundayStart, new { @type = "time", @class = "form-control" })
+            @Html.LabelFor(m => m.AvailabilityInfo.SundayEnd)
+            @Html.TextBoxFor(m => m.AvailabilityInfo.SundayEnd, new { @type = "time", @class = "form-control" })
+        </div>
+    </div>
     <hr/>
 
     <div class="form-group">
@@ -50,8 +183,35 @@
         @Html.TextAreaFor(m => m.PlayerExpectations, new { @class="form-control", rows="5" })
     </div>
 
-    @Html.EditorFor(m => m.Commitment, "~/Views/SignUp/_Commit.cshtml", new { htmlAttributes = new { @class = "form-control" } })
-    @Html.EditorFor(m => m.Toxic, "~/Views/SignUp/_Toxic.cshtml", new { htmlAttributes = new { @class = "form-control" } })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Commitment.CommitmentLevel)
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 2) Yes, I am fully committed</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 1) I'll try my best to be online and available, but I can't formally commit</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 0) No, but I really want to be a part of it!</label>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Commitment.SeriousnessLevel)
+        <label>@Html.RadioButtonFor(m => m.Commitment.SeriousnessLevel, 2) Serious</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.SeriousnessLevel, 1) Semi-serious</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.SeriousnessLevel, 0) Casual</label>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Toxic.ToxicLevel)
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 2) Yes, I am quite toxic</label>
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 1) Sometimes I can be toxic</label>
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 0) No, I am not toxic</label>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Select any punishments you have received:")
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadLowPriorityPunish) Low priority queue</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadChatRestrictions) Chat restrictions</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadRankedRestrictions) Ranked restrictions</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadTemporaryBan) Temporary account ban</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadPermanentBan) Permanent account ban</label>
+    </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.MoreInformation)
