@@ -10,7 +10,7 @@ namespace DataAccessors
 {
     public class AdminDataAccessor : IAdminDataAccessor
     {
-        public async Task<List<StudentSignUpDM>> GetAllStudentsAsync()
+        public async Task<List<StudentSignUpDM>> GetAllStudentsAsync(int pageNumber, int pageSize)
         {
             using (var context = new LearningFivesEntities())
             {
@@ -74,11 +74,15 @@ namespace DataAccessors
                     },
                     MoreInformation = student.MoreInformation,
                     EmailSignUp = student.EmailSignUp
-                }).ToListAsync();
+                })
+                .OrderBy(i => i.StudentStatus)
+                .Skip((pageNumber - 1)*pageSize)
+                .Take(pageSize)
+                .ToListAsync();
             }
         }
 
-        public async Task<List<CoachSignUpDM>> GetAllCoachesAsync()
+        public async Task<List<CoachSignUpDM>> GetAllCoachesAsync(int pageNumber, int pageSize)
         {
             using (var context = new LearningFivesEntities())
             {
@@ -142,8 +146,56 @@ namespace DataAccessors
                     },
                     MoreInformation = coach.MoreInformation,
                     EmailSignUp = coach.EmailSignUp
-                }).ToListAsync();
+                })
+                .OrderBy(i => i.CoachStatus)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
             }
+        }
+
+        public async Task<List<StudentSignUpDM>> FilterStudentsAsync(int studentStatusId = -1, string server = null, string rankTier = null)
+        {
+            var students = await GetAllStudentsAsync(1, 50);
+
+            if (studentStatusId > 0)
+            {
+                students = students.Where(student => student.StudentStatus == studentStatusId).ToList();
+            }
+
+            if (server != null)
+            {
+                students = students.Where(student => student.SummonerInfo.Server == server).ToList();
+            }
+
+            if (rankTier != null)
+            {
+                students = students.Where(student => student.SummonerInfo.RankTier == rankTier).ToList();
+            }
+
+            return students;
+        }
+
+        public async Task<List<CoachSignUpDM>> FilterCoachesAsync(int coachStatusId = -1, string server = null, string rankTier = null)
+        {
+            var coaches = await GetAllCoachesAsync(1, 50);
+
+            if (coachStatusId > 0)
+            {
+                coaches = coaches.Where(coach => coach.CoachStatus == coachStatusId).ToList();
+            }
+
+            if (server != null)
+            {
+                coaches = coaches.Where(coach => coach.SummonerInfo.Server == server).ToList();
+            }
+
+            if (rankTier != null)
+            {
+                coaches = coaches.Where(coach => coach.SummonerInfo.RankTier == rankTier).ToList();
+            }
+
+            return coaches;
         }
     }
 }

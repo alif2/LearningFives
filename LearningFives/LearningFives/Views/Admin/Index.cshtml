@@ -7,7 +7,15 @@
 
 <h2>@ViewBag.Title</h2>
 
-@{
-    Html.RenderPartial("~/Views/Admin/_StudentList.cshtml", Model.Students);
-    Html.RenderPartial("~/Views/Admin/_CoachList.cshtml", Model.Coaches);
-}
+<ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#students">Students</a></li>
+    <li><a data-toggle="tab" href="#coaches">Coaches</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="students" class="tab-pane">@{Html.RenderPartial("~/Views/Admin/_StudentList.cshtml", Model.Students);}</div>
+    <div id="coaches" class="tab-pane">@{Html.RenderPartial("~/Views/Admin/_CoachList.cshtml", Model.Coaches);}</div>
+</div>
+
+@Html.ActionLink("Previous", "Index", new {pageNumber = ViewBag.PageNumber - 1, pageSize = ViewBag.PageSize})
+@Html.ActionLink("Next", "Index", new {pageNumber = ViewBag.PageNumber + 1, pageSize = ViewBag.PageSize})

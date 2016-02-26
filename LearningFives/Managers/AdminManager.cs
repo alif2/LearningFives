@@ -16,9 +16,9 @@ namespace Managers
             _adminEngine = adminEngine;
         }
 
-        public async Task<List<StudentSignUpVM>> GetAllStudentsAsync()
+        public async Task<List<StudentSignUpVM>> GetAllStudentsAsync(int pageNumber, int pageSize)
         {
-            return (await _adminEngine.GetAllStudentsAsync())
+            return (await _adminEngine.GetAllStudentsAsync(pageNumber, pageSize))
                 .Select(student => new StudentSignUpVM
                 {
                     StudentStatus = student.StudentStatus,
@@ -82,9 +82,9 @@ namespace Managers
                 }).ToList();
         }
 
-        public async Task<List<CoachSignUpVM>> GetAllCoachesAsync()
+        public async Task<List<CoachSignUpVM>> GetAllCoachesAsync(int pageNumber, int pageSize)
         {
-            return (await _adminEngine.GetAllCoachesAsync())
+            return (await _adminEngine.GetAllCoachesAsync(pageNumber, pageSize))
                 .Select(coach => new CoachSignUpVM
                 {
                     CoachStatus = coach.CoachStatus,

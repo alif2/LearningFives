@@ -6,7 +6,7 @@ namespace Interfaces.Managers
 {
     public interface IAdminManager
     {
-        Task<List<StudentSignUpVM>> GetAllStudentsAsync();
-        Task<List<CoachSignUpVM>> GetAllCoachesAsync();
+        Task<List<StudentSignUpVM>> GetAllStudentsAsync(int pageNumber, int pageSize);
+        Task<List<CoachSignUpVM>> GetAllCoachesAsync(int pageNumber, int pageSize);
     }
 }

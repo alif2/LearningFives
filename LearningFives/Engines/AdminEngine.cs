@@ -15,14 +15,24 @@ namespace Engines
             _adminDataAccessor = adminDataAccessor;
         }
 
-        public async Task<List<StudentSignUpDM>> GetAllStudentsAsync()
+        public async Task<List<StudentSignUpDM>> GetAllStudentsAsync(int pageNumber, int pageSize)
         {
-            return await _adminDataAccessor.GetAllStudentsAsync();
+            return await _adminDataAccessor.GetAllStudentsAsync(pageNumber, pageSize);
         }
 
-        public async Task<List<CoachSignUpDM>> GetAllCoachesAsync()
+        public async Task<List<CoachSignUpDM>> GetAllCoachesAsync(int pageNumber, int pageSize)
         {
-            return await _adminDataAccessor.GetAllCoachesAsync();
+            return await _adminDataAccessor.GetAllCoachesAsync(pageNumber, pageSize);
+        }
+
+        public async Task<List<StudentSignUpDM>> FilterStudentAsync(int studentStatusId = -1, string server = null, string rankTier = null)
+        {
+            return await _adminDataAccessor.FilterStudentsAsync(studentStatusId, server, rankTier);
+        }
+
+        public async Task<List<CoachSignUpDM>> FilterCoachesAsync(int coachStatusId = -1, string server = null, string rankTier = null)
+        {
+            return await _adminDataAccessor.FilterCoachesAsync(coachStatusId, server, rankTier);
         }
     }
 }
