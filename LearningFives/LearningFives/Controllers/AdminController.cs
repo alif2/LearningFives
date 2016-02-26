@@ -16,15 +16,29 @@ namespace LearningFives.Controllers
 
         // GET: Admin
         [HttpGet]
-        public async Task<ActionResult> Index(int pageNumber = 1, int pageSize = 25)
+        public async Task<ActionResult> Index(int pageNumber = 1, int pageSize = 25, int studentStatus = -1, string server = null, string rankTier = null)
         {
             ViewBag.PageNumber = pageNumber;
             ViewBag.PageSize = pageSize;
 
             return View(new AllSignUpsVM
             {
-                Students = await _adminManager.GetAllStudentsAsync(pageNumber, pageSize),
-                Coaches = await _adminManager.GetAllCoachesAsync(pageNumber, pageSize)
+                Students = await _adminManager.GetAllStudentsAsync(new GetStudentsVM
+                {
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    StudentStatus = studentStatus,
+                    Server = server,
+                    RankTier = rankTier
+                }),
+                Coaches = await _adminManager.GetAllCoachesAsync(new GetCoachesVM
+                {
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    CoachStatus = studentStatus,
+                    Server = server,
+                    RankTier = rankTier
+                })
             });
         }
     }

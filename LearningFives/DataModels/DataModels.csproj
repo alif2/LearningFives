@@ -68,6 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\GetCoachesDM.cs" />
+    <Compile Include="Admin\GetStudentsDM.cs" />
     <Compile Include="SignUp\AvailabilitySignUpDM.cs" />
     <Compile Include="SignUp\CommitmentSignUpDM.cs" />
     <Compile Include="SignUp\RoleSignUpDM.cs" />

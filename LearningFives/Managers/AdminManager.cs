@@ -1,8 +1,10 @@
-﻿using Interfaces.Engines;
+﻿using DataModels.Admin;
+using Interfaces.Engines;
 using Interfaces.Managers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ViewModels.Admin;
 using ViewModels.SignUp;
 
 namespace Managers
@@ -16,9 +18,16 @@ namespace Managers
             _adminEngine = adminEngine;
         }
 
-        public async Task<List<StudentSignUpVM>> GetAllStudentsAsync(int pageNumber, int pageSize)
+        public async Task<List<StudentSignUpVM>> GetAllStudentsAsync(GetStudentsVM studentFilter)
         {
-            return (await _adminEngine.GetAllStudentsAsync(pageNumber, pageSize))
+            return (await _adminEngine.GetAllStudentsAsync(new GetStudentsDM
+            {
+                PageNumber = studentFilter.PageNumber,
+                PageSize = studentFilter.PageSize,
+                StudentStatus = studentFilter.StudentStatus,
+                Server = studentFilter.Server,
+                RankTier = studentFilter.RankTier     
+            }))
                 .Select(student => new StudentSignUpVM
                 {
                     StudentStatus = student.StudentStatus,
@@ -82,9 +91,16 @@ namespace Managers
                 }).ToList();
         }
 
-        public async Task<List<CoachSignUpVM>> GetAllCoachesAsync(int pageNumber, int pageSize)
+        public async Task<List<CoachSignUpVM>> GetAllCoachesAsync(GetCoachesVM coachFilter)
         {
-            return (await _adminEngine.GetAllCoachesAsync(pageNumber, pageSize))
+            return (await _adminEngine.GetAllCoachesAsync(new GetCoachesDM
+            {
+                PageNumber = coachFilter.PageNumber,
+                PageSize = coachFilter.PageSize,
+                CoachStatus = coachFilter.CoachStatus,
+                Server = coachFilter.Server,
+                RankTier = coachFilter.RankTier
+            }))
                 .Select(coach => new CoachSignUpVM
                 {
                     CoachStatus = coach.CoachStatus,
