@@ -14,12 +14,14 @@ namespace LearningFives.Controllers
             _adminManager = adminManager;
         }
 
-        // GET: Admin
-        [HttpGet]
+
         public async Task<ActionResult> Index(int pageNumber = 1, int pageSize = 25, int studentStatus = -1, string server = null, string rankTier = null)
         {
             ViewBag.PageNumber = pageNumber;
             ViewBag.PageSize = pageSize;
+            ViewBag.StudentStatus = studentStatus;
+            ViewBag.Server = server;
+            ViewBag.RankTier = rankTier;
 
             return View(new AllSignUpsVM
             {

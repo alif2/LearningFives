@@ -1,4 +1,6 @@
-﻿@model ViewModels.Admin.AllSignUpsVM
+﻿@using System.Web.Mvc.Html
+@using ViewModels.SignUp
+@model ViewModels.Admin.AllSignUpsVM
 
 @{
     ViewBag.Title = "Index";
@@ -17,5 +19,44 @@
     <div id="coaches" class="tab-pane">@{Html.RenderPartial("~/Views/Admin/_CoachList.cshtml", Model.Coaches);}</div>
 </div>
 
-@Html.ActionLink("Previous", "Index", new {pageNumber = ViewBag.PageNumber - 1, pageSize = ViewBag.PageSize})
-@Html.ActionLink("Next", "Index", new {pageNumber = ViewBag.PageNumber + 1, pageSize = ViewBag.PageSize})
+@using (Html.BeginForm("Index", "Admin", new
+{
+    studentStatus = ViewBag.StudentStatus,
+    server = ViewBag.Server
+}, FormMethod.Post, new { role="form" }))
+{
+    @Html.Label("Rank Tier")
+    @Html.DropDownList("rankTier", SummonerSignUpVM.RankTierOptions)
+
+    <button type="submit">Submit</button>
+}
+
+@using (Html.BeginForm("Index", "Admin", new
+{
+    studentStatus = ViewBag.StudentStatus,
+    rankTier = ViewBag.RankTier
+}, FormMethod.Post, new { role="form" }))
+{
+    @Html.Label("Server")
+    @Html.DropDownList("server", SummonerSignUpVM.ServerOptions)
+
+    <button type="submit">Submit</button>
+}
+
+@Html.ActionLink("Previous", "Index", new
+{
+    pageNumber = ViewBag.PageNumber - 1,
+    pageSize = ViewBag.PageSize,
+    studentStatus = ViewBag.StudentStatus,
+    server = ViewBag.Server,
+    rankTier = ViewBag.RankTier
+})
+
+@Html.ActionLink("Next", "Index", new
+{
+    pageNumber = ViewBag.PageNumber + 1,
+    pageSize = ViewBag.PageSize,
+    studentStatus = ViewBag.StudentStatus,
+    server = ViewBag.Server,
+    rankTier = ViewBag.RankTier
+})

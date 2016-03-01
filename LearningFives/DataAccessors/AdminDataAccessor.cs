@@ -93,7 +93,7 @@ namespace DataAccessors
                     MoreInformation = student.MoreInformation,
                     EmailSignUp = student.EmailSignUp
                 })
-                .OrderBy(i => i.StudentStatus)
+                .OrderBy(i => i.SummonerInfo.SummonerName)
                 .Skip((studentFilter.PageNumber - 1) * studentFilter.PageSize)
                 .Take(studentFilter.PageSize)
                 .ToListAsync();
@@ -182,7 +182,7 @@ namespace DataAccessors
                     MoreInformation = coach.MoreInformation,
                     EmailSignUp = coach.EmailSignUp
                 })
-                .OrderBy(i => i.CoachStatus)
+                .OrderBy(i => i.SummonerInfo.SummonerName)
                 .Skip((coachFilter.PageNumber - 1) * coachFilter.PageSize)
                 .Take(coachFilter.PageSize)
                 .ToListAsync();
