@@ -1,14 +1,62 @@
-﻿@using ViewModels.Admin
-@model AllSignUpsVM
+﻿@using System.Web.Mvc.Html
+@using ViewModels.SignUp
+@model ViewModels.Admin.AllSignUpsVM
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-@{
-    Html.RenderPartial("~/Views/Admin/_StudentList.cshtml", Model.Students);
-    //Html.RenderPartial("~/Views/Admin/_CoachList.cshtml", Model.Coaches);
+<ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#students">Students</a></li>
+    <li><a data-toggle="tab" href="#coaches">Coaches</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="students" class="tab-pane">@{Html.RenderPartial("~/Views/Admin/_StudentList.cshtml", Model.Students);}</div>
+    <div id="coaches" class="tab-pane">@{Html.RenderPartial("~/Views/Admin/_CoachList.cshtml", Model.Coaches);}</div>
+</div>
+
+@using (Html.BeginForm("Index", "Admin", new
+{
+    studentStatus = ViewBag.StudentStatus,
+    server = ViewBag.Server
+}, FormMethod.Post, new { role="form" }))
+{
+    @Html.Label("Rank Tier")
+    @Html.DropDownList("rankTier", SummonerSignUpVM.RankTierOptions)
+
+    <button type="submit">Submit</button>
 }
+
+@using (Html.BeginForm("Index", "Admin", new
+{
+    studentStatus = ViewBag.StudentStatus,
+    rankTier = ViewBag.RankTier
+}, FormMethod.Post, new { role="form" }))
+{
+    @Html.Label("Server")
+    @Html.DropDownList("server", SummonerSignUpVM.ServerOptions)
+
+    <button type="submit">Submit</button>
+}
+
+@Html.ActionLink("Previous", "Index", new
+{
+    pageNumber = ViewBag.PageNumber - 1,
+    pageSize = ViewBag.PageSize,
+    studentStatus = ViewBag.StudentStatus,
+    server = ViewBag.Server,
+    rankTier = ViewBag.RankTier
+})
+
+@Html.ActionLink("Next", "Index", new
+{
+    pageNumber = ViewBag.PageNumber + 1,
+    pageSize = ViewBag.PageSize,
+    studentStatus = ViewBag.StudentStatus,
+    server = ViewBag.Server,
+    rankTier = ViewBag.RankTier
+})

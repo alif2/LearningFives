@@ -1,5 +1,3 @@
-using System;
-using System.Web;
 using DataAccessors;
 using Engines;
 using Interfaces.DataAccessors;
@@ -14,6 +12,8 @@ using Microsoft.Owin.Security;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
+using System;
+using System.Web;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]

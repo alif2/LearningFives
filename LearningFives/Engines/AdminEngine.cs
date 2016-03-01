@@ -1,4 +1,5 @@
-﻿using DataModels.SignUp;
+﻿using DataModels.Admin;
+using DataModels.SignUp;
 using Interfaces.DataAccessors;
 using Interfaces.Engines;
 using System.Collections.Generic;
@@ -15,9 +16,14 @@ namespace Engines
             _adminDataAccessor = adminDataAccessor;
         }
 
-        public async Task<List<StudentSignUpDM>> GetAllStudentsAsync()
+        public async Task<List<StudentSignUpDM>> GetAllStudentsAsync(GetStudentsDM studentFilter)
         {
-            return await _adminDataAccessor.GetAllStudentsAsync();
+            return await _adminDataAccessor.GetAllStudentsAsync(studentFilter);
+        }
+
+        public async Task<List<CoachSignUpDM>> GetAllCoachesAsync(GetCoachesDM coachFilter)
+        {
+            return await _adminDataAccessor.GetAllCoachesAsync(coachFilter);
         }
     }
 }

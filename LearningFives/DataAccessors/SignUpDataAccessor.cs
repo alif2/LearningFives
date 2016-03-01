@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using DataModels.SignUp;
+﻿using DataModels.SignUp;
 using Entities;
 using Interfaces.DataAccessors;
+using System.Threading.Tasks;
 
 namespace DataAccessors
 {
