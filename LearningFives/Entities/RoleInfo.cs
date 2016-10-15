@@ -22,11 +22,11 @@ namespace Entities
     
         public int RoleInfoID { get; set; }
         public string PreferredRole { get; set; }
-        public int TopLaneComfort { get; set; }
-        public int JungleComfort { get; set; }
-        public int MidComfort { get; set; }
-        public int MarksmanComfort { get; set; }
-        public int SupportComfort { get; set; }
+        public bool TopLane { get; set; }
+        public bool Jungle { get; set; }
+        public bool MidLane { get; set; }
+        public bool Adc { get; set; }
+        public bool Support { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentSignUp> StudentSignUps { get; set; }
