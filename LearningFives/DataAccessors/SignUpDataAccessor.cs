@@ -24,11 +24,11 @@ namespace DataAccessors
                     RoleInfo = new RoleInfo
                     {
                         PreferredRole = studentSignUp.RoleInfo.PreferredRole,
-                        TopLaneComfort = studentSignUp.RoleInfo.TopLane,
-                        JungleComfort = studentSignUp.RoleInfo.Jungle,
-                        MidComfort = studentSignUp.RoleInfo.MidLane,
-                        MarksmanComfort = studentSignUp.RoleInfo.MarksmanComfort,
-                        SupportComfort = studentSignUp.RoleInfo.SupportComfort
+                        TopLane = studentSignUp.RoleInfo.TopLane,
+                        Jungle = studentSignUp.RoleInfo.Jungle,
+                        MidLane = studentSignUp.RoleInfo.MidLane,
+                        Adc = studentSignUp.RoleInfo.Adc,
+                        Support = studentSignUp.RoleInfo.Support
                     },
                     AvailabilityInfo = new AvailabilityInfo
                     {

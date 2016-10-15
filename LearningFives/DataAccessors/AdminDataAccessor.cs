@@ -27,11 +27,6 @@ namespace DataAccessors
                     filter = filter.Where(i => i.SummonerInfo.ServerName == studentFilter.Server);
                 }
 
-                if (!string.IsNullOrEmpty(studentFilter.RankTier))
-                {
-                    filter = filter.Where(i => i.SummonerInfo.RankTier == studentFilter.RankTier);
-                }
-
                 return await filter.Select(student => new StudentSignUpDM
                 {
                     StudentStatus = student.StudentStatus,
@@ -111,11 +106,6 @@ namespace DataAccessors
                 if (coachFilter.Server != null)
                 {
                     filter = filter.Where(i => i.SummonerInfo.ServerName == coachFilter.Server);
-                }
-
-                if (coachFilter.RankTier != null)
-                {
-                    filter = filter.Where(i => i.SummonerInfo.RankTier == coachFilter.RankTier);
                 }
 
                 return await filter.Select(coach => new CoachSignUpDM
