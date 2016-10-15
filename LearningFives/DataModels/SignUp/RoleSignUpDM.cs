@@ -3,10 +3,10 @@
     public class RoleSignUpDM
     {
         public string PreferredRole { get; set; }
-        public int TopLaneComfort { get; set; }
-        public int JungleComfort { get; set; }
-        public int MidComfort { get; set; }
-        public int MarksmanComfort { get; set; }
-        public int SupportComfort { get; set; }
+        public bool TopLane { get; set; }
+        public bool Jungle { get; set; }
+        public bool MidLane { get; set; }
+        public bool Adc { get; set; }
+        public bool Support { get; set; }
     }
 }

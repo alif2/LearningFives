@@ -28,12 +28,11 @@ namespace ViewModels.SignUp
 
         [DisplayName("List the languages you speak:")]
         [Required]
-        [StringLength(500)]
+        [StringLength(100)]
         public string Languages { get; set; }
 
-        [DisplayName("List the summoner names of students, coaches, or understudies you wish to be grouped with:")]
-        [Required]
-        [StringLength(500)]
+        [DisplayName("List the summoner names of students, coaches, or coaches-in-training you wish to be grouped with:")]
+        [StringLength(100)]
         public string PairedPlayers { get; set; }
 
         [DisplayName("Coaching Style / Philosophy:")]

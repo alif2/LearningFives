@@ -24,20 +24,17 @@ namespace Managers
                 {
                     SummonerName = studentSignUp.SummonerInfo.SummonerName,
                     Server = studentSignUp.SummonerInfo.Server,
-                    RankTier = studentSignUp.SummonerInfo.RankTier,
-                    RankDivision = studentSignUp.SummonerInfo.RankDivision,
                     Age = studentSignUp.SummonerInfo.Age,
                     Email = studentSignUp.SummonerInfo.Email,
-                    HasSlackAccount = studentSignUp.SummonerInfo.HasSlackAccount
                 },
                 RoleInfo = new RoleSignUpDM
                 {
                     PreferredRole = studentSignUp.RoleInfo.PreferredRole,
-                    TopLaneComfort = studentSignUp.RoleInfo.TopLaneComfort,
-                    JungleComfort = studentSignUp.RoleInfo.JungleComfort,
-                    MidComfort = studentSignUp.RoleInfo.MidComfort,
-                    MarksmanComfort = studentSignUp.RoleInfo.MarksmanComfort,
-                    SupportComfort = studentSignUp.RoleInfo.SupportComfort
+                    TopLane = studentSignUp.RoleInfo.TopLane,
+                    Jungle = studentSignUp.RoleInfo.Jungle,
+                    MidLane = studentSignUp.RoleInfo.MidLane,
+                    Adc = studentSignUp.RoleInfo.Adc,
+                    Support = studentSignUp.RoleInfo.Support
                 },
                 AvailabilityInfo = new AvailabilitySignUpDM
                 {
@@ -89,11 +86,8 @@ namespace Managers
                 {
                     SummonerName = coachSignUp.SummonerInfo.SummonerName,
                     Server = coachSignUp.SummonerInfo.Server,
-                    RankTier = coachSignUp.SummonerInfo.RankTier,
-                    RankDivision = coachSignUp.SummonerInfo.RankDivision,
                     Age = coachSignUp.SummonerInfo.Age,
-                    Email = coachSignUp.SummonerInfo.Email,
-                    HasSlackAccount = coachSignUp.SummonerInfo.HasSlackAccount
+                    Email = coachSignUp.SummonerInfo.Email
                 },
                 InterestedBronze = coachSignUp.InterestedBronze,
                 InterestedSilver = coachSignUp.InterestedSilver,

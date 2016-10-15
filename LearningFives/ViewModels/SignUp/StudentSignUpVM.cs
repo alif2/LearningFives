@@ -21,17 +21,16 @@ namespace ViewModels.SignUp
 
         [DisplayName("List the languages you speak:")]
         [Required]
-        [StringLength(500)]
+        [StringLength(100)]
         public string Languages { get; set; }
 
         [DisplayName("List the summoner names of players or coaches you wish to be grouped with:")]
-        [Required]
-        [StringLength(500)]
+        [StringLength(100)]
         public string PairedPlayers { get; set; }
 
         [DisplayName("What are your strengths as a player?")]
         [Required]
-        [StringLength(500)]
+        [StringLength(140)]
         public string PlayerStrengths { get; set; }
 
         [DisplayName("What skill(s) do you want to improve?")]

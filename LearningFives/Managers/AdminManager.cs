@@ -35,20 +35,17 @@ namespace Managers
                     {
                         SummonerName = student.SummonerInfo.SummonerName,
                         Server = student.SummonerInfo.Server,
-                        RankTier = student.SummonerInfo.RankTier,
-                        RankDivision = student.SummonerInfo.RankDivision,
                         Age = student.SummonerInfo.Age,
-                        Email = student.SummonerInfo.Email,
-                        HasSlackAccount = student.SummonerInfo.HasSlackAccount
+                        Email = student.SummonerInfo.Email
                     },
                     RoleInfo = new RoleSignUpVM
                     {
                         PreferredRole = student.RoleInfo.PreferredRole,
-                        TopLaneComfort = student.RoleInfo.TopLaneComfort,
-                        JungleComfort = student.RoleInfo.JungleComfort,
-                        MidComfort = student.RoleInfo.MidComfort,
-                        MarksmanComfort = student.RoleInfo.MarksmanComfort,
-                        SupportComfort = student.RoleInfo.SupportComfort
+                        TopLane = student.RoleInfo.TopLane,
+                        Jungle = student.RoleInfo.Jungle,
+                        MidLane = student.RoleInfo.MidLane,
+                        Adc = student.RoleInfo.Adc,
+                        Support = student.RoleInfo.Support
                     },
                     AvailabilityInfo = new AvailabilitySignUpVM
                     {
@@ -108,11 +105,8 @@ namespace Managers
                     {
                         SummonerName = coach.SummonerInfo.SummonerName,
                         Server = coach.SummonerInfo.Server,
-                        RankTier = coach.SummonerInfo.RankTier,
-                        RankDivision = coach.SummonerInfo.RankDivision,
                         Age = coach.SummonerInfo.Age,
-                        Email = coach.SummonerInfo.Email,
-                        HasSlackAccount = coach.SummonerInfo.HasSlackAccount
+                        Email = coach.SummonerInfo.Email
                     },
                     InterestedBronze = coach.InterestedBronze,
                     InterestedSilver = coach.InterestedSilver,

@@ -14,9 +14,9 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.CoachStatus)
-        <label>@Html.RadioButtonFor(m => m.CoachStatus, 2) Coach, I want to run my own team</label>
-        <label>@Html.RadioButtonFor(m => m.CoachStatus, 1) Substitute, I'm available to fill in for a coach if they are not available</label>
-        <label>@Html.RadioButtonFor(m => m.CoachStatus, 0) Understudy, I want to help and support a team</label>
+        <label>@Html.RadioButtonFor(m => m.CoachStatus, 2) Coach</label>
+        <label>@Html.RadioButtonFor(m => m.CoachStatus, 1) Substitute</label>
+        <label>@Html.RadioButtonFor(m => m.CoachStatus, 0) Coach-in-training</label>
     </div>
 
     <div class="form-group">
@@ -30,12 +30,6 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.SummonerInfo.RankTier)
-        @Html.DropDownListFor(m => m.SummonerInfo.RankTier, SummonerSignUpVM.RankTierOptions, null, new { @class = "form-control" })
-        @Html.DropDownListFor(m => m.SummonerInfo.RankDivision, SummonerSignUpVM.RankDivionOptions, null, new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
         @Html.LabelFor(m => m.SummonerInfo.Age)
         @Html.TextBoxFor(m => m.SummonerInfo.Age, new { @class = "form-control" })
     </div>
@@ -45,30 +39,26 @@
         @Html.TextBoxFor(m => m.SummonerInfo.Email, new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.SummonerInfo.HasSlackAccount)
-        <label>@Html.RadioButtonFor(m => m.SummonerInfo.HasSlackAccount, true) Yes</label>
-        <label>@Html.RadioButtonFor(m => m.SummonerInfo.HasSlackAccount, false) No</label>
-    </div>
     <hr/>
 
     <div class="form-group">
-        @Html.Label("What level of players are you most interested in coaching?")
+        @Html.Label("Level of players you want to coach:")
             <label>@Html.CheckBoxFor(m => m.InterestedBronze) Bronze</label>
             <label>@Html.CheckBoxFor(m => m.InterestedSilver) Silver</label>
             <label>@Html.CheckBoxFor(m => m.InterestedGold) Gold</label>
             <label>@Html.CheckBoxFor(m => m.InterestedPlat) Platinum</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedDiamond) Diamond</label>
+            <label>@Html.CheckBoxFor(m => m.InterestedDiamond) Diamond+</label>
     </div>
 
     <div class="form-group">
-        @Html.Label("Additionally, what level of players would you be willing to coach?")
+        @Html.Label("Level of players you are willing to coach:")
             <label>@Html.CheckBoxFor(m => m.InterestedBronze) Bronze</label>
             <label>@Html.CheckBoxFor(m => m.InterestedSilver) Silver</label>
             <label>@Html.CheckBoxFor(m => m.InterestedGold) Gold</label>
             <label>@Html.CheckBoxFor(m => m.InterestedPlat) Platinum</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedDiamond) Diamond</label>
+            <label>@Html.CheckBoxFor(m => m.InterestedDiamond) Diamond+</label>
     </div>
+
     <hr/>
 
     <div class="form-group">
@@ -170,9 +160,9 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Commitment.CommitmentLevel)
-        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 2) Yes, I am fully committed</label>
-        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 1) I'll try my best to be online and available, but I can't formally commit</label>
-        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 0) No, but I really want to be a part of it!</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 2) Fully committed</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 1) Mostly committed</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 0) Slightly committed</label>
     </div>
 
     <div class="form-group">
@@ -184,9 +174,9 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Toxic.ToxicLevel)
-        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 2) Yes, I am quite toxic</label>
-        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 1) Sometimes I can be toxic</label>
-        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 0) No, I am not toxic</label>
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 2) Yes</label>
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 1) Sometimes</label>
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 0) No</label>
     </div>
 
     <div class="form-group">
@@ -194,8 +184,8 @@
         <label>@Html.CheckBoxFor(m => m.Toxic.HadLowPriorityPunish) Low priority queue</label>
         <label>@Html.CheckBoxFor(m => m.Toxic.HadChatRestrictions) Chat restrictions</label>
         <label>@Html.CheckBoxFor(m => m.Toxic.HadRankedRestrictions) Ranked restrictions</label>
-        <label>@Html.CheckBoxFor(m => m.Toxic.HadTemporaryBan) Temporary account ban</label>
-        <label>@Html.CheckBoxFor(m => m.Toxic.HadPermanentBan) Permanent account ban</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadTemporaryBan) Temporary ban</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadPermanentBan) Permanent ban</label>
     </div>
 
     <div class="form-group">
