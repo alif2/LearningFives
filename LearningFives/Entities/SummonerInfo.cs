@@ -18,6 +18,7 @@ namespace Entities
         public SummonerInfo()
         {
             this.CoachSignUps = new HashSet<CoachSignUp>();
+            this.RiotAPISummoners = new HashSet<RiotAPISummoner>();
             this.StudentSignUps = new HashSet<StudentSignUp>();
         }
     
@@ -29,6 +30,8 @@ namespace Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CoachSignUp> CoachSignUps { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RiotAPISummoner> RiotAPISummoners { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentSignUp> StudentSignUps { get; set; }
     }

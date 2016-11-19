@@ -28,6 +28,9 @@ namespace Entities
         public virtual DbSet<AvailabilityInfo> AvailabilityInfoes { get; set; }
         public virtual DbSet<CoachSignUp> CoachSignUps { get; set; }
         public virtual DbSet<Commitment> Commitments { get; set; }
+        public virtual DbSet<RiotAPILeague> RiotAPILeagues { get; set; }
+        public virtual DbSet<RiotAPILeagueEntry> RiotAPILeagueEntries { get; set; }
+        public virtual DbSet<RiotAPISummoner> RiotAPISummoners { get; set; }
         public virtual DbSet<RoleInfo> RoleInfoes { get; set; }
         public virtual DbSet<StudentSignUp> StudentSignUps { get; set; }
         public virtual DbSet<SummonerInfo> SummonerInfoes { get; set; }
