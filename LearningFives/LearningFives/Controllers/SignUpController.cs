@@ -14,25 +14,13 @@ namespace LearningFives.Controllers
             _signUpManager = signUpManager;
         }
 
-        // GET: SignUp
-        public ActionResult Coach()
-        {
-            return View();
-        }
-
         public ActionResult Student()
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Coach(CoachSignUpVM coachSignUp)
+        public ActionResult Coach()
         {
-            //If database insert succeeded
-            if (await _signUpManager.RegisterCoach(coachSignUp))
-            {
-                return View("~/Views/Home/Index.cshtml");
-            }
             return View();
         }
 
@@ -40,7 +28,18 @@ namespace LearningFives.Controllers
         public async Task<ActionResult> Student(StudentSignUpVM studentSignUp)
         {
             //If database insert succeeded
-            if(await _signUpManager.RegisterStudent(studentSignUp))
+            if(await _signUpManager.RegisterStudentAsync(studentSignUp))
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Coach(CoachSignUpVM coachSignUp)
+        {
+            //If database insert succeeded
+            if (await _signUpManager.RegisterCoachAsync(coachSignUp))
             {
                 return View("~/Views/Home/Index.cshtml");
             }
