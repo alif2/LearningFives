@@ -1,6 +1,6 @@
 ﻿@using System.Web.Mvc.Html
 @using ViewModels.SignUp
-@model ViewModels.Admin.AllSignUpsVM
+@model ActionModels.Teams.AllSignUpsAM
 
 @{
     ViewBag.Title = "Index";
@@ -15,11 +15,11 @@
 </ul>
 
 <div class="tab-content">
-    <div id="students" class="tab-pane">@{Html.RenderPartial("~/Views/Admin/_StudentList.cshtml", Model.Students);}</div>
-    <div id="coaches" class="tab-pane">@{Html.RenderPartial("~/Views/Admin/_CoachList.cshtml", Model.Coaches);}</div>
+    <div id="students" class="tab-pane">@{Html.RenderPartial("~/Views/Teams/_StudentList.cshtml", Model.Students);}</div>
+    <div id="coaches" class="tab-pane">@{Html.RenderPartial("~/Views/Teams/_CoachList.cshtml", Model.Coaches);}</div>
 </div>
 
-@using (Html.BeginForm("Index", "Admin", new
+@using (Html.BeginForm("Index", "Teams", new
 {
     studentStatus = ViewBag.StudentStatus,
     server = ViewBag.Server
@@ -31,7 +31,7 @@
     <button type="submit">Submit</button>
 }
 
-@using (Html.BeginForm("Index", "Admin", new
+@using (Html.BeginForm("Index", "Teams", new
 {
     studentStatus = ViewBag.StudentStatus,
     rankTier = ViewBag.RankTier

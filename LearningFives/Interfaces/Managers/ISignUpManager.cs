@@ -5,7 +5,7 @@ namespace Interfaces.Managers
 {
     public interface ISignUpManager
     {
-        Task<bool> RegisterStudent(StudentSignUpVM studentSignUp);
-        Task<bool> RegisterCoach(CoachSignUpVM coachSignUp);
+        Task<bool> RegisterStudentAsync(StudentSignUpVM studentSignUp);
+        Task<bool> RegisterCoachAsync(CoachSignUpVM coachSignUp);
     }
 }

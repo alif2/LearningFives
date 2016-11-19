@@ -1,26 +1,26 @@
-﻿using DataModels.Admin;
+using ActionModels.SignUp;
+using DataModels.Teams;
 using Interfaces.Engines;
 using Interfaces.Managers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ViewModels.Admin;
-using ViewModels.SignUp;
+using ViewModels.Teams;
 
 namespace Managers
 {
-    public class AdminManager : IAdminManager
+    public class TeamsManager : ITeamsManager
     {
-        private readonly IAdminEngine _adminEngine;
+        private readonly ITeamsEngine _teamsEngine;
 
-        public AdminManager(IAdminEngine adminEngine)
+        public TeamsManager(ITeamsEngine teamsEngine)
         {
-            _adminEngine = adminEngine;
+            _teamsEngine = teamsEngine;
         }
 
-        public async Task<List<StudentSignUpVM>> GetAllStudentsAsync(GetStudentsVM studentFilter)
+        public async Task<List<StudentSignUpAM>> GetAllStudentsAsync(StudentFilterVM studentFilter)
         {
-            return (await _adminEngine.GetAllStudentsAsync(new GetStudentsDM
+            return (await _teamsEngine.GetAllStudentsAsync(new StudentFilterDM
             {
                 PageNumber = studentFilter.PageNumber,
                 PageSize = studentFilter.PageSize,
@@ -28,17 +28,17 @@ namespace Managers
                 Server = studentFilter.Server,
                 RankTier = studentFilter.RankTier     
             }))
-                .Select(student => new StudentSignUpVM
+                .Select(student => new StudentSignUpAM
                 {
                     StudentStatus = student.StudentStatus,
-                    SummonerInfo = new SummonerSignUpVM
+                    SummonerInfo = new SummonerSignUpAM
                     {
                         SummonerName = student.SummonerInfo.SummonerName,
                         Server = student.SummonerInfo.Server,
                         Age = student.SummonerInfo.Age,
                         Email = student.SummonerInfo.Email
                     },
-                    RoleInfo = new RoleSignUpVM
+                    RoleInfo = new RoleSignUpAM
                     {
                         PreferredRole = student.RoleInfo.PreferredRole,
                         TopLane = student.RoleInfo.TopLane,
@@ -47,7 +47,7 @@ namespace Managers
                         Adc = student.RoleInfo.Adc,
                         Support = student.RoleInfo.Support
                     },
-                    AvailabilityInfo = new AvailabilitySignUpVM
+                    AvailabilityInfo = new AvailabilitySignUpAM
                     {
                         MondayStart = student.AvailabilityInfo.MondayStart,
                         MondayEnd = student.AvailabilityInfo.MondayEnd,
@@ -69,12 +69,12 @@ namespace Managers
                     PlayerStrengths = student.PlayerStrengths,
                     PlayerImprovement = student.PlayerImprovement,
                     PlayerExpectations = student.PlayerExpectations,
-                    Commitment = new CommitmentSignUpVM
+                    Commitment = new CommitmentSignUpAM
                     {
                         CommitmentLevel = student.Commitment.CommitmentLevel,
                         SeriousnessLevel = student.Commitment.SeriousnessLevel
                     },
-                    Toxic = new ToxicSignUpVM
+                    Toxic = new ToxicSignUpAM
                     {
                         ToxicLevel = student.Toxic.ToxicLevel,
                         HadLowPriorityPunish = student.Toxic.HadLowPriorityPunish,
@@ -88,9 +88,9 @@ namespace Managers
                 }).ToList();
         }
 
-        public async Task<List<CoachSignUpVM>> GetAllCoachesAsync(GetCoachesVM coachFilter)
+        public async Task<List<CoachSignUpAM>> GetAllCoachesAsync(CoachFilterVM coachFilter)
         {
-            return (await _adminEngine.GetAllCoachesAsync(new GetCoachesDM
+            return (await _teamsEngine.GetAllCoachesAsync(new CoachFilterDM
             {
                 PageNumber = coachFilter.PageNumber,
                 PageSize = coachFilter.PageSize,
@@ -98,10 +98,10 @@ namespace Managers
                 Server = coachFilter.Server,
                 RankTier = coachFilter.RankTier
             }))
-                .Select(coach => new CoachSignUpVM
+                .Select(coach => new CoachSignUpAM
                 {
                     CoachStatus = coach.CoachStatus,
-                    SummonerInfo = new SummonerSignUpVM
+                    SummonerInfo = new SummonerSignUpAM
                     {
                         SummonerName = coach.SummonerInfo.SummonerName,
                         Server = coach.SummonerInfo.Server,
@@ -118,7 +118,7 @@ namespace Managers
                     WillingGold = coach.WillingGold,
                     WillingPlat = coach.WillingPlat,
                     WillingDiamond = coach.WillingDiamond,
-                    AvailabilityInfo = new AvailabilitySignUpVM
+                    AvailabilityInfo = new AvailabilitySignUpAM
                     {
                         MondayStart = coach.AvailabilityInfo.MondayStart,
                         MondayEnd = coach.AvailabilityInfo.MondayEnd,
@@ -139,12 +139,12 @@ namespace Managers
                     PairedPlayers = coach.PairedPlayers,
                     CoachingStyle = coach.CoachingStyle,
                     CoachingExperience = coach.CoachingExperience,
-                    Commitment = new CommitmentSignUpVM
+                    Commitment = new CommitmentSignUpAM
                     {
                         CommitmentLevel = coach.Commitment.CommitmentLevel,
                         SeriousnessLevel = coach.Commitment.SeriousnessLevel
                     },
-                    Toxic = new ToxicSignUpVM
+                    Toxic = new ToxicSignUpAM
                     {
                         ToxicLevel = coach.Toxic.ToxicLevel,
                         HadLowPriorityPunish = coach.Toxic.HadLowPriorityPunish,

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningFives", "LearningFives\LearningFives.csproj", "{4D6F5D1A-0F46-41AB-A269-5C0B0BD3951D}"
 EndProject
@@ -28,6 +28,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{83B85EBC-E0A6-43AB-8A0F-171580A613DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{7BF77070-252C-4A00-9868-E64F915C5771}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotAPI", "RiotAPI\RiotAPI.csproj", "{DC9ACE1F-FEC5-4D0F-B54C-DCB81264ADFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotAPITests", "RiotAPITests\RiotAPITests.csproj", "{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,14 @@ Global
 		{7BF77070-252C-4A00-9868-E64F915C5771}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BF77070-252C-4A00-9868-E64F915C5771}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BF77070-252C-4A00-9868-E64F915C5771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9ACE1F-FEC5-4D0F-B54C-DCB81264ADFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9ACE1F-FEC5-4D0F-B54C-DCB81264ADFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9ACE1F-FEC5-4D0F-B54C-DCB81264ADFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9ACE1F-FEC5-4D0F-B54C-DCB81264ADFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,5 +97,6 @@ Global
 		{23E27263-F84B-4A9E-9ED1-78CCEA20A5F3} = {EC0D03B3-4E64-4018-915F-23A5792B3EB5}
 		{83B85EBC-E0A6-43AB-8A0F-171580A613DD} = {EC0D03B3-4E64-4018-915F-23A5792B3EB5}
 		{7BF77070-252C-4A00-9868-E64F915C5771} = {EC0D03B3-4E64-4018-915F-23A5792B3EB5}
+		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E} = {77895B47-6D06-4E8F-A8D7-21222732E0DD}
 	EndGlobalSection
 EndGlobal

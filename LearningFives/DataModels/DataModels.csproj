@@ -68,8 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\GetCoachesDM.cs" />
-    <Compile Include="Admin\GetStudentsDM.cs" />
+    <Compile Include="Teams\CoachFilterDM.cs" />
+    <Compile Include="Teams\RiotApiLeagueDM.cs" />
+    <Compile Include="Teams\RiotApiLeagueEntryDM.cs" />
+    <Compile Include="Teams\RiotApiSummonerDM.cs" />
+    <Compile Include="Teams\StudentFilterDM.cs" />
     <Compile Include="SignUp\AvailabilitySignUpDM.cs" />
     <Compile Include="SignUp\CommitmentSignUpDM.cs" />
     <Compile Include="SignUp\RoleSignUpDM.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="SignUp\StudentSignUpDM.cs" />
     <Compile Include="SignUp\SummonerSignUpDM.cs" />
     <Compile Include="SignUp\ToxicSignUpDM.cs" />
+    <Compile Include="Teams\SummonerInfoDM.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -40,15 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccessors\IAdminDataAccessor.cs" />
+    <Compile Include="DataAccessors\ITeamsDataAccessor.cs" />
     <Compile Include="DataAccessors\ISignUpDataAccessor.cs" />
-    <Compile Include="Engines\IAdminEngine.cs" />
+    <Compile Include="Engines\ITeamsEngine.cs" />
     <Compile Include="Engines\ISignUpEngine.cs" />
-    <Compile Include="Managers\IAdminManager.cs" />
+    <Compile Include="Managers\ITeamsManager.cs" />
     <Compile Include="Managers\ISignUpManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ActionModels\ActionModels.csproj">
+      <Project>{828CD963-5B94-447C-9EA4-8E40D46B0A06}</Project>
+      <Name>ActionModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{23E27263-F84B-4A9E-9ED1-78CCEA20A5F3}</Project>
       <Name>DataModels</Name>

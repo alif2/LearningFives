@@ -88,6 +88,15 @@
       <DependentUpon>LearningFivesEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RiotAPILeague.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiotAPILeagueEntry.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiotAPISummoner.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="RoleInfo.cs">
       <DependentUpon>LearningFivesEntities.tt</DependentUpon>
     </Compile>

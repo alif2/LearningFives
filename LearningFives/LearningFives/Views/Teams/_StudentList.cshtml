@@ -1,4 +1,4 @@
-﻿@model List<ViewModels.SignUp.StudentSignUpVM>
+﻿@model List<ActionModels.SignUp.StudentSignUpAM>
 
 <table class="table table-bordered container-fluid tablesorter" id="student-list">
     <thead>
@@ -10,12 +10,11 @@
         <th>Rank Division</th>
         <th>Age</th>
         <th>Email</th>
-        <th>Has Slack Account</th>
         <th>Preferred Role</th>
         <th>Top Lane</th>
         <th>Jungle</th>
         <th>Mid Lane</th>
-        <th>Marksman</th>
+        <th>ADC</th>
         <th>Support</th>
         <th>Availability Info</th>
         <th>Languages</th>
@@ -45,13 +44,12 @@
             <td>@student.SummonerInfo.RankDivision</td>
             <td>@student.SummonerInfo.Age</td>
             <td>@student.SummonerInfo.Email</td>
-            <td>@student.SummonerInfo.HasSlackAccount</td>
             <td>@student.RoleInfo.PreferredRole</td>
-            <td>@student.RoleInfo.TopLaneComfort</td>
-            <td>@student.RoleInfo.JungleComfort</td>
-            <td>@student.RoleInfo.MidComfort</td>
-            <td>@student.RoleInfo.MarksmanComfort</td>
-            <td>@student.RoleInfo.SupportComfort</td>
+            <td>@student.RoleInfo.TopLane</td>
+            <td>@student.RoleInfo.Jungle</td>
+            <td>@student.RoleInfo.MidLane</td>
+            <td>@student.RoleInfo.Adc</td>
+            <td>@student.RoleInfo.Support</td>
             <td>@student.AvailabilityInfo</td>
             <td>@student.Languages</td>
             <td>@student.PairedPlayers</td>

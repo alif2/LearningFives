@@ -1,6 +1,6 @@
-﻿namespace DataModels.Admin
+﻿namespace ViewModels.Teams
 {
-    public class GetCoachesDM
+    public class CoachFilterVM
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }

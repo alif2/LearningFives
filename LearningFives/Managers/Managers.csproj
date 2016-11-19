@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminManager.cs" />
+    <Compile Include="TeamsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ActionModels\ActionModels.csproj">
+      <Project>{828CD963-5B94-447C-9EA4-8E40D46B0A06}</Project>
+      <Name>ActionModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataModels\DataModels.csproj">
       <Project>{23E27263-F84B-4A9E-9ED1-78CCEA20A5F3}</Project>
       <Name>DataModels</Name>

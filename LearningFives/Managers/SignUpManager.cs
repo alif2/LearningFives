@@ -15,7 +15,7 @@ namespace Managers
             _signUpEngine = signUpEngine;
         }
 
-        public async Task<bool> RegisterStudent(StudentSignUpVM studentSignUp)
+        public async Task<bool> RegisterStudentAsync(StudentSignUpVM studentSignUp)
         {
             return await _signUpEngine.RegisterStudent(new StudentSignUpDM
             {
@@ -77,7 +77,7 @@ namespace Managers
             });
         }
 
-        public async Task<bool> RegisterCoach(CoachSignUpVM coachSignUp)
+        public async Task<bool> RegisterCoachAsync(CoachSignUpVM coachSignUp)
         {
             return await _signUpEngine.RegisterCoach(new CoachSignUpDM
             {

@@ -1,4 +1,4 @@
-﻿@model List<ViewModels.SignUp.CoachSignUpVM>
+﻿@model List<ActionModels.SignUp.CoachSignUpAM>
 
 <table class="table table-bordered container-fluid tablesorter" id="coach-list">
     <thead>
@@ -9,8 +9,6 @@
         <th>Rank Tier</th>
         <th>Rank Division</th>
         <th>Age</th>
-        <th>Email</th>
-        <th>Slack</th>
         <th>Interested Bronze</th>
         <th>Interested Silver</th>
         <th>Interested Gold</th>
@@ -35,7 +33,6 @@
         <th>Had Temp Ban</th>
         <th>Had Permaban</th>
         <th>More Information</th>
-        <th>Email Signup</th>
     </tr>
     </thead>
     <tbody>
@@ -48,8 +45,6 @@
             <td>@coach.SummonerInfo.RankTier</td>
             <td>@coach.SummonerInfo.RankDivision</td>
             <td>@coach.SummonerInfo.Age</td>
-            <td>@coach.SummonerInfo.Email</td>
-            <td>@coach.SummonerInfo.HasSlackAccount</td>
             <td>@coach.InterestedBronze</td>
             <td>@coach.InterestedSilver</td>
             <td>@coach.InterestedGold</td>
@@ -74,7 +69,6 @@
             <td>@coach.Toxic.HadTemporaryBan</td>
             <td>@coach.Toxic.HadPermanentBan</td>
             <td>@coach.MoreInformation</td>
-            <td>@coach.EmailSignUp</td>
         </tr>
     }
     </tbody>
