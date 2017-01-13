@@ -1,4 +1,4 @@
-﻿using ActionModels.SignUp;
+﻿using ActionModels.Teams;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ViewModels.Teams;
@@ -7,7 +7,7 @@ namespace Interfaces.Managers
 {
     public interface ITeamsManager
     {
-        Task<List<StudentSignUpAM>> GetAllStudentsAsync(StudentFilterVM studentFilter);
-        Task<List<CoachSignUpAM>> GetAllCoachesAsync(CoachFilterVM coachFilter);
+        Task<List<StudentProfileAM>> GetAllStudentsAsync(StudentFilterVM studentFilter);
+        Task<List<CoachProfileAM>> GetAllCoachesAsync(CoachFilterVM coachFilter);
     }
 }

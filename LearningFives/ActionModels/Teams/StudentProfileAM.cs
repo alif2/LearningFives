@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ActionModels.SignUp
+﻿namespace ActionModels.Teams
 {
-    public class StudentSignUpAM
+    public class StudentProfileAM
     {
         public int StudentStatus { get; set; }
-        public SummonerSignUpAM SummonerInfo { get; set; }
+        public SummonerInfoAM SummonerInfo { get; set; }
         public RoleSignUpAM RoleInfo { get; set; }
         public AvailabilitySignUpAM AvailabilityInfo { get; set; }
         public string Languages { get; set; }

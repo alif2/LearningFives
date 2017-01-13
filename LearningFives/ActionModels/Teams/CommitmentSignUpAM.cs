@@ -1,4 +1,4 @@
-﻿namespace ActionModels.SignUp
+﻿namespace ActionModels.Teams
 {
     public class CommitmentSignUpAM
     {

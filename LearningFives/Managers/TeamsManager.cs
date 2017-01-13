@@ -1,4 +1,4 @@
-using ActionModels.SignUp;
+using ActionModels.Teams;
 using DataModels.Teams;
 using Interfaces.Engines;
 using Interfaces.Managers;
@@ -18,25 +18,48 @@ namespace Managers
             _teamsEngine = teamsEngine;
         }
 
-        public async Task<List<StudentSignUpAM>> GetAllStudentsAsync(StudentFilterVM studentFilter)
+        public async Task<List<StudentProfileAM>> GetAllStudentsAsync(StudentFilterVM studentFilter)
         {
             return (await _teamsEngine.GetAllStudentsAsync(new StudentFilterDM
             {
-                PageNumber = studentFilter.PageNumber,
-                PageSize = studentFilter.PageSize,
                 StudentStatus = studentFilter.StudentStatus,
                 Server = studentFilter.Server,
                 RankTier = studentFilter.RankTier     
             }))
-                .Select(student => new StudentSignUpAM
+                .Select(student => new StudentProfileAM
                 {
                     StudentStatus = student.StudentStatus,
-                    SummonerInfo = new SummonerSignUpAM
+                    SummonerInfo = new SummonerInfoAM
                     {
+                        SummonerInfoId = student.SummonerInfo.SummonerInfoId,
                         SummonerName = student.SummonerInfo.SummonerName,
                         Server = student.SummonerInfo.Server,
                         Age = student.SummonerInfo.Age,
-                        Email = student.SummonerInfo.Email
+                        Email = student.SummonerInfo.Email,
+                        RiotApiInfo = student.SummonerInfo.RiotApiInfo == null ? null : new RiotApiSummonerAM
+                        {
+                            RiotApiSummonerId = student.SummonerInfo.RiotApiInfo.RiotApiSummonerId,
+                            ProfileIconId = student.SummonerInfo.RiotApiInfo.ProfileIconId,
+                            RevisionDate = student.SummonerInfo.RiotApiInfo.RevisionDate,
+                            SummonerLevel = student.SummonerInfo.RiotApiInfo.SummonerLevel,
+                            Leagues = student.SummonerInfo.RiotApiInfo.Leagues?.Select(league => new RiotApiLeagueAM
+                            {
+                                LeagueName = league.LeagueName,
+                                QueueType = league.QueueType,
+                                Tier = league.Tier,
+                                LeagueEntries = league.LeagueEntries?.Select(leagueEntry => new RiotApiLeagueEntryAM
+                                {
+                                    Division = leagueEntry.Division,
+                                    IsFreshBlood = leagueEntry.IsFreshBlood,
+                                    IsHotStreak = leagueEntry.IsHotStreak,
+                                    IsInactive = leagueEntry.IsInactive,
+                                    IsVeteran = leagueEntry.IsVeteran,
+                                    LeaguePoints = leagueEntry.LeaguePoints,
+                                    Losses = leagueEntry.Losses,
+                                    Wins = leagueEntry.Wins
+                                })
+                            })
+                        }
                     },
                     RoleInfo = new RoleSignUpAM
                     {
@@ -88,31 +111,50 @@ namespace Managers
                 }).ToList();
         }
 
-        public async Task<List<CoachSignUpAM>> GetAllCoachesAsync(CoachFilterVM coachFilter)
+        public async Task<List<CoachProfileAM>> GetAllCoachesAsync(CoachFilterVM coachFilter)
         {
             return (await _teamsEngine.GetAllCoachesAsync(new CoachFilterDM
             {
-                PageNumber = coachFilter.PageNumber,
-                PageSize = coachFilter.PageSize,
                 CoachStatus = coachFilter.CoachStatus,
                 Server = coachFilter.Server,
                 RankTier = coachFilter.RankTier
             }))
-                .Select(coach => new CoachSignUpAM
+                .Select(coach => new CoachProfileAM
                 {
                     CoachStatus = coach.CoachStatus,
-                    SummonerInfo = new SummonerSignUpAM
+                    SummonerInfo = new SummonerInfoAM
                     {
+                        SummonerInfoId = coach.SummonerInfo.SummonerInfoId,
                         SummonerName = coach.SummonerInfo.SummonerName,
                         Server = coach.SummonerInfo.Server,
                         Age = coach.SummonerInfo.Age,
-                        Email = coach.SummonerInfo.Email
+                        Email = coach.SummonerInfo.Email,
+                        RiotApiInfo = coach.SummonerInfo.RiotApiInfo == null ? null : new RiotApiSummonerAM
+                        {
+                            RiotApiSummonerId = coach.SummonerInfo.RiotApiInfo.RiotApiSummonerId,
+                            ProfileIconId = coach.SummonerInfo.RiotApiInfo.ProfileIconId,
+                            RevisionDate = coach.SummonerInfo.RiotApiInfo.RevisionDate,
+                            SummonerLevel = coach.SummonerInfo.RiotApiInfo.SummonerLevel,
+                            Leagues = coach.SummonerInfo.RiotApiInfo.Leagues?.Select(league => new RiotApiLeagueAM
+                            {
+                                LeagueName = league.LeagueName,
+                                QueueType = league.QueueType,
+                                Tier = league.Tier,
+                                LeagueEntries = league.LeagueEntries?.Select(leagueEntry => new RiotApiLeagueEntryAM
+                                {
+                                    Division = leagueEntry.Division,
+                                    IsFreshBlood = leagueEntry.IsFreshBlood,
+                                    IsHotStreak = leagueEntry.IsHotStreak,
+                                    IsInactive = leagueEntry.IsInactive,
+                                    IsVeteran = leagueEntry.IsVeteran,
+                                    LeaguePoints = leagueEntry.LeaguePoints,
+                                    Losses = leagueEntry.Losses,
+                                    Wins = leagueEntry.Wins
+                                })
+                            })
+                        }
                     },
-                    InterestedBronze = coach.InterestedBronze,
-                    InterestedSilver = coach.InterestedSilver,
-                    InterestedGold = coach.InterestedGold,
-                    InterestedPlat = coach.InterestedPlat,
-                    InterestedDiamond = coach.InterestedDiamond,
+                    InterestedRank = coach.InterestedRank,
                     WillingBronze = coach.WillingBronze,
                     WillingSilver = coach.WillingSilver,
                     WillingGold = coach.WillingGold,

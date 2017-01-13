@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ActionModels.SignUp
+namespace ActionModels.Teams
 {
     public class AvailabilitySignUpAM
     {
