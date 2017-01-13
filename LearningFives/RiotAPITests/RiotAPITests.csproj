@@ -88,6 +88,10 @@
       <Project>{23E27263-F84B-4A9E-9ED1-78CCEA20A5F3}</Project>
       <Name>DataModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{83B85EBC-E0A6-43AB-8A0F-171580A613DD}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RiotAPI\RiotAPI.csproj">
       <Project>{DC9ACE1F-FEC5-4D0F-B54C-DCB81264ADFC}</Project>
       <Name>RiotAPI</Name>
