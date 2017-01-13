@@ -23,7 +23,7 @@ namespace ViewModels.SignUp
         [DisplayName("ADC")]
         public bool Adc { get; set; }
 
-        [DisplayName("Support:")]
+        [DisplayName("Support")]
         public bool Support { get; set; }
 
         //Dropdown menu options for each value

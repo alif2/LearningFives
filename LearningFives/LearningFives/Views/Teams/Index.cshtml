@@ -9,54 +9,28 @@
 
 <h2>@ViewBag.Title</h2>
 
-<ul class="nav nav-tabs">
-    <li><a data-toggle="tab" href="#students">Students</a></li>
-    <li><a data-toggle="tab" href="#coaches">Coaches</a></li>
-</ul>
-
-<div class="tab-content">
-    <div id="students" class="tab-pane">@{Html.RenderPartial("~/Views/Teams/_StudentList.cshtml", Model.Students);}</div>
-    <div id="coaches" class="tab-pane">@{Html.RenderPartial("~/Views/Teams/_CoachList.cshtml", Model.Coaches);}</div>
+<div>
+    <h3>Coaches</h3>
+    <hr/>
+    @{Html.RenderPartial("~/Views/Teams/_CoachList.cshtml", Model.Coaches);}
 </div>
 
-@using (Html.BeginForm("Index", "Teams", new
-{
-    studentStatus = ViewBag.StudentStatus,
-    server = ViewBag.Server
-}, FormMethod.Post, new { role="form" }))
-{
-    @Html.Label("Rank Tier")
-    @Html.DropDownList("rankTier", SummonerSignUpVM.RankTierOptions)
+<div>
+    @using (Html.BeginForm("Index", "Teams", new
+    {
+        studentStatus = ViewBag.StudentStatus
+    }, FormMethod.Post, new { role = "form" }))
+    {
+        @Html.Label("Rank Tier")
+        @Html.DropDownList("rankTier", SummonerSignUpVM.RankTierOptions)
 
-    <button type="submit">Submit</button>
-}
+        @Html.Label("Server")
+        @Html.DropDownList("server", SummonerSignUpVM.ServerOptions)
 
-@using (Html.BeginForm("Index", "Teams", new
-{
-    studentStatus = ViewBag.StudentStatus,
-    rankTier = ViewBag.RankTier
-}, FormMethod.Post, new { role="form" }))
-{
-    @Html.Label("Server")
-    @Html.DropDownList("server", SummonerSignUpVM.ServerOptions)
+        <button type="submit">Submit</button>
+    }
 
-    <button type="submit">Submit</button>
-}
-
-@Html.ActionLink("Previous", "Index", new
-{
-    pageNumber = ViewBag.PageNumber - 1,
-    pageSize = ViewBag.PageSize,
-    studentStatus = ViewBag.StudentStatus,
-    server = ViewBag.Server,
-    rankTier = ViewBag.RankTier
-})
-
-@Html.ActionLink("Next", "Index", new
-{
-    pageNumber = ViewBag.PageNumber + 1,
-    pageSize = ViewBag.PageSize,
-    studentStatus = ViewBag.StudentStatus,
-    server = ViewBag.Server,
-    rankTier = ViewBag.RankTier
-})
+    <h3>Students</h3>
+    <hr/>
+    @{Html.RenderPartial("~/Views/Teams/_StudentList.cshtml", Model.Students);}
+</div>

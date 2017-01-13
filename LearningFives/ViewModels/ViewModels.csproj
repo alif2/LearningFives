@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SignUp\CoachStudentRankVM.cs" />
     <Compile Include="Teams\CoachFilterVM.cs" />
     <Compile Include="Teams\StudentFilterVM.cs" />
     <Compile Include="SignUp\AvailabilitySignUpVM.cs" />

@@ -1,75 +1,105 @@
-﻿@model List<ActionModels.SignUp.CoachSignUpAM>
+﻿@using ActionModels.Teams
+@model List<CoachProfileAM>
 
-<table class="table table-bordered container-fluid tablesorter" id="coach-list">
-    <thead>
-    <tr>
-        <th>Coach Status</th>
-        <th>Summoner Name</th>
-        <th>Server</th>
-        <th>Rank Tier</th>
-        <th>Rank Division</th>
-        <th>Age</th>
-        <th>Interested Bronze</th>
-        <th>Interested Silver</th>
-        <th>Interested Gold</th>
-        <th>Interested Plat</th>
-        <th>Interested Diamond</th>
-        <th>Willing Bronze</th>
-        <th>Willing Silver</th>
-        <th>Willing Gold</th>
-        <th>Willing Plat</th>
-        <th>Willing Diamond</th>
-        <th>Availability</th>
-        <th>Languages</th>
-        <th>Paired Players</th>
-        <th>Coaching Style</th>
-        <th>Coaching Experience</th>
-        <th>Commitment Level</th>
-        <th>Seriousness Level</th>
-        <th>Toxic Level</th>
-        <th>Had Low Priority</th>
-        <th>Had Chat Restrictions</th>
-        <th>Had Ranked Restrictions</th>
-        <th>Had Temp Ban</th>
-        <th>Had Permaban</th>
-        <th>More Information</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var coach in Model)
+@foreach (var coach in Model)
+{
+    var teachRankIcon = "Content/rank/";
+    switch (coach.InterestedRank)
     {
-        <tr>
-            <td>@coach.CoachStatus</td>
-            <td>@coach.SummonerInfo.SummonerName</td>
-            <td>@coach.SummonerInfo.Server</td>
-            <td>@coach.SummonerInfo.RankTier</td>
-            <td>@coach.SummonerInfo.RankDivision</td>
-            <td>@coach.SummonerInfo.Age</td>
-            <td>@coach.InterestedBronze</td>
-            <td>@coach.InterestedSilver</td>
-            <td>@coach.InterestedGold</td>
-            <td>@coach.InterestedPlat</td>
-            <td>@coach.InterestedDiamond</td>
-            <td>@coach.WillingBronze</td>
-            <td>@coach.WillingSilver</td>
-            <td>@coach.WillingGold</td>
-            <td>@coach.WillingPlat</td>
-            <td>@coach.WillingDiamond</td>
-            <td>@coach.AvailabilityInfo</td>
-            <td>@coach.Languages</td>
-            <td>@coach.PairedPlayers</td>
-            <td>@coach.CoachingStyle</td>
-            <td>@coach.CoachingExperience</td>
-            <td>@coach.Commitment.CommitmentLevel</td>
-            <td>@coach.Commitment.SeriousnessLevel</td>
-            <td>@coach.Toxic.ToxicLevel</td>
-            <td>@coach.Toxic.HadLowPriorityPunish</td>
-            <td>@coach.Toxic.HadChatRestrictions</td>
-            <td>@coach.Toxic.HadRankedRestrictions</td>
-            <td>@coach.Toxic.HadTemporaryBan</td>
-            <td>@coach.Toxic.HadPermanentBan</td>
-            <td>@coach.MoreInformation</td>
-        </tr>
+        case "Bronze":
+            teachRankIcon += "bronze.png";
+            break;
+        case "Silver":
+            teachRankIcon += "silver.png";
+            break;
+        case "Gold":
+            teachRankIcon += "gold.png";
+            break;
+        case "Platinum":
+            teachRankIcon += "platinum.png";
+            break;
+        case "Diamond":
+            teachRankIcon += "diamond.png";
+            break;
     }
-    </tbody>
-</table>
+
+    var seriousLevel = string.Empty;
+    switch (coach.Commitment.SeriousnessLevel)
+    {
+        case 0:
+            seriousLevel = "C";
+            break;
+        case 1:
+            seriousLevel = "SS";
+            break;
+        case 2:
+            seriousLevel = "S";
+            break;
+    }
+
+    var rankIcon = "Content/rank/";
+    if (coach.SummonerInfo.RiotApiInfo == null)
+    {
+        rankIcon = string.Empty;
+    }
+    else
+    {
+        switch (coach.SummonerInfo.RiotApiInfo.Leagues.First(x => x.QueueType == "RANKED_SOLO_5x5").Tier)
+        {
+            case "BRONZE":
+                rankIcon += "bronze.png";
+                break;
+            case "SILVER":
+                rankIcon += "silver.png";
+                break;
+            case "GOLD":
+                rankIcon += "gold.png";
+                break;
+            case "PLATINUM":
+                rankIcon += "platinum.png";
+                break;
+            case "DIAMOND":
+                rankIcon += "diamond.png";
+                break;
+            case "MASTER":
+                rankIcon += "master.png";
+                break;
+            case "CHALLENGER":
+                rankIcon += "challenger.png";
+                break;
+            default:
+                rankIcon += "provisional.png";
+                break;
+        }
+    }
+
+    var isToxic = coach.Toxic.ToxicLevel > 0;
+    var isRedFlag = coach.Toxic.HadLowPriorityPunish || coach.Toxic.HadChatRestrictions || coach.Toxic.HadRankedRestrictions || coach.Toxic.HadTemporaryBan || coach.Toxic.HadPermanentBan;
+
+    <div class="col-md-4 summoner-card coach-card">
+        <div class="row">
+            <span class="col-md-2" style="background-color: #2f8bcb;border-radius: 2px">@coach.SummonerInfo.Server</span>
+            <span class="col-md-7">@coach.SummonerInfo.SummonerName</span>
+            <span class="col-md-1"><img src="@teachRankIcon" style="width:25px" /></span>
+            <span class="col-md-2" style="text-align:right">[@seriousLevel]</span>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><img src="@rankIcon" style="width:50px" /></div>
+            <div class="col-md-10" style="text-align: right">
+                Speaks: @coach.Languages<br />
+                Team: @coach.PairedPlayers
+            </div>
+        </div>
+        <div class="row">
+            @if (isToxic)
+            {
+                <span>Toxic</span>
+            }
+
+            @if (isRedFlag)
+            {
+                <span>RedFlag</span>
+            }
+        </div>
+    </div>
+}

@@ -42,21 +42,17 @@
     <hr/>
 
     <div class="form-group">
-        @Html.Label("Level of players you want to coach:")
-            <label>@Html.CheckBoxFor(m => m.InterestedBronze) Bronze</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedSilver) Silver</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedGold) Gold</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedPlat) Platinum</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedDiamond) Diamond+</label>
+        @Html.LabelFor(m => m.StudentRank.PreferredStudentRank)
+        @Html.DropDownListFor(m => m.StudentRank.PreferredStudentRank, CoachStudentRankVM.RankOptions, null, new { @class = "form-control"})
     </div>
 
     <div class="form-group">
         @Html.Label("Level of players you are willing to coach:")
-            <label>@Html.CheckBoxFor(m => m.InterestedBronze) Bronze</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedSilver) Silver</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedGold) Gold</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedPlat) Platinum</label>
-            <label>@Html.CheckBoxFor(m => m.InterestedDiamond) Diamond+</label>
+            <label>@Html.CheckBoxFor(m => m.WillingBronze) Bronze</label>
+            <label>@Html.CheckBoxFor(m => m.WillingSilver) Silver</label>
+            <label>@Html.CheckBoxFor(m => m.WillingGold) Gold</label>
+            <label>@Html.CheckBoxFor(m => m.WillingPlat) Platinum</label>
+            <label>@Html.CheckBoxFor(m => m.WillingDiamond) Diamond+</label>
     </div>
 
     <hr/>
