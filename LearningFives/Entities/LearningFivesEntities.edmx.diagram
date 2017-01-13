@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f24439a3bab54413ade4227f4c4d966c" Name="Diagram1">
-        <EntityTypeShape EntityType="LearningFivesEntities.AvailabilityInfo" Width="1.5" PointX="3.75" PointY="12.5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.AvailabilityInfo" Width="1.5" PointX="3.75" PointY="22.75" />
         <EntityTypeShape EntityType="LearningFivesEntities.CoachSignUp" Width="1.5" PointX="6" PointY="6.25" />
-        <EntityTypeShape EntityType="LearningFivesEntities.Commitment" Width="1.5" PointX="3.75" PointY="23.5" />
-        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPILeague" Width="1.5" PointX="5.25" PointY="20.25" />
-        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPILeagueEntry" Width="1.5" PointX="7.5" PointY="19.875" />
-        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPISummoner" Width="1.5" PointX="3" PointY="20.25" />
-        <EntityTypeShape EntityType="LearningFivesEntities.RoleInfo" Width="1.5" PointX="0.75" PointY="4" />
-        <EntityTypeShape EntityType="LearningFivesEntities.StudentSignUp" Width="1.5" PointX="3" PointY="6.875" />
-        <EntityTypeShape EntityType="LearningFivesEntities.SummonerInfo" Width="1.5" PointX="0.75" PointY="8" />
-        <EntityTypeShape EntityType="LearningFivesEntities.Toxic" Width="1.5" PointX="3.75" PointY="3" />
+        <EntityTypeShape EntityType="LearningFivesEntities.Commitment" Width="1.5" PointX="3.75" PointY="3.625" />
+        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPILeague" Width="1.5" PointX="5.25" PointY="19.125" />
+        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPILeagueEntry" Width="1.5" PointX="7.5" PointY="18.625" />
+        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPISummoner" Width="1.5" PointX="3" PointY="19.125" />
+        <EntityTypeShape EntityType="LearningFivesEntities.RoleInfo" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.StudentSignUp" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.SummonerInfo" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.Toxic" Width="1.5" PointX="3.75" PointY="12.25" />
         <AssociationConnector Association="LearningFivesEntities.CoachSignUp_ibfk_2" />
         <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_3" />
         <AssociationConnector Association="LearningFivesEntities.CoachSignUp_ibfk_1" />

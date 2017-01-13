@@ -32,11 +32,7 @@
           <Property Name="CoachSignUpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CoachStatus" Type="int" Nullable="false" />
           <Property Name="SummonerInfoID" Type="int" Nullable="false" />
-          <Property Name="InterestedBronze" Type="bool" Nullable="false" />
-          <Property Name="InterestedSilver" Type="bool" Nullable="false" />
-          <Property Name="InterestedGold" Type="bool" Nullable="false" />
-          <Property Name="InterestedPlat" Type="bool" Nullable="false" />
-          <Property Name="InterestedDiamond" Type="bool" Nullable="false" />
+          <Property Name="InterestedRank" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="WillingBronze" Type="bool" Nullable="false" />
           <Property Name="WillingSilver" Type="bool" Nullable="false" />
           <Property Name="WillingGold" Type="bool" Nullable="false" />
@@ -445,11 +441,7 @@
           <Property Name="CoachSignUpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CoachStatus" Type="Int32" Nullable="false" />
           <Property Name="SummonerInfoID" Type="Int32" Nullable="false" />
-          <Property Name="InterestedBronze" Type="Boolean" Nullable="false" />
-          <Property Name="InterestedSilver" Type="Boolean" Nullable="false" />
-          <Property Name="InterestedGold" Type="Boolean" Nullable="false" />
-          <Property Name="InterestedPlat" Type="Boolean" Nullable="false" />
-          <Property Name="InterestedDiamond" Type="Boolean" Nullable="false" />
+          <Property Name="InterestedRank" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="WillingBronze" Type="Boolean" Nullable="false" />
           <Property Name="WillingSilver" Type="Boolean" Nullable="false" />
           <Property Name="WillingGold" Type="Boolean" Nullable="false" />
@@ -771,11 +763,7 @@
                 <ScalarProperty Name="WillingGold" ColumnName="WillingGold" />
                 <ScalarProperty Name="WillingSilver" ColumnName="WillingSilver" />
                 <ScalarProperty Name="WillingBronze" ColumnName="WillingBronze" />
-                <ScalarProperty Name="InterestedDiamond" ColumnName="InterestedDiamond" />
-                <ScalarProperty Name="InterestedPlat" ColumnName="InterestedPlat" />
-                <ScalarProperty Name="InterestedGold" ColumnName="InterestedGold" />
-                <ScalarProperty Name="InterestedSilver" ColumnName="InterestedSilver" />
-                <ScalarProperty Name="InterestedBronze" ColumnName="InterestedBronze" />
+                <ScalarProperty Name="InterestedRank" ColumnName="InterestedRank" />
                 <ScalarProperty Name="SummonerInfoID" ColumnName="SummonerInfoID" />
                 <ScalarProperty Name="CoachStatus" ColumnName="CoachStatus" />
                 <ScalarProperty Name="CoachSignUpID" ColumnName="CoachSignUpID" />
