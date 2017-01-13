@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccessors\IRiotAPIDataAccessor.cs" />
     <Compile Include="DataAccessors\ITeamsDataAccessor.cs" />
     <Compile Include="DataAccessors\ISignUpDataAccessor.cs" />
+    <Compile Include="Engines\IRiotAPIEngine.cs" />
     <Compile Include="Engines\ITeamsEngine.cs" />
     <Compile Include="Engines\ISignUpEngine.cs" />
     <Compile Include="Managers\ITeamsManager.cs" />

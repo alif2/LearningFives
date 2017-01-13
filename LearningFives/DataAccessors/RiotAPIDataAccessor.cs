@@ -3,10 +3,11 @@ using Entities;
 using RiotAPI;
 using System.Collections.Generic;
 using System.Linq;
+using Interfaces.DataAccessors;
 
 namespace DataAccessors
 {
-    public class RiotApiDataAccessor
+    public class RiotApiDataAccessor : IRiotApiDataAccessor
     {
         public SummonerInfoDM GetSummonerByName(string summonerName, string server)
         {
@@ -73,6 +74,8 @@ namespace DataAccessors
             using (var context = new LearningFivesEntities())
             {
                 var summonerInfo = context.SummonerInfoes.First(summoner => summoner.SummonerName == summonerName && summoner.ServerName == server);
+                if (summonerInfo == null) return;
+
                 var riotApiServer = RiotApiServers.GetRegionByName(server);
                 var riotApiSummoner = RiotApi.GetSummonerByName(summonerName, riotApiServer);
                 var riotApiLeague = RiotApi.GetLeagueEntriesBySummonerId(riotApiSummoner.Id, riotApiServer);
