@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RiotAPIEngine.cs" />
     <Compile Include="TeamsEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpEngine.cs" />

@@ -89,11 +89,11 @@ namespace Managers
                     Age = coachSignUp.SummonerInfo.Age,
                     Email = coachSignUp.SummonerInfo.Email
                 },
-                InterestedBronze = coachSignUp.InterestedBronze,
-                InterestedSilver = coachSignUp.InterestedSilver,
-                InterestedGold = coachSignUp.InterestedGold,
-                InterestedPlat = coachSignUp.InterestedPlat,
-                InterestedDiamond = coachSignUp.InterestedDiamond,
+
+                InterestedRank = new CoachStudentRankDM
+                {
+                    PreferredStudentRank = coachSignUp.StudentRank.PreferredStudentRank
+                },
 
                 WillingBronze = coachSignUp.WillingBronze,
                 WillingSilver = coachSignUp.WillingSilver,

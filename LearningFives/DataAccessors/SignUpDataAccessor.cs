@@ -88,11 +88,7 @@ namespace DataAccessors
                         Age = coachSignUp.SummonerInfo.Age,
                         Email = coachSignUp.SummonerInfo.Email
                     },
-                    InterestedBronze = coachSignUp.InterestedBronze,
-                    InterestedSilver = coachSignUp.InterestedSilver,
-                    InterestedGold = coachSignUp.InterestedGold,
-                    InterestedPlat = coachSignUp.InterestedPlat,
-                    InterestedDiamond = coachSignUp.InterestedDiamond,
+                    InterestedRank = coachSignUp.InterestedRank.PreferredStudentRank,
 
                     WillingBronze = coachSignUp.WillingBronze,
                     WillingSilver = coachSignUp.WillingSilver,

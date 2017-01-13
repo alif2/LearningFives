@@ -68,7 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SignUp\CoachStudentRankDM.cs" />
     <Compile Include="Teams\CoachFilterDM.cs" />
+    <Compile Include="Teams\CoachProfileDM.cs" />
     <Compile Include="Teams\RiotApiLeagueDM.cs" />
     <Compile Include="Teams\RiotApiLeagueEntryDM.cs" />
     <Compile Include="Teams\RiotApiSummonerDM.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="SignUp\StudentSignUpDM.cs" />
     <Compile Include="SignUp\SummonerSignUpDM.cs" />
     <Compile Include="SignUp\ToxicSignUpDM.cs" />
+    <Compile Include="Teams\StudentProfileDM.cs" />
     <Compile Include="Teams\SummonerInfoDM.cs" />
   </ItemGroup>
   <ItemGroup />

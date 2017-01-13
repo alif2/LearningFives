@@ -17,11 +17,7 @@ namespace Entities
         public int CoachSignUpID { get; set; }
         public int CoachStatus { get; set; }
         public int SummonerInfoID { get; set; }
-        public bool InterestedBronze { get; set; }
-        public bool InterestedSilver { get; set; }
-        public bool InterestedGold { get; set; }
-        public bool InterestedPlat { get; set; }
-        public bool InterestedDiamond { get; set; }
+        public string InterestedRank { get; set; }
         public bool WillingBronze { get; set; }
         public bool WillingSilver { get; set; }
         public bool WillingGold { get; set; }

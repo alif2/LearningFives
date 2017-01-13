@@ -42,13 +42,26 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Teams\AllSignUpsAM.cs" />
-    <Compile Include="SignUp\AvailabilitySignUpAM.cs" />
-    <Compile Include="SignUp\CoachSignUpAM.cs" />
-    <Compile Include="SignUp\CommitmentSignUpAM.cs" />
-    <Compile Include="SignUp\RoleSignUpAM.cs" />
-    <Compile Include="SignUp\StudentSignUpAM.cs" />
-    <Compile Include="SignUp\SummonerSignUpAM.cs" />
-    <Compile Include="SignUp\ToxicSignUpAM.cs" />
+    <Compile Include="Teams\AvailabilitySignUpAM.cs" />
+    <Compile Include="Teams\CoachProfileAM.cs" />
+    <Compile Include="Teams\CommitmentSignUpAM.cs" />
+    <Compile Include="Teams\RiotApiLeagueAM.cs" />
+    <Compile Include="Teams\RiotApiLeagueEntryAM.cs" />
+    <Compile Include="Teams\RiotApiSummonerAM.cs" />
+    <Compile Include="Teams\RoleSignUpAM.cs" />
+    <Compile Include="Teams\StudentProfileAM.cs" />
+    <Compile Include="Teams\SummonerInfoAM.cs" />
+    <Compile Include="Teams\SummonerSignUpAM.cs" />
+    <Compile Include="Teams\ToxicSignUpAM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SignUp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataModels\DataModels.csproj">
+      <Project>{23E27263-F84B-4A9E-9ED1-78CCEA20A5F3}</Project>
+      <Name>DataModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

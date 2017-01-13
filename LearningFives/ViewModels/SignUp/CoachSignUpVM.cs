@@ -12,11 +12,8 @@ namespace ViewModels.SignUp
         [Required]
         public SummonerSignUpVM SummonerInfo { get; set; }
 
-        public bool InterestedBronze { get; set; }
-        public bool InterestedSilver { get; set; }
-        public bool InterestedGold { get; set; }
-        public bool InterestedPlat { get; set; }
-        public bool InterestedDiamond { get; set; }
+        [Required]
+        public CoachStudentRankVM StudentRank { get; set; }
         public bool WillingBronze { get; set; }
         public bool WillingSilver { get; set; }
         public bool WillingGold { get; set; }

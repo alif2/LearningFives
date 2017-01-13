@@ -6,11 +6,7 @@
 
         public SummonerSignUpDM SummonerInfo { get; set; }
 
-        public bool InterestedBronze { get; set; }
-        public bool InterestedSilver { get; set; }
-        public bool InterestedGold { get; set; }
-        public bool InterestedPlat { get; set; }
-        public bool InterestedDiamond { get; set; }
+        public CoachStudentRankDM InterestedRank { get; set; }
 
         public bool WillingBronze { get; set; }
         public bool WillingSilver { get; set; }

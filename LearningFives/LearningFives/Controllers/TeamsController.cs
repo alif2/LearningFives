@@ -1,7 +1,7 @@
+using ActionModels.Teams;
 using Interfaces.Managers;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using ActionModels.Teams;
 using ViewModels.Teams;
 
 namespace LearningFives.Controllers
@@ -15,10 +15,8 @@ namespace LearningFives.Controllers
             _teamsManager = teamsManager;
         }
 
-        public async Task<ActionResult> Index(int pageNumber = 1, int pageSize = 25, int studentStatus = -1, string server = null, string rankTier = null)
+        public async Task<ActionResult> Index(int studentStatus = -1, string server = null, string rankTier = null)
         {
-            ViewBag.PageNumber = pageNumber;
-            ViewBag.PageSize = pageSize;
             ViewBag.StudentStatus = studentStatus;
             ViewBag.Server = server;
             ViewBag.RankTier = rankTier;
@@ -27,21 +25,22 @@ namespace LearningFives.Controllers
             {
                 Students = await _teamsManager.GetAllStudentsAsync(new StudentFilterVM
                 {
-                    PageNumber = pageNumber,
-                    PageSize = pageSize,
                     StudentStatus = studentStatus,
                     Server = server,
                     RankTier = rankTier
                 }),
                 Coaches = await _teamsManager.GetAllCoachesAsync(new CoachFilterVM
                 {
-                    PageNumber = pageNumber,
-                    PageSize = pageSize,
                     CoachStatus = studentStatus,
                     Server = server,
                     RankTier = rankTier
                 })
             });
+        }
+
+        public async Task AddStudentToCoach(string coachName, string coachServer, string studentName, string studentServer)
+        {
+            
         }
     }
 }
