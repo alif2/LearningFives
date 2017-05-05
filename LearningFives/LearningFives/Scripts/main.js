@@ -9,7 +9,7 @@
                 $.ajax({
                     type: 'POST',
                     url: 'Teams/AddStudentToCoach',
-                    data: {coachName : $(this)., coachServer: "", studentName: "", studentServer: ""},
+                    data: {coachName : $(this), coachServer: "", studentName: "", studentServer: ""},
                     contentType: 'application/json; charset=utf8',
                     dataType: 'json',
                     success: function() {

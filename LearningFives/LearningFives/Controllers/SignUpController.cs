@@ -1,17 +1,16 @@
-﻿using Interfaces.Managers;
+﻿using DataAccessors;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using ViewModels.SignUp;
 
 namespace LearningFives.Controllers
 {
     public class SignUpController : Controller
     {
-        private readonly ISignUpManager _signUpManager;
+        private readonly SignUpDataAccessor _signUpDataAccessor;
 
-        public SignUpController(ISignUpManager signUpManager)
+        public SignUpController(SignUpDataAccessor signUpDataAccessor)
         {
-            _signUpManager = signUpManager;
+            _signUpDataAccessor = signUpDataAccessor;
         }
 
         public ActionResult Student()
@@ -25,10 +24,10 @@ namespace LearningFives.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Student(StudentSignUpVM studentSignUp)
+        public async Task<ActionResult> Student(StudentSignUp studentSignUp)
         {
             //If database insert succeeded
-            if(await _signUpManager.RegisterStudentAsync(studentSignUp))
+            if(await _signUpDataAccessor.RegisterStudent(studentSignUp))
             {
                 return View("~/Views/Home/Index.cshtml");
             }
@@ -36,10 +35,10 @@ namespace LearningFives.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Coach(CoachSignUpVM coachSignUp)
+        public async Task<ActionResult> Coach(CoachSignUp coachSignUp)
         {
             //If database insert succeeded
-            if (await _signUpManager.RegisterCoachAsync(coachSignUp))
+            if (await _signUpDataAccessor.RegisterCoach(coachSignUp))
             {
                 return View("~/Views/Home/Index.cshtml");
             }

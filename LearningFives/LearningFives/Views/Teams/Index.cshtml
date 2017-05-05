@@ -1,5 +1,4 @@
 ﻿@using System.Web.Mvc.Html
-@using ViewModels.SignUp
 @model ActionModels.Teams.AllSignUpsAM
 
 @{
@@ -12,7 +11,7 @@
 <div>
     <h3>Coaches</h3>
     <hr/>
-    @{Html.RenderPartial("~/Views/Teams/_CoachList.cshtml", Model.Coaches);}
+    @{/*Html.RenderPartial("~/Views/Teams/_CoachList.cshtml", Model.Coaches);*/}
 </div>
 
 <div>
@@ -22,15 +21,15 @@
     }, FormMethod.Post, new { role = "form" }))
     {
         @Html.Label("Rank Tier")
-        @Html.DropDownList("rankTier", SummonerSignUpVM.RankTierOptions)
+        @Html.DropDownList("rankTier", SignUp.RankTierOptions)
 
         @Html.Label("Server")
-        @Html.DropDownList("server", SummonerSignUpVM.ServerOptions)
+        @Html.DropDownList("server", SignUp.ServerOptions)
 
         <button type="submit">Submit</button>
     }
 
     <h3>Students</h3>
     <hr/>
-    @{Html.RenderPartial("~/Views/Teams/_StudentList.cshtml", Model.Students);}
+    @{/*Html.RenderPartial("~/Views/Teams/_StudentList.cshtml", Model.Students);*/}
 </div>

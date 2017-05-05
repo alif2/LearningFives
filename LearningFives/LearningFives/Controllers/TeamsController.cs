@@ -1,18 +1,17 @@
-using ActionModels.Teams;
-using Interfaces.Managers;
+using DataAccessors;
+using DataModels.Teams;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using ViewModels.Teams;
 
 namespace LearningFives.Controllers
 {
     public class TeamsController : Controller
     {
-        private readonly ITeamsManager _teamsManager;
+        private readonly TeamsDataAccessor _teamsDataAccessor;
 
-        public TeamsController(ITeamsManager teamsManager)
+        public TeamsController(TeamsDataAccessor teamsDataAccessor)
         {
-            _teamsManager = teamsManager;
+            _teamsDataAccessor = teamsDataAccessor;
         }
 
         public async Task<ActionResult> Index(int studentStatus = -1, string server = null, string rankTier = null)
@@ -21,24 +20,24 @@ namespace LearningFives.Controllers
             ViewBag.Server = server;
             ViewBag.RankTier = rankTier;
 
-            return View(new AllSignUpsAM
+            return View(new AllSignUpsDM
             {
-                Students = await _teamsManager.GetAllStudentsAsync(new StudentFilterVM
+                Students = await _teamsDataAccessor.GetAllStudentsAsync(new StudentFilterDM
                 {
                     StudentStatus = studentStatus,
                     Server = server,
                     RankTier = rankTier
                 }),
-                Coaches = await _teamsManager.GetAllCoachesAsync(new CoachFilterVM
+                /*Coaches = await _teamsDataAccessor.GetAllCoachesAsync(new CoachFilterVM
                 {
                     CoachStatus = studentStatus,
                     Server = server,
                     RankTier = rankTier
-                })
+                })*/
             });
         }
 
-        public async Task AddStudentToCoach(string coachName, string coachServer, string studentName, string studentServer)
+        public async Task AddStudentToCoachAsync(string coachName, string coachServer, string studentName, string studentServer)
         {
             
         }

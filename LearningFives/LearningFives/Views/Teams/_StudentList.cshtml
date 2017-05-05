@@ -1,5 +1,4 @@
-﻿@using ActionModels.Teams
-@model List<StudentProfileAM>
+﻿@model List<Entities.StudentSignUp>
 
 @foreach (var student in Model)
 {
@@ -41,13 +40,13 @@
     }
 
     var rankIcon = "Content/rank/";
-    if (student.SummonerInfo.RiotApiInfo == null)
+    if (student.SummonerInfo.RiotAPISummoners == null)
     {
         rankIcon = string.Empty;
     }
     else
     {
-        switch (student.SummonerInfo.RiotApiInfo.Leagues.First(x => x.QueueType == "RANKED_SOLO_5x5").Tier)
+        switch (student.SummonerInfo.RiotAPISummoners.First().RiotAPILeagues.First(x => x.QueueType == "RANKED_SOLO_5x5").Tier)
         {
             case "BRONZE":
                 rankIcon += "bronze.png";
@@ -76,11 +75,11 @@
         }
     }
     var isToxic = student.Toxic.ToxicLevel > 0;
-    var isRedFlag = student.Toxic.HadLowPriorityPunish || student.Toxic.HadChatRestrictions || student.Toxic.HadRankedRestrictions || student.Toxic.HadTemporaryBan || student.Toxic.HadPermanentBan;
+    var isRedFlag = student.Toxic.HadLowPriorityPunish || student.Toxic.HadChatRestriction || student.Toxic.HadRankedRestrictions || student.Toxic.HadTemporaryBan || student.Toxic.HadPermanentBan;
 
     <div class="col-md-4 summoner-card student-card">
         <div class="row">
-            <span class="col-md-2" style="background-color: #2f8bcb;border-radius: 2px">@student.SummonerInfo.Server</span>
+            <span class="col-md-2" style="background-color: #2f8bcb;border-radius: 2px">@student.SummonerInfo.ServerName</span>
             <span class="col-md-7">@student.SummonerInfo.SummonerName</span>
             <span class="col-md-1"><img src="@positionIcon" style="width:25px"/></span>
             <span class="col-md-2" style="text-align:right">[@seriousLevel]</span>

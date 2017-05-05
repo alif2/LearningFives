@@ -1,5 +1,4 @@
-﻿@using ActionModels.Teams
-@model List<CoachProfileAM>
+﻿@model List<Entities.CoachSignUp>
 
 @foreach (var coach in Model)
 {
@@ -38,13 +37,13 @@
     }
 
     var rankIcon = "Content/rank/";
-    if (coach.SummonerInfo.RiotApiInfo == null)
+    if (coach.SummonerInfo.RiotAPISummoners == null)
     {
         rankIcon = string.Empty;
     }
     else
     {
-        switch (coach.SummonerInfo.RiotApiInfo.Leagues.First(x => x.QueueType == "RANKED_SOLO_5x5").Tier)
+        switch (coach.SummonerInfo.RiotAPISummoners.First().RiotAPILeagues.First(x => x.QueueType == "RANKED_SOLO_5x5").Tier)
         {
             case "BRONZE":
                 rankIcon += "bronze.png";
@@ -74,11 +73,11 @@
     }
 
     var isToxic = coach.Toxic.ToxicLevel > 0;
-    var isRedFlag = coach.Toxic.HadLowPriorityPunish || coach.Toxic.HadChatRestrictions || coach.Toxic.HadRankedRestrictions || coach.Toxic.HadTemporaryBan || coach.Toxic.HadPermanentBan;
+    var isRedFlag = coach.Toxic.HadLowPriorityPunish || coach.Toxic.HadChatRestriction || coach.Toxic.HadRankedRestrictions || coach.Toxic.HadTemporaryBan || coach.Toxic.HadPermanentBan;
 
     <div class="col-md-4 summoner-card coach-card">
         <div class="row">
-            <span class="col-md-2" style="background-color: #2f8bcb;border-radius: 2px">@coach.SummonerInfo.Server</span>
+            <span class="col-md-2" style="background-color: #2f8bcb;border-radius: 2px">@coach.SummonerInfo.ServerName</span>
             <span class="col-md-7">@coach.SummonerInfo.SummonerName</span>
             <span class="col-md-1"><img src="@teachRankIcon" style="width:25px" /></span>
             <span class="col-md-2" style="text-align:right">[@seriousLevel]</span>

@@ -61,24 +61,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvailabilityInfo.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CoachSignUp.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Commitment.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LearningFivesEntities.Context.cs">
+      <DependentUpon>LearningFivesEntities.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="LearningFivesEntities.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="LearningFivesEntities.Designer.cs">
+      <DependentUpon>LearningFivesEntities.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="RiotAPIDataAccessor.cs" />
+    <Compile Include="RiotAPILeague.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiotAPILeagueEntry.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiotAPISummoner.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleInfo.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSignUp.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SummonerInfo.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TeamsDataAccessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpDataAccessor.cs" />
+    <Compile Include="Toxic.cs">
+      <DependentUpon>LearningFivesEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataModels\DataModels.csproj">
-      <Project>{23E27263-F84B-4A9E-9ED1-78CCEA20A5F3}</Project>
-      <Name>DataModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{912280a6-f1cd-402a-b018-78f6e201db28}</Project>
-      <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
-      <Project>{83B85EBC-E0A6-43AB-8A0F-171580A613DD}</Project>
-      <Name>Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RiotAPI\RiotAPI.csproj">
       <Project>{dc9ace1f-fec5-4d0f-b54c-dcb81264adfc}</Project>
       <Name>RiotAPI</Name>
@@ -89,7 +122,26 @@
     <None Include="L5DBConnections.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <EntityDeploy Include="LearningFivesEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LearningFivesEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LearningFivesEntities.edmx.diagram">
+      <DependentUpon>LearningFivesEntities.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LearningFivesEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LearningFivesEntities.edmx</DependentUpon>
+      <LastGenOutput>LearningFivesEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LearningFivesEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LearningFivesEntities.edmx</DependentUpon>
+      <LastGenOutput>LearningFivesEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

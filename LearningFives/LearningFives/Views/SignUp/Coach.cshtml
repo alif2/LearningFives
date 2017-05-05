@@ -1,5 +1,4 @@
-﻿@using ViewModels.SignUp
-@model CoachSignUpVM
+﻿@model Entities.CoachSignUp
 
 @{
     ViewBag.Title = "Coach Registration";
@@ -25,8 +24,8 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.SummonerInfo.Server)
-        @Html.DropDownListFor(m => m.SummonerInfo.Server, SummonerSignUpVM.ServerOptions, null, new { @class = "form-control" })
+        @Html.LabelFor(m => m.SummonerInfo.ServerName)
+        @Html.DropDownListFor(m => m.SummonerInfo.ServerName, SignUp.ServerOptions, null, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
@@ -42,8 +41,8 @@
     <hr/>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.StudentRank.PreferredStudentRank)
-        @Html.DropDownListFor(m => m.StudentRank.PreferredStudentRank, CoachStudentRankVM.RankOptions, null, new { @class = "form-control"})
+        @Html.LabelFor(m => m.InterestedRank)
+        @Html.DropDownListFor(m => m.InterestedRank, SignUp.TeachingRankOptions, null, new { @class = "form-control"})
     </div>
 
     <div class="form-group">
@@ -178,7 +177,7 @@
     <div class="form-group">
         @Html.Label("Select any punishments you have received:")
         <label>@Html.CheckBoxFor(m => m.Toxic.HadLowPriorityPunish) Low priority queue</label>
-        <label>@Html.CheckBoxFor(m => m.Toxic.HadChatRestrictions) Chat restrictions</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadChatRestriction) Chat restrictions</label>
         <label>@Html.CheckBoxFor(m => m.Toxic.HadRankedRestrictions) Ranked restrictions</label>
         <label>@Html.CheckBoxFor(m => m.Toxic.HadTemporaryBan) Temporary ban</label>
         <label>@Html.CheckBoxFor(m => m.Toxic.HadPermanentBan) Permanent ban</label>

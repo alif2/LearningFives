@@ -1,15 +1,12 @@
-﻿using DataModels.Teams;
-using Entities;
-using RiotAPI;
+﻿using RiotAPI;
 using System.Collections.Generic;
 using System.Linq;
-using Interfaces.DataAccessors;
 
 namespace DataAccessors
 {
-    public class RiotApiDataAccessor : IRiotApiDataAccessor
+    public class RiotApiDataAccessor
     {
-        public SummonerInfoDM GetSummonerByName(string summonerName, string server)
+        public SummonerInfo GetSummonerByName(string summonerName, string server)
         {
             using (var context = new LearningFivesEntities())
             {
@@ -23,19 +20,19 @@ namespace DataAccessors
                 }
 
                 var riotApiSummoner = summonerInfo.RiotAPISummoners.First();
-                var leagues = new List<RiotApiLeagueDM>();
+                var leagues = new List<RiotAPILeague>();
                 foreach (var league in riotApiSummoner.RiotAPILeagues)
                 {
                     var leagueEntry = league.RiotAPILeagueEntries.First();
 
-                    leagues.Add(new RiotApiLeagueDM
+                    leagues.Add(new RiotAPILeague
                     {
                         LeagueName = league.LeagueName,
                         QueueType = league.QueueType,
                         Tier = league.Tier,
-                        LeagueEntries = new List<RiotApiLeagueEntryDM>
+                        RiotAPILeagueEntries = new List<RiotAPILeagueEntry>
                         {
-                            new RiotApiLeagueEntryDM
+                            new RiotAPILeagueEntry
                             {
                                 Division = leagueEntry.Division,
                                 IsFreshBlood = leagueEntry.IsFreshBlood,
@@ -49,23 +46,8 @@ namespace DataAccessors
                         }
                     });
                 }
-
-                return new SummonerInfoDM
-                {
-                    SummonerInfoId = summonerInfo.SummonerInfoID,
-                    SummonerName = summonerInfo.SummonerName,
-                    Server = summonerInfo.ServerName,
-                    Age = summonerInfo.Age,
-                    Email = summonerInfo.Email,
-                    RiotApiInfo = new RiotApiSummonerDM
-                    {
-                        RiotApiSummonerId = riotApiSummoner.RiotAPISummonerID,
-                        ProfileIconId = riotApiSummoner.ProfileIconID,
-                        RevisionDate = riotApiSummoner.RevisionDate,
-                        SummonerLevel = riotApiSummoner.SummonerLevel,
-                        Leagues = leagues
-                    }
-                };
+                //TODO: Add leagues
+                return summonerInfo;
             }
         }
 
