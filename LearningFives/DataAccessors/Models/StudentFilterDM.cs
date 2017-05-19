@@ -1,6 +1,6 @@
-﻿namespace ViewModels.Teams
+﻿namespace DataAccessors.Models
 {
-    public class StudentFilterVM
+    public class StudentFilterDM
     {
         public int StudentStatus { get; set; }
         public string Server { get; set; }

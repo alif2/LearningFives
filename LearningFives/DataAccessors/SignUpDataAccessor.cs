@@ -1,9 +1,8 @@
-﻿using Interfaces.DataAccessors;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace DataAccessors
 {
-    public class SignUpDataAccessor : ISignUpDataAccessor
+    public class SignUpDataAccessor
     {
         public async Task<bool> RegisterStudent(StudentSignUp studentSignUp)
         {

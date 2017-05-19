@@ -1,8 +1,8 @@
-﻿@model List<Entities.StudentSignUp>
+﻿@model List<DataAccessors.StudentSignUp>
 
 @foreach (var student in Model)
 {
-    var positionIcon = "Content/role/";
+    var positionIcon = "/Content/role/";
     switch (student.RoleInfo.PreferredRole)
     {
         case "TopLane":
@@ -39,8 +39,8 @@
             break;
     }
 
-    var rankIcon = "Content/rank/";
-    if (student.SummonerInfo.RiotAPISummoners == null)
+    var rankIcon = "/Content/rank/";
+    if (student.SummonerInfo.RiotAPISummoners == null || student.SummonerInfo.RiotAPISummoners.Count < 1)
     {
         rankIcon = string.Empty;
     }

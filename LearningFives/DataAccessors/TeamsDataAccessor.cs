@@ -1,4 +1,4 @@
-﻿using DataModels.Teams;
+﻿using DataAccessors.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,7 +12,17 @@ namespace DataAccessors
         {
             using (var context = new LearningFivesEntities())
             {
-                var filter = context.StudentSignUps.AsQueryable();
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+                var filter = context.StudentSignUps
+                           .AsNoTracking()
+                           .AsQueryable()
+                           .Include(i => i.Commitment)
+                           .Include(i => i.RoleInfo)
+                           .Include(i => i.SummonerInfo)
+                           .Include(i => i.SummonerInfo.RiotAPISummoners.Select(j => j.RiotAPILeagues))
+                           .Include(i => i.Toxic);
 
                 if (studentFilter.StudentStatus >= 0)
                 {
@@ -26,36 +36,14 @@ namespace DataAccessors
 
                 if (!string.IsNullOrEmpty(studentFilter.RankTier))
                 {
-                    var studentList = new List<StudentSignUp>();
-                    foreach (var item in filter)
-                    {
-                        var league = item.SummonerInfo?.RiotAPISummoners?.FirstOrDefault()?.RiotAPILeagues?.FirstOrDefault();
-                        if (league != null && league.Tier == studentFilter.RankTier)
-                        {
-                            studentList.Add(item);
-                        }
-                    }
+                    filter = filter.Where(i => i.SummonerInfo.RiotAPISummoners.Count > 0);
 
-                    filter = studentList.AsQueryable();
+                    filter = filter.Where(i => i.SummonerInfo.RiotAPISummoners
+                             .Any(j => j.RiotAPILeagues
+                             .Any(k => k.QueueType.Equals("RANKED_SOLO_5x5") && k.Tier == studentFilter.RankTier)));
                 }
-
-                var fil = await filter.OrderBy(i => i.SummonerInfo.SummonerName).ToListAsync();
-
-                var list = new List<StudentSignUp>();
-                foreach (var student in fil)
-                {
-                    var summonerInfo = student.SummonerInfo;
-                    var riotApiInfo = summonerInfo.RiotAPISummoners.FirstOrDefault();
-
-                    List<RiotAPILeague> leagues = null;
-                    if (riotApiInfo != null)
-                    {
-                        leagues = riotApiInfo.RiotAPILeagues?.ToList();
-                    }
-           //TODO: Get leagues
-                    list.Add(student);
-                }
-                return list;
+                
+                return await filter.OrderBy(i => i.SummonerInfo.SummonerName).ToListAsync();
             }
         }
 
@@ -63,7 +51,16 @@ namespace DataAccessors
         {
             using (var context = new LearningFivesEntities())
             {
-                var filter = context.CoachSignUps.AsQueryable();
+                context.Configuration.LazyLoadingEnabled = false;
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+                var filter = context.CoachSignUps
+                           .AsNoTracking()
+                           .AsQueryable()
+                           .Include(i => i.Commitment)
+                           .Include(i => i.SummonerInfo)
+                           .Include(i => i.SummonerInfo.RiotAPISummoners.Select(j => j.RiotAPILeagues))
+                           .Include(i => i.Toxic);
 
                 if (coachFilter.CoachStatus > 0)
                 {
@@ -77,36 +74,14 @@ namespace DataAccessors
 
                 if (!string.IsNullOrEmpty(coachFilter.RankTier))
                 {
-                    var coachList = new List<CoachSignUp>();
-                    foreach (var item in filter)
-                    {
-                        var league = item.SummonerInfo?.RiotAPISummoners?.FirstOrDefault()?.RiotAPILeagues?.FirstOrDefault();
-                        if (league != null && league.Tier == coachFilter.RankTier)
-                        {
-                            coachList.Add(item);
-                        }
-                    }
+                    filter = filter.Where(i => i.SummonerInfo.RiotAPISummoners.Count > 0);
 
-                    filter = coachList.AsQueryable();
+                    filter = filter.Where(i => i.SummonerInfo.RiotAPISummoners
+                           .Any(j => j.RiotAPILeagues
+                           .Any(k => k.QueueType.Equals("RANKED_SOLO_5x5") && k.Tier == coachFilter.RankTier)));
                 }
 
-                var fil = await filter.OrderBy(i => i.SummonerInfo.SummonerName).ToListAsync();
-
-                var list = new List<CoachSignUp>();
-                foreach (var coach in fil)
-                {
-                    var summonerInfo = coach.SummonerInfo;
-                    var riotApiInfo = summonerInfo.RiotAPISummoners.FirstOrDefault();
-
-                    List<RiotAPILeague> leagues = null;
-                    if (riotApiInfo != null)
-                    {
-                        leagues = riotApiInfo.RiotAPILeagues?.ToList();
-                    }
-                    
-                    list.Add(coach);
-                }
-                return list;
+                return await filter.OrderBy(i => i.SummonerInfo.SummonerName).ToListAsync();
             }
         }
     }

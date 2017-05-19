@@ -1,4 +1,4 @@
-﻿@model List<Entities.CoachSignUp>
+﻿@model List<DataAccessors.CoachSignUp>
 
 @foreach (var coach in Model)
 {
@@ -37,7 +37,7 @@
     }
 
     var rankIcon = "Content/rank/";
-    if (coach.SummonerInfo.RiotAPISummoners == null)
+    if (coach.SummonerInfo.RiotAPISummoners == null || coach.SummonerInfo.RiotAPISummoners.Count < 1)
     {
         rankIcon = string.Empty;
     }

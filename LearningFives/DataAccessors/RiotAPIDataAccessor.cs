@@ -18,35 +18,7 @@ namespace DataAccessors
                     UpdateRiotApiSummoner(summonerName, server);
                     summonerInfo = context.SummonerInfoes.First(summoner => summoner.SummonerName == summonerName && summoner.ServerName == server);
                 }
-
-                var riotApiSummoner = summonerInfo.RiotAPISummoners.First();
-                var leagues = new List<RiotAPILeague>();
-                foreach (var league in riotApiSummoner.RiotAPILeagues)
-                {
-                    var leagueEntry = league.RiotAPILeagueEntries.First();
-
-                    leagues.Add(new RiotAPILeague
-                    {
-                        LeagueName = league.LeagueName,
-                        QueueType = league.QueueType,
-                        Tier = league.Tier,
-                        RiotAPILeagueEntries = new List<RiotAPILeagueEntry>
-                        {
-                            new RiotAPILeagueEntry
-                            {
-                                Division = leagueEntry.Division,
-                                IsFreshBlood = leagueEntry.IsFreshBlood,
-                                IsHotStreak = leagueEntry.IsHotStreak,
-                                IsInactive = leagueEntry.IsInactive,
-                                IsVeteran = leagueEntry.IsInactive,
-                                LeaguePoints = leagueEntry.LeaguePoints,
-                                Losses = leagueEntry.Losses,
-                                Wins = leagueEntry.Wins 
-                            }
-                        }
-                    });
-                }
-                //TODO: Add leagues
+                
                 return summonerInfo;
             }
         }
@@ -89,6 +61,7 @@ namespace DataAccessors
                     });
                 }
 
+                summonerInfo.RiotAPISummoners.Clear();
                 summonerInfo.RiotAPISummoners.Add(new RiotAPISummoner
                 {
                     RiotAPISummonerID = riotApiSummoner.Id,

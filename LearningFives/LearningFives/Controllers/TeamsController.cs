@@ -1,13 +1,20 @@
+using System.Collections.Generic;
 using DataAccessors;
-using DataModels.Teams;
+using DataAccessors.Models;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using LearningFives.Models.Teams;
 
 namespace LearningFives.Controllers
 {
     public class TeamsController : Controller
     {
         private readonly TeamsDataAccessor _teamsDataAccessor;
+
+        public TeamsController()
+        {
+            _teamsDataAccessor = new TeamsDataAccessor();
+        }
 
         public TeamsController(TeamsDataAccessor teamsDataAccessor)
         {
@@ -20,7 +27,7 @@ namespace LearningFives.Controllers
             ViewBag.Server = server;
             ViewBag.RankTier = rankTier;
 
-            return View(new AllSignUpsDM
+            return View(new AllSignUpsVM
             {
                 Students = await _teamsDataAccessor.GetAllStudentsAsync(new StudentFilterDM
                 {
@@ -28,12 +35,12 @@ namespace LearningFives.Controllers
                     Server = server,
                     RankTier = rankTier
                 }),
-                /*Coaches = await _teamsDataAccessor.GetAllCoachesAsync(new CoachFilterVM
+                Coaches = await _teamsDataAccessor.GetAllCoachesAsync(new CoachFilterDM
                 {
                     CoachStatus = studentStatus,
                     Server = server,
                     RankTier = rankTier
-                })*/
+                })
             });
         }
 

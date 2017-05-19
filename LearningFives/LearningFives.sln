@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotAPI", "RiotAPI\RiotAPI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiotAPITests", "RiotAPITests\RiotAPITests.csproj", "{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningFivesTests", "LearningFivesTests\LearningFivesTests.csproj", "{1C51BFD5-23DA-4DF5-900C-C06BCEB9F720}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C51BFD5-23DA-4DF5-900C-C06BCEB9F720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C51BFD5-23DA-4DF5-900C-C06BCEB9F720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C51BFD5-23DA-4DF5-900C-C06BCEB9F720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C51BFD5-23DA-4DF5-900C-C06BCEB9F720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +56,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4D6F5D1A-0F46-41AB-A269-5C0B0BD3951D} = {C55ABBCA-5638-4884-B881-F3A63D6FE5C1}
 		{F3B85156-32E7-4A95-BE36-ECB5F48BF96E} = {77895B47-6D06-4E8F-A8D7-21222732E0DD}
+		{1C51BFD5-23DA-4DF5-900C-C06BCEB9F720} = {77895B47-6D06-4E8F-A8D7-21222732E0DD}
 	EndGlobalSection
 EndGlobal

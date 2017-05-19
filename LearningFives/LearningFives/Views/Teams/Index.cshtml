@@ -1,5 +1,4 @@
-﻿@using System.Web.Mvc.Html
-@model ActionModels.Teams.AllSignUpsAM
+﻿@model LearningFives.Models.Teams.AllSignUpsVM
 
 @{
     ViewBag.Title = "Index";
@@ -11,7 +10,7 @@
 <div>
     <h3>Coaches</h3>
     <hr/>
-    @{/*Html.RenderPartial("~/Views/Teams/_CoachList.cshtml", Model.Coaches);*/}
+    @{Html.RenderPartial("~/Views/Teams/_CoachList.cshtml", Model.Coaches);}
 </div>
 
 <div>
@@ -31,5 +30,5 @@
 
     <h3>Students</h3>
     <hr/>
-    @{/*Html.RenderPartial("~/Views/Teams/_StudentList.cshtml", Model.Students);*/}
+    @{Html.RenderPartial("~/Views/Teams/_StudentList.cshtml", Model.Students);}
 </div>

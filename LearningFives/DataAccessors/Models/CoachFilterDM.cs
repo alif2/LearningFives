@@ -1,4 +1,4 @@
-﻿namespace DataModels.Teams
+﻿namespace DataAccessors.Models
 {
     public class CoachFilterDM
     {
