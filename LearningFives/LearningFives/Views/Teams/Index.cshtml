@@ -1,0 +1,34 @@
+﻿@model LearningFives.Models.Teams.AllSignUpsVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h3>Coaches</h3>
+    <hr/>
+    @{Html.RenderPartial("~/Views/Teams/_CoachList.cshtml", Model.Coaches);}
+</div>
+
+<div>
+    @using (Html.BeginForm("Index", "Teams", new
+    {
+        studentStatus = ViewBag.StudentStatus
+    }, FormMethod.Post, new { role = "form" }))
+    {
+        @Html.Label("Rank Tier")
+        @Html.DropDownList("rankTier", SignUp.RankTierOptions)
+
+        @Html.Label("Server")
+        @Html.DropDownList("server", SignUp.ServerOptions)
+
+        <button type="submit">Submit</button>
+    }
+
+    <h3>Students</h3>
+    <hr/>
+    @{Html.RenderPartial("~/Views/Teams/_StudentList.cshtml", Model.Students);}
+</div>

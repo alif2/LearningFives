@@ -1,0 +1,995 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LearningFivesEntities.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AvailabilityInfo">
+          <Key>
+            <PropertyRef Name="AvailabilityInfoID" />
+          </Key>
+          <Property Name="AvailabilityInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MondayStart" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="MondayEnd" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="TuesdayStart" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="TuesdayEnd" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="WednesdayStart" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="WednesdayEnd" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="ThursdayStart" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="ThursdayEnd" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="FridayStart" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="FridayEnd" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="SaturdayStart" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="SaturdayEnd" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="SundayStart" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="SundayEnd" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CoachPlayers">
+          <Key>
+            <PropertyRef Name="CoachPlayerID" />
+          </Key>
+          <Property Name="CoachPlayerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CoachSignUpID" Type="int" Nullable="false" />
+          <Property Name="StudentSignUpID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CoachSignUp">
+          <Key>
+            <PropertyRef Name="CoachSignUpID" />
+          </Key>
+          <Property Name="CoachSignUpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CoachStatus" Type="int" Nullable="false" />
+          <Property Name="SummonerInfoID" Type="int" Nullable="false" />
+          <Property Name="InterestedRank" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="WillingBronze" Type="bool" Nullable="false" />
+          <Property Name="WillingSilver" Type="bool" Nullable="false" />
+          <Property Name="WillingGold" Type="bool" Nullable="false" />
+          <Property Name="WillingPlat" Type="bool" Nullable="false" />
+          <Property Name="WillingDiamond" Type="bool" Nullable="false" />
+          <Property Name="AvailabilityID" Type="int" Nullable="false" />
+          <Property Name="Languages" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PairedPlayers" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CoachingStyle" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CoachingExperience" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CommitmentID" Type="int" Nullable="false" />
+          <Property Name="ToxicID" Type="int" Nullable="false" />
+          <Property Name="MoreInformation" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmailSignUp" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commitment">
+          <Key>
+            <PropertyRef Name="CommitmentID" />
+          </Key>
+          <Property Name="CommitmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommitmentLevel" Type="int" Nullable="false" />
+          <Property Name="SeriousnessLevel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RiotAPILeague">
+          <Key>
+            <PropertyRef Name="RiotAPILeagueID" />
+          </Key>
+          <Property Name="RiotAPILeagueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RiotAPISummonerID" Type="bigint" Nullable="false" />
+          <Property Name="LeagueName" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="QueueType" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Tier" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RiotAPILeagueEntry">
+          <Key>
+            <PropertyRef Name="RiotAPILeagueEntryID" />
+          </Key>
+          <Property Name="RiotAPILeagueEntryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RiotAPILeagueID" Type="int" Nullable="false" />
+          <Property Name="Rank" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="IsFreshBlood" Type="bool" Nullable="false" />
+          <Property Name="IsHotStreak" Type="bool" Nullable="false" />
+          <Property Name="IsInactive" Type="bool" Nullable="false" />
+          <Property Name="IsVeteran" Type="bool" Nullable="false" />
+          <Property Name="LeaguePoints" Type="int" Nullable="false" />
+          <Property Name="Losses" Type="int" Nullable="false" />
+          <Property Name="Wins" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RiotAPISummoner">
+          <Key>
+            <PropertyRef Name="RiotAPISummonerID" />
+          </Key>
+          <Property Name="RiotAPISummonerID" Type="bigint" Nullable="false" />
+          <Property Name="SummonerInfoID" Type="int" Nullable="false" />
+          <Property Name="ProfileIconID" Type="bigint" Nullable="false" />
+          <Property Name="RevisionDate" Type="bigint" Nullable="false" />
+          <Property Name="SummonerLevel" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleInfo">
+          <Key>
+            <PropertyRef Name="RoleInfoID" />
+          </Key>
+          <Property Name="RoleInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PreferredRole" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="TopLane" Type="bool" Nullable="false" />
+          <Property Name="Jungle" Type="bool" Nullable="false" />
+          <Property Name="MidLane" Type="bool" Nullable="false" />
+          <Property Name="Adc" Type="bool" Nullable="false" />
+          <Property Name="Support" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentSignUp">
+          <Key>
+            <PropertyRef Name="StudentSignUpID" />
+          </Key>
+          <Property Name="StudentSignUpID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentStatus" Type="int" Nullable="false" />
+          <Property Name="SummonerInfoID" Type="int" Nullable="false" />
+          <Property Name="RoleInfoID" Type="int" Nullable="false" />
+          <Property Name="AvailabilityInfoID" Type="int" Nullable="false" />
+          <Property Name="Languages" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PairedPlayers" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PlayerStrengths" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PlayerImprovement" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PlayerExpectations" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CommitmentID" Type="int" Nullable="false" />
+          <Property Name="ToxicID" Type="int" Nullable="false" />
+          <Property Name="MoreInformation" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmailSignUp" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SummonerInfo">
+          <Key>
+            <PropertyRef Name="SummonerInfoID" />
+          </Key>
+          <Property Name="SummonerInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SummonerName" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="ServerName" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Toxic">
+          <Key>
+            <PropertyRef Name="ToxicID" />
+          </Key>
+          <Property Name="ToxicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ToxicLevel" Type="int" Nullable="false" />
+          <Property Name="HadLowPriorityPunish" Type="bool" Nullable="false" />
+          <Property Name="HadChatRestriction" Type="bool" Nullable="false" />
+          <Property Name="HadRankedRestrictions" Type="bool" Nullable="false" />
+          <Property Name="HadTemporaryBan" Type="bool" Nullable="false" />
+          <Property Name="HadPermanentBan" Type="bool" Nullable="false" />
+        </EntityType>
+        <Association Name="CoachPlayers_ibfk_1">
+          <End Role="CoachSignUp" Type="Self.CoachSignUp" Multiplicity="1" />
+          <End Role="CoachPlayers" Type="Self.CoachPlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CoachSignUp">
+              <PropertyRef Name="CoachSignUpID" />
+            </Principal>
+            <Dependent Role="CoachPlayers">
+              <PropertyRef Name="CoachSignUpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachPlayers_ibfk_2">
+          <End Role="StudentSignUp" Type="Self.StudentSignUp" Multiplicity="1" />
+          <End Role="CoachPlayers" Type="Self.CoachPlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentSignUp">
+              <PropertyRef Name="StudentSignUpID" />
+            </Principal>
+            <Dependent Role="CoachPlayers">
+              <PropertyRef Name="StudentSignUpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachSignUp_ibfk_1">
+          <End Role="SummonerInfo" Type="Self.SummonerInfo" Multiplicity="1" />
+          <End Role="CoachSignUp" Type="Self.CoachSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SummonerInfo">
+              <PropertyRef Name="SummonerInfoID" />
+            </Principal>
+            <Dependent Role="CoachSignUp">
+              <PropertyRef Name="SummonerInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachSignUp_ibfk_2">
+          <End Role="AvailabilityInfo" Type="Self.AvailabilityInfo" Multiplicity="1" />
+          <End Role="CoachSignUp" Type="Self.CoachSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailabilityInfo">
+              <PropertyRef Name="AvailabilityInfoID" />
+            </Principal>
+            <Dependent Role="CoachSignUp">
+              <PropertyRef Name="AvailabilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachSignUp_ibfk_3">
+          <End Role="Commitment" Type="Self.Commitment" Multiplicity="1" />
+          <End Role="CoachSignUp" Type="Self.CoachSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commitment">
+              <PropertyRef Name="CommitmentID" />
+            </Principal>
+            <Dependent Role="CoachSignUp">
+              <PropertyRef Name="CommitmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachSignUp_ibfk_4">
+          <End Role="Toxic" Type="Self.Toxic" Multiplicity="1" />
+          <End Role="CoachSignUp" Type="Self.CoachSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Toxic">
+              <PropertyRef Name="ToxicID" />
+            </Principal>
+            <Dependent Role="CoachSignUp">
+              <PropertyRef Name="ToxicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RiotAPILeague_ibfk_1">
+          <End Role="RiotAPISummoner" Type="Self.RiotAPISummoner" Multiplicity="1" />
+          <End Role="RiotAPILeague" Type="Self.RiotAPILeague" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RiotAPISummoner">
+              <PropertyRef Name="RiotAPISummonerID" />
+            </Principal>
+            <Dependent Role="RiotAPILeague">
+              <PropertyRef Name="RiotAPISummonerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RiotAPILeagueEntry_ibfk_1">
+          <End Role="RiotAPILeague" Type="Self.RiotAPILeague" Multiplicity="1" />
+          <End Role="RiotAPILeagueEntry" Type="Self.RiotAPILeagueEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RiotAPILeague">
+              <PropertyRef Name="RiotAPILeagueID" />
+            </Principal>
+            <Dependent Role="RiotAPILeagueEntry">
+              <PropertyRef Name="RiotAPILeagueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RiotAPISummoner_ibfk_1">
+          <End Role="SummonerInfo" Type="Self.SummonerInfo" Multiplicity="1" />
+          <End Role="RiotAPISummoner" Type="Self.RiotAPISummoner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SummonerInfo">
+              <PropertyRef Name="SummonerInfoID" />
+            </Principal>
+            <Dependent Role="RiotAPISummoner">
+              <PropertyRef Name="SummonerInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_1">
+          <End Role="SummonerInfo" Type="Self.SummonerInfo" Multiplicity="1" />
+          <End Role="StudentSignUp" Type="Self.StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SummonerInfo">
+              <PropertyRef Name="SummonerInfoID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="SummonerInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_2">
+          <End Role="RoleInfo" Type="Self.RoleInfo" Multiplicity="1" />
+          <End Role="StudentSignUp" Type="Self.StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleInfo">
+              <PropertyRef Name="RoleInfoID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="RoleInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_3">
+          <End Role="AvailabilityInfo" Type="Self.AvailabilityInfo" Multiplicity="1" />
+          <End Role="StudentSignUp" Type="Self.StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailabilityInfo">
+              <PropertyRef Name="AvailabilityInfoID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="AvailabilityInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_4">
+          <End Role="Commitment" Type="Self.Commitment" Multiplicity="1" />
+          <End Role="StudentSignUp" Type="Self.StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commitment">
+              <PropertyRef Name="CommitmentID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="CommitmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_5">
+          <End Role="Toxic" Type="Self.Toxic" Multiplicity="1" />
+          <End Role="StudentSignUp" Type="Self.StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Toxic">
+              <PropertyRef Name="ToxicID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="ToxicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LearningFivesEntitiesStoreContainer">
+          <EntitySet Name="AvailabilityInfo" EntityType="Self.AvailabilityInfo" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="CoachPlayers" EntityType="Self.CoachPlayers" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="CoachSignUp" EntityType="Self.CoachSignUp" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="Commitment" EntityType="Self.Commitment" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="RiotAPILeague" EntityType="Self.RiotAPILeague" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="RiotAPILeagueEntry" EntityType="Self.RiotAPILeagueEntry" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="RiotAPISummoner" EntityType="Self.RiotAPISummoner" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="RoleInfo" EntityType="Self.RoleInfo" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="StudentSignUp" EntityType="Self.StudentSignUp" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="SummonerInfo" EntityType="Self.SummonerInfo" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="Toxic" EntityType="Self.Toxic" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <AssociationSet Name="CoachPlayers_ibfk_1" Association="Self.CoachPlayers_ibfk_1">
+            <End Role="CoachSignUp" EntitySet="CoachSignUp" />
+            <End Role="CoachPlayers" EntitySet="CoachPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="CoachPlayers_ibfk_2" Association="Self.CoachPlayers_ibfk_2">
+            <End Role="StudentSignUp" EntitySet="StudentSignUp" />
+            <End Role="CoachPlayers" EntitySet="CoachPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="CoachSignUp_ibfk_1" Association="Self.CoachSignUp_ibfk_1">
+            <End Role="SummonerInfo" EntitySet="SummonerInfo" />
+            <End Role="CoachSignUp" EntitySet="CoachSignUp" />
+          </AssociationSet>
+          <AssociationSet Name="CoachSignUp_ibfk_2" Association="Self.CoachSignUp_ibfk_2">
+            <End Role="AvailabilityInfo" EntitySet="AvailabilityInfo" />
+            <End Role="CoachSignUp" EntitySet="CoachSignUp" />
+          </AssociationSet>
+          <AssociationSet Name="CoachSignUp_ibfk_3" Association="Self.CoachSignUp_ibfk_3">
+            <End Role="Commitment" EntitySet="Commitment" />
+            <End Role="CoachSignUp" EntitySet="CoachSignUp" />
+          </AssociationSet>
+          <AssociationSet Name="CoachSignUp_ibfk_4" Association="Self.CoachSignUp_ibfk_4">
+            <End Role="Toxic" EntitySet="Toxic" />
+            <End Role="CoachSignUp" EntitySet="CoachSignUp" />
+          </AssociationSet>
+          <AssociationSet Name="RiotAPILeague_ibfk_1" Association="Self.RiotAPILeague_ibfk_1">
+            <End Role="RiotAPISummoner" EntitySet="RiotAPISummoner" />
+            <End Role="RiotAPILeague" EntitySet="RiotAPILeague" />
+          </AssociationSet>
+          <AssociationSet Name="RiotAPILeagueEntry_ibfk_1" Association="Self.RiotAPILeagueEntry_ibfk_1">
+            <End Role="RiotAPILeague" EntitySet="RiotAPILeague" />
+            <End Role="RiotAPILeagueEntry" EntitySet="RiotAPILeagueEntry" />
+          </AssociationSet>
+          <AssociationSet Name="RiotAPISummoner_ibfk_1" Association="Self.RiotAPISummoner_ibfk_1">
+            <End Role="SummonerInfo" EntitySet="SummonerInfo" />
+            <End Role="RiotAPISummoner" EntitySet="RiotAPISummoner" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_1" Association="Self.StudentSignUp_ibfk_1">
+            <End Role="SummonerInfo" EntitySet="SummonerInfo" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUp" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_2" Association="Self.StudentSignUp_ibfk_2">
+            <End Role="RoleInfo" EntitySet="RoleInfo" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUp" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_3" Association="Self.StudentSignUp_ibfk_3">
+            <End Role="AvailabilityInfo" EntitySet="AvailabilityInfo" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUp" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_4" Association="Self.StudentSignUp_ibfk_4">
+            <End Role="Commitment" EntitySet="Commitment" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUp" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_5" Association="Self.StudentSignUp_ibfk_5">
+            <End Role="Toxic" EntitySet="Toxic" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUp" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LearningFivesEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AvailabilityInfoes" EntityType="LearningFivesEntities.AvailabilityInfo" />
+          <EntitySet Name="CoachSignUps" EntityType="LearningFivesEntities.CoachSignUp" />
+          <EntitySet Name="Commitments" EntityType="LearningFivesEntities.Commitment" />
+          <EntitySet Name="RiotAPILeagues" EntityType="LearningFivesEntities.RiotAPILeague" />
+          <EntitySet Name="RiotAPILeagueEntries" EntityType="LearningFivesEntities.RiotAPILeagueEntry" />
+          <EntitySet Name="RiotAPISummoners" EntityType="LearningFivesEntities.RiotAPISummoner" />
+          <EntitySet Name="RoleInfoes" EntityType="LearningFivesEntities.RoleInfo" />
+          <EntitySet Name="StudentSignUps" EntityType="LearningFivesEntities.StudentSignUp" />
+          <EntitySet Name="SummonerInfoes" EntityType="LearningFivesEntities.SummonerInfo" />
+          <EntitySet Name="Toxics" EntityType="LearningFivesEntities.Toxic" />
+          <AssociationSet Name="CoachSignUp_ibfk_2" Association="LearningFivesEntities.CoachSignUp_ibfk_2">
+            <End Role="AvailabilityInfo" EntitySet="AvailabilityInfoes" />
+            <End Role="CoachSignUp" EntitySet="CoachSignUps" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_3" Association="LearningFivesEntities.StudentSignUp_ibfk_3">
+            <End Role="AvailabilityInfo" EntitySet="AvailabilityInfoes" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUps" />
+          </AssociationSet>
+          <AssociationSet Name="CoachSignUp_ibfk_1" Association="LearningFivesEntities.CoachSignUp_ibfk_1">
+            <End Role="SummonerInfo" EntitySet="SummonerInfoes" />
+            <End Role="CoachSignUp" EntitySet="CoachSignUps" />
+          </AssociationSet>
+          <AssociationSet Name="CoachSignUp_ibfk_3" Association="LearningFivesEntities.CoachSignUp_ibfk_3">
+            <End Role="Commitment" EntitySet="Commitments" />
+            <End Role="CoachSignUp" EntitySet="CoachSignUps" />
+          </AssociationSet>
+          <AssociationSet Name="CoachSignUp_ibfk_4" Association="LearningFivesEntities.CoachSignUp_ibfk_4">
+            <End Role="Toxic" EntitySet="Toxics" />
+            <End Role="CoachSignUp" EntitySet="CoachSignUps" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_4" Association="LearningFivesEntities.StudentSignUp_ibfk_4">
+            <End Role="Commitment" EntitySet="Commitments" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUps" />
+          </AssociationSet>
+          <AssociationSet Name="RiotAPILeague_ibfk_1" Association="LearningFivesEntities.RiotAPILeague_ibfk_1">
+            <End Role="RiotAPISummoner" EntitySet="RiotAPISummoners" />
+            <End Role="RiotAPILeague" EntitySet="RiotAPILeagues" />
+          </AssociationSet>
+          <AssociationSet Name="RiotAPILeagueEntry_ibfk_1" Association="LearningFivesEntities.RiotAPILeagueEntry_ibfk_1">
+            <End Role="RiotAPILeague" EntitySet="RiotAPILeagues" />
+            <End Role="RiotAPILeagueEntry" EntitySet="RiotAPILeagueEntries" />
+          </AssociationSet>
+          <AssociationSet Name="RiotAPISummoner_ibfk_1" Association="LearningFivesEntities.RiotAPISummoner_ibfk_1">
+            <End Role="SummonerInfo" EntitySet="SummonerInfoes" />
+            <End Role="RiotAPISummoner" EntitySet="RiotAPISummoners" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_2" Association="LearningFivesEntities.StudentSignUp_ibfk_2">
+            <End Role="RoleInfo" EntitySet="RoleInfoes" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUps" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_1" Association="LearningFivesEntities.StudentSignUp_ibfk_1">
+            <End Role="SummonerInfo" EntitySet="SummonerInfoes" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUps" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSignUp_ibfk_5" Association="LearningFivesEntities.StudentSignUp_ibfk_5">
+            <End Role="Toxic" EntitySet="Toxics" />
+            <End Role="StudentSignUp" EntitySet="StudentSignUps" />
+          </AssociationSet>
+          <EntitySet Name="CoachPlayers" EntityType="LearningFivesEntities.CoachPlayer" />
+          <AssociationSet Name="CoachPlayers_ibfk_1" Association="LearningFivesEntities.CoachPlayers_ibfk_1">
+            <End Role="CoachSignUp" EntitySet="CoachSignUps" />
+            <End Role="CoachPlayer" EntitySet="CoachPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="CoachPlayers_ibfk_2" Association="LearningFivesEntities.CoachPlayers_ibfk_2">
+            <End Role="StudentSignUp" EntitySet="StudentSignUps" />
+            <End Role="CoachPlayer" EntitySet="CoachPlayers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AvailabilityInfo">
+          <Key>
+            <PropertyRef Name="AvailabilityInfoID" />
+          </Key>
+          <Property Name="AvailabilityInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MondayStart" Type="DateTime" Nullable="false" />
+          <Property Name="MondayEnd" Type="DateTime" Nullable="false" />
+          <Property Name="TuesdayStart" Type="DateTime" Nullable="false" />
+          <Property Name="TuesdayEnd" Type="DateTime" Nullable="false" />
+          <Property Name="WednesdayStart" Type="DateTime" Nullable="false" />
+          <Property Name="WednesdayEnd" Type="DateTime" Nullable="false" />
+          <Property Name="ThursdayStart" Type="DateTime" Nullable="false" />
+          <Property Name="ThursdayEnd" Type="DateTime" Nullable="false" />
+          <Property Name="FridayStart" Type="DateTime" Nullable="false" />
+          <Property Name="FridayEnd" Type="DateTime" Nullable="false" />
+          <Property Name="SaturdayStart" Type="DateTime" Nullable="false" />
+          <Property Name="SaturdayEnd" Type="DateTime" Nullable="false" />
+          <Property Name="SundayStart" Type="DateTime" Nullable="false" />
+          <Property Name="SundayEnd" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="CoachSignUps" Relationship="LearningFivesEntities.CoachSignUp_ibfk_2" FromRole="AvailabilityInfo" ToRole="CoachSignUp" />
+          <NavigationProperty Name="StudentSignUps" Relationship="LearningFivesEntities.StudentSignUp_ibfk_3" FromRole="AvailabilityInfo" ToRole="StudentSignUp" />
+        </EntityType>
+        <EntityType Name="CoachSignUp">
+          <Key>
+            <PropertyRef Name="CoachSignUpID" />
+          </Key>
+          <Property Name="CoachSignUpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoachStatus" Type="Int32" Nullable="false" />
+          <Property Name="SummonerInfoID" Type="Int32" Nullable="false" />
+          <Property Name="InterestedRank" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WillingBronze" Type="Boolean" Nullable="false" />
+          <Property Name="WillingSilver" Type="Boolean" Nullable="false" />
+          <Property Name="WillingGold" Type="Boolean" Nullable="false" />
+          <Property Name="WillingPlat" Type="Boolean" Nullable="false" />
+          <Property Name="WillingDiamond" Type="Boolean" Nullable="false" />
+          <Property Name="AvailabilityID" Type="Int32" Nullable="false" />
+          <Property Name="Languages" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PairedPlayers" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CoachingStyle" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CoachingExperience" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CommitmentID" Type="Int32" Nullable="false" />
+          <Property Name="ToxicID" Type="Int32" Nullable="false" />
+          <Property Name="MoreInformation" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmailSignUp" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AvailabilityInfo" Relationship="LearningFivesEntities.CoachSignUp_ibfk_2" FromRole="CoachSignUp" ToRole="AvailabilityInfo" />
+          <NavigationProperty Name="SummonerInfo" Relationship="LearningFivesEntities.CoachSignUp_ibfk_1" FromRole="CoachSignUp" ToRole="SummonerInfo" />
+          <NavigationProperty Name="Commitment" Relationship="LearningFivesEntities.CoachSignUp_ibfk_3" FromRole="CoachSignUp" ToRole="Commitment" />
+          <NavigationProperty Name="Toxic" Relationship="LearningFivesEntities.CoachSignUp_ibfk_4" FromRole="CoachSignUp" ToRole="Toxic" />
+          <NavigationProperty Name="CoachPlayers" Relationship="LearningFivesEntities.CoachPlayers_ibfk_1" FromRole="CoachSignUp" ToRole="CoachPlayer" />
+        </EntityType>
+        <EntityType Name="Commitment">
+          <Key>
+            <PropertyRef Name="CommitmentID" />
+          </Key>
+          <Property Name="CommitmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommitmentLevel" Type="Int32" Nullable="false" />
+          <Property Name="SeriousnessLevel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CoachSignUps" Relationship="LearningFivesEntities.CoachSignUp_ibfk_3" FromRole="Commitment" ToRole="CoachSignUp" />
+          <NavigationProperty Name="StudentSignUps" Relationship="LearningFivesEntities.StudentSignUp_ibfk_4" FromRole="Commitment" ToRole="StudentSignUp" />
+        </EntityType>
+        <EntityType Name="RiotAPILeague">
+          <Key>
+            <PropertyRef Name="RiotAPILeagueID" />
+          </Key>
+          <Property Name="RiotAPILeagueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RiotAPISummonerID" Type="Int64" Nullable="false" />
+          <Property Name="LeagueName" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="QueueType" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Tier" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RiotAPISummoner" Relationship="LearningFivesEntities.RiotAPILeague_ibfk_1" FromRole="RiotAPILeague" ToRole="RiotAPISummoner" />
+          <NavigationProperty Name="RiotAPILeagueEntries" Relationship="LearningFivesEntities.RiotAPILeagueEntry_ibfk_1" FromRole="RiotAPILeague" ToRole="RiotAPILeagueEntry" />
+        </EntityType>
+        <EntityType Name="RiotAPILeagueEntry">
+          <Key>
+            <PropertyRef Name="RiotAPILeagueEntryID" />
+          </Key>
+          <Property Name="RiotAPILeagueEntryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RiotAPILeagueID" Type="Int32" Nullable="false" />
+          <Property Name="Rank" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="IsFreshBlood" Type="Boolean" Nullable="false" />
+          <Property Name="IsHotStreak" Type="Boolean" Nullable="false" />
+          <Property Name="IsInactive" Type="Boolean" Nullable="false" />
+          <Property Name="IsVeteran" Type="Boolean" Nullable="false" />
+          <Property Name="LeaguePoints" Type="Int32" Nullable="false" />
+          <Property Name="Losses" Type="Int32" Nullable="false" />
+          <Property Name="Wins" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RiotAPILeague" Relationship="LearningFivesEntities.RiotAPILeagueEntry_ibfk_1" FromRole="RiotAPILeagueEntry" ToRole="RiotAPILeague" />
+        </EntityType>
+        <EntityType Name="RiotAPISummoner">
+          <Key>
+            <PropertyRef Name="RiotAPISummonerID" />
+          </Key>
+          <Property Name="RiotAPISummonerID" Type="Int64" Nullable="false" />
+          <Property Name="SummonerInfoID" Type="Int32" Nullable="false" />
+          <Property Name="ProfileIconID" Type="Int64" Nullable="false" />
+          <Property Name="RevisionDate" Type="Int64" Nullable="false" />
+          <Property Name="SummonerLevel" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="RiotAPILeagues" Relationship="LearningFivesEntities.RiotAPILeague_ibfk_1" FromRole="RiotAPISummoner" ToRole="RiotAPILeague" />
+          <NavigationProperty Name="SummonerInfo" Relationship="LearningFivesEntities.RiotAPISummoner_ibfk_1" FromRole="RiotAPISummoner" ToRole="SummonerInfo" />
+        </EntityType>
+        <EntityType Name="RoleInfo">
+          <Key>
+            <PropertyRef Name="RoleInfoID" />
+          </Key>
+          <Property Name="RoleInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PreferredRole" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="TopLane" Type="Boolean" Nullable="false" />
+          <Property Name="Jungle" Type="Boolean" Nullable="false" />
+          <Property Name="MidLane" Type="Boolean" Nullable="false" />
+          <Property Name="Adc" Type="Boolean" Nullable="false" />
+          <Property Name="Support" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StudentSignUps" Relationship="LearningFivesEntities.StudentSignUp_ibfk_2" FromRole="RoleInfo" ToRole="StudentSignUp" />
+        </EntityType>
+        <EntityType Name="StudentSignUp">
+          <Key>
+            <PropertyRef Name="StudentSignUpID" />
+          </Key>
+          <Property Name="StudentSignUpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentStatus" Type="Int32" Nullable="false" />
+          <Property Name="SummonerInfoID" Type="Int32" Nullable="false" />
+          <Property Name="RoleInfoID" Type="Int32" Nullable="false" />
+          <Property Name="AvailabilityInfoID" Type="Int32" Nullable="false" />
+          <Property Name="Languages" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PairedPlayers" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PlayerStrengths" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PlayerImprovement" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PlayerExpectations" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CommitmentID" Type="Int32" Nullable="false" />
+          <Property Name="ToxicID" Type="Int32" Nullable="false" />
+          <Property Name="MoreInformation" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmailSignUp" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AvailabilityInfo" Relationship="LearningFivesEntities.StudentSignUp_ibfk_3" FromRole="StudentSignUp" ToRole="AvailabilityInfo" />
+          <NavigationProperty Name="Commitment" Relationship="LearningFivesEntities.StudentSignUp_ibfk_4" FromRole="StudentSignUp" ToRole="Commitment" />
+          <NavigationProperty Name="RoleInfo" Relationship="LearningFivesEntities.StudentSignUp_ibfk_2" FromRole="StudentSignUp" ToRole="RoleInfo" />
+          <NavigationProperty Name="SummonerInfo" Relationship="LearningFivesEntities.StudentSignUp_ibfk_1" FromRole="StudentSignUp" ToRole="SummonerInfo" />
+          <NavigationProperty Name="Toxic" Relationship="LearningFivesEntities.StudentSignUp_ibfk_5" FromRole="StudentSignUp" ToRole="Toxic" />
+          <NavigationProperty Name="CoachPlayers" Relationship="LearningFivesEntities.CoachPlayers_ibfk_2" FromRole="StudentSignUp" ToRole="CoachPlayer" />
+        </EntityType>
+        <EntityType Name="SummonerInfo">
+          <Key>
+            <PropertyRef Name="SummonerInfoID" />
+          </Key>
+          <Property Name="SummonerInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SummonerName" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="ServerName" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CoachSignUps" Relationship="LearningFivesEntities.CoachSignUp_ibfk_1" FromRole="SummonerInfo" ToRole="CoachSignUp" />
+          <NavigationProperty Name="RiotAPISummoners" Relationship="LearningFivesEntities.RiotAPISummoner_ibfk_1" FromRole="SummonerInfo" ToRole="RiotAPISummoner" />
+          <NavigationProperty Name="StudentSignUps" Relationship="LearningFivesEntities.StudentSignUp_ibfk_1" FromRole="SummonerInfo" ToRole="StudentSignUp" />
+        </EntityType>
+        <EntityType Name="Toxic">
+          <Key>
+            <PropertyRef Name="ToxicID" />
+          </Key>
+          <Property Name="ToxicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ToxicLevel" Type="Int32" Nullable="false" />
+          <Property Name="HadLowPriorityPunish" Type="Boolean" Nullable="false" />
+          <Property Name="HadChatRestriction" Type="Boolean" Nullable="false" />
+          <Property Name="HadRankedRestrictions" Type="Boolean" Nullable="false" />
+          <Property Name="HadTemporaryBan" Type="Boolean" Nullable="false" />
+          <Property Name="HadPermanentBan" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CoachSignUps" Relationship="LearningFivesEntities.CoachSignUp_ibfk_4" FromRole="Toxic" ToRole="CoachSignUp" />
+          <NavigationProperty Name="StudentSignUps" Relationship="LearningFivesEntities.StudentSignUp_ibfk_5" FromRole="Toxic" ToRole="StudentSignUp" />
+        </EntityType>
+        <Association Name="CoachSignUp_ibfk_2">
+          <End Type="LearningFivesEntities.AvailabilityInfo" Role="AvailabilityInfo" Multiplicity="1" />
+          <End Type="LearningFivesEntities.CoachSignUp" Role="CoachSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailabilityInfo">
+              <PropertyRef Name="AvailabilityInfoID" />
+            </Principal>
+            <Dependent Role="CoachSignUp">
+              <PropertyRef Name="AvailabilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_3">
+          <End Type="LearningFivesEntities.AvailabilityInfo" Role="AvailabilityInfo" Multiplicity="1" />
+          <End Type="LearningFivesEntities.StudentSignUp" Role="StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailabilityInfo">
+              <PropertyRef Name="AvailabilityInfoID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="AvailabilityInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachSignUp_ibfk_1">
+          <End Type="LearningFivesEntities.SummonerInfo" Role="SummonerInfo" Multiplicity="1" />
+          <End Type="LearningFivesEntities.CoachSignUp" Role="CoachSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SummonerInfo">
+              <PropertyRef Name="SummonerInfoID" />
+            </Principal>
+            <Dependent Role="CoachSignUp">
+              <PropertyRef Name="SummonerInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachSignUp_ibfk_3">
+          <End Type="LearningFivesEntities.Commitment" Role="Commitment" Multiplicity="1" />
+          <End Type="LearningFivesEntities.CoachSignUp" Role="CoachSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commitment">
+              <PropertyRef Name="CommitmentID" />
+            </Principal>
+            <Dependent Role="CoachSignUp">
+              <PropertyRef Name="CommitmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachSignUp_ibfk_4">
+          <End Type="LearningFivesEntities.Toxic" Role="Toxic" Multiplicity="1" />
+          <End Type="LearningFivesEntities.CoachSignUp" Role="CoachSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Toxic">
+              <PropertyRef Name="ToxicID" />
+            </Principal>
+            <Dependent Role="CoachSignUp">
+              <PropertyRef Name="ToxicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_4">
+          <End Type="LearningFivesEntities.Commitment" Role="Commitment" Multiplicity="1" />
+          <End Type="LearningFivesEntities.StudentSignUp" Role="StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commitment">
+              <PropertyRef Name="CommitmentID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="CommitmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RiotAPILeague_ibfk_1">
+          <End Type="LearningFivesEntities.RiotAPISummoner" Role="RiotAPISummoner" Multiplicity="1" />
+          <End Type="LearningFivesEntities.RiotAPILeague" Role="RiotAPILeague" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RiotAPISummoner">
+              <PropertyRef Name="RiotAPISummonerID" />
+            </Principal>
+            <Dependent Role="RiotAPILeague">
+              <PropertyRef Name="RiotAPISummonerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RiotAPILeagueEntry_ibfk_1">
+          <End Type="LearningFivesEntities.RiotAPILeague" Role="RiotAPILeague" Multiplicity="1" />
+          <End Type="LearningFivesEntities.RiotAPILeagueEntry" Role="RiotAPILeagueEntry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RiotAPILeague">
+              <PropertyRef Name="RiotAPILeagueID" />
+            </Principal>
+            <Dependent Role="RiotAPILeagueEntry">
+              <PropertyRef Name="RiotAPILeagueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RiotAPISummoner_ibfk_1">
+          <End Type="LearningFivesEntities.SummonerInfo" Role="SummonerInfo" Multiplicity="1" />
+          <End Type="LearningFivesEntities.RiotAPISummoner" Role="RiotAPISummoner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SummonerInfo">
+              <PropertyRef Name="SummonerInfoID" />
+            </Principal>
+            <Dependent Role="RiotAPISummoner">
+              <PropertyRef Name="SummonerInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_2">
+          <End Type="LearningFivesEntities.RoleInfo" Role="RoleInfo" Multiplicity="1" />
+          <End Type="LearningFivesEntities.StudentSignUp" Role="StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleInfo">
+              <PropertyRef Name="RoleInfoID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="RoleInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_1">
+          <End Type="LearningFivesEntities.SummonerInfo" Role="SummonerInfo" Multiplicity="1" />
+          <End Type="LearningFivesEntities.StudentSignUp" Role="StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SummonerInfo">
+              <PropertyRef Name="SummonerInfoID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="SummonerInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSignUp_ibfk_5">
+          <End Type="LearningFivesEntities.Toxic" Role="Toxic" Multiplicity="1" />
+          <End Type="LearningFivesEntities.StudentSignUp" Role="StudentSignUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Toxic">
+              <PropertyRef Name="ToxicID" />
+            </Principal>
+            <Dependent Role="StudentSignUp">
+              <PropertyRef Name="ToxicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CoachPlayer">
+          <Key>
+            <PropertyRef Name="CoachPlayerID" />
+          </Key>
+          <Property Name="CoachPlayerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoachSignUpID" Type="Int32" Nullable="false" />
+          <Property Name="StudentSignUpID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CoachSignUp" Relationship="LearningFivesEntities.CoachPlayers_ibfk_1" FromRole="CoachPlayer" ToRole="CoachSignUp" />
+          <NavigationProperty Name="StudentSignUp" Relationship="LearningFivesEntities.CoachPlayers_ibfk_2" FromRole="CoachPlayer" ToRole="StudentSignUp" />
+        </EntityType>
+        <Association Name="CoachPlayers_ibfk_1">
+          <End Type="LearningFivesEntities.CoachSignUp" Role="CoachSignUp" Multiplicity="1" />
+          <End Type="LearningFivesEntities.CoachPlayer" Role="CoachPlayer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CoachSignUp">
+              <PropertyRef Name="CoachSignUpID" />
+            </Principal>
+            <Dependent Role="CoachPlayer">
+              <PropertyRef Name="CoachSignUpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachPlayers_ibfk_2">
+          <End Type="LearningFivesEntities.StudentSignUp" Role="StudentSignUp" Multiplicity="1" />
+          <End Type="LearningFivesEntities.CoachPlayer" Role="CoachPlayer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentSignUp">
+              <PropertyRef Name="StudentSignUpID" />
+            </Principal>
+            <Dependent Role="CoachPlayer">
+              <PropertyRef Name="StudentSignUpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LearningFivesEntitiesStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AvailabilityInfoes">
+            <EntityTypeMapping TypeName="LearningFivesEntities.AvailabilityInfo">
+              <MappingFragment StoreEntitySet="AvailabilityInfo">
+                <ScalarProperty Name="SundayEnd" ColumnName="SundayEnd" />
+                <ScalarProperty Name="SundayStart" ColumnName="SundayStart" />
+                <ScalarProperty Name="SaturdayEnd" ColumnName="SaturdayEnd" />
+                <ScalarProperty Name="SaturdayStart" ColumnName="SaturdayStart" />
+                <ScalarProperty Name="FridayEnd" ColumnName="FridayEnd" />
+                <ScalarProperty Name="FridayStart" ColumnName="FridayStart" />
+                <ScalarProperty Name="ThursdayEnd" ColumnName="ThursdayEnd" />
+                <ScalarProperty Name="ThursdayStart" ColumnName="ThursdayStart" />
+                <ScalarProperty Name="WednesdayEnd" ColumnName="WednesdayEnd" />
+                <ScalarProperty Name="WednesdayStart" ColumnName="WednesdayStart" />
+                <ScalarProperty Name="TuesdayEnd" ColumnName="TuesdayEnd" />
+                <ScalarProperty Name="TuesdayStart" ColumnName="TuesdayStart" />
+                <ScalarProperty Name="MondayEnd" ColumnName="MondayEnd" />
+                <ScalarProperty Name="MondayStart" ColumnName="MondayStart" />
+                <ScalarProperty Name="AvailabilityInfoID" ColumnName="AvailabilityInfoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoachSignUps">
+            <EntityTypeMapping TypeName="LearningFivesEntities.CoachSignUp">
+              <MappingFragment StoreEntitySet="CoachSignUp">
+                <ScalarProperty Name="EmailSignUp" ColumnName="EmailSignUp" />
+                <ScalarProperty Name="MoreInformation" ColumnName="MoreInformation" />
+                <ScalarProperty Name="ToxicID" ColumnName="ToxicID" />
+                <ScalarProperty Name="CommitmentID" ColumnName="CommitmentID" />
+                <ScalarProperty Name="CoachingExperience" ColumnName="CoachingExperience" />
+                <ScalarProperty Name="CoachingStyle" ColumnName="CoachingStyle" />
+                <ScalarProperty Name="PairedPlayers" ColumnName="PairedPlayers" />
+                <ScalarProperty Name="Languages" ColumnName="Languages" />
+                <ScalarProperty Name="AvailabilityID" ColumnName="AvailabilityID" />
+                <ScalarProperty Name="WillingDiamond" ColumnName="WillingDiamond" />
+                <ScalarProperty Name="WillingPlat" ColumnName="WillingPlat" />
+                <ScalarProperty Name="WillingGold" ColumnName="WillingGold" />
+                <ScalarProperty Name="WillingSilver" ColumnName="WillingSilver" />
+                <ScalarProperty Name="WillingBronze" ColumnName="WillingBronze" />
+                <ScalarProperty Name="InterestedRank" ColumnName="InterestedRank" />
+                <ScalarProperty Name="SummonerInfoID" ColumnName="SummonerInfoID" />
+                <ScalarProperty Name="CoachStatus" ColumnName="CoachStatus" />
+                <ScalarProperty Name="CoachSignUpID" ColumnName="CoachSignUpID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commitments">
+            <EntityTypeMapping TypeName="LearningFivesEntities.Commitment">
+              <MappingFragment StoreEntitySet="Commitment">
+                <ScalarProperty Name="SeriousnessLevel" ColumnName="SeriousnessLevel" />
+                <ScalarProperty Name="CommitmentLevel" ColumnName="CommitmentLevel" />
+                <ScalarProperty Name="CommitmentID" ColumnName="CommitmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RiotAPILeagues">
+            <EntityTypeMapping TypeName="LearningFivesEntities.RiotAPILeague">
+              <MappingFragment StoreEntitySet="RiotAPILeague">
+                <ScalarProperty Name="Tier" ColumnName="Tier" />
+                <ScalarProperty Name="QueueType" ColumnName="QueueType" />
+                <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
+                <ScalarProperty Name="RiotAPISummonerID" ColumnName="RiotAPISummonerID" />
+                <ScalarProperty Name="RiotAPILeagueID" ColumnName="RiotAPILeagueID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RiotAPILeagueEntries">
+            <EntityTypeMapping TypeName="LearningFivesEntities.RiotAPILeagueEntry">
+              <MappingFragment StoreEntitySet="RiotAPILeagueEntry">
+                <ScalarProperty Name="Wins" ColumnName="Wins" />
+                <ScalarProperty Name="Losses" ColumnName="Losses" />
+                <ScalarProperty Name="LeaguePoints" ColumnName="LeaguePoints" />
+                <ScalarProperty Name="IsVeteran" ColumnName="IsVeteran" />
+                <ScalarProperty Name="IsInactive" ColumnName="IsInactive" />
+                <ScalarProperty Name="IsHotStreak" ColumnName="IsHotStreak" />
+                <ScalarProperty Name="IsFreshBlood" ColumnName="IsFreshBlood" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="RiotAPILeagueID" ColumnName="RiotAPILeagueID" />
+                <ScalarProperty Name="RiotAPILeagueEntryID" ColumnName="RiotAPILeagueEntryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RiotAPISummoners">
+            <EntityTypeMapping TypeName="LearningFivesEntities.RiotAPISummoner">
+              <MappingFragment StoreEntitySet="RiotAPISummoner">
+                <ScalarProperty Name="SummonerLevel" ColumnName="SummonerLevel" />
+                <ScalarProperty Name="RevisionDate" ColumnName="RevisionDate" />
+                <ScalarProperty Name="ProfileIconID" ColumnName="ProfileIconID" />
+                <ScalarProperty Name="SummonerInfoID" ColumnName="SummonerInfoID" />
+                <ScalarProperty Name="RiotAPISummonerID" ColumnName="RiotAPISummonerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleInfoes">
+            <EntityTypeMapping TypeName="LearningFivesEntities.RoleInfo">
+              <MappingFragment StoreEntitySet="RoleInfo">
+                <ScalarProperty Name="Support" ColumnName="Support" />
+                <ScalarProperty Name="Adc" ColumnName="Adc" />
+                <ScalarProperty Name="MidLane" ColumnName="MidLane" />
+                <ScalarProperty Name="Jungle" ColumnName="Jungle" />
+                <ScalarProperty Name="TopLane" ColumnName="TopLane" />
+                <ScalarProperty Name="PreferredRole" ColumnName="PreferredRole" />
+                <ScalarProperty Name="RoleInfoID" ColumnName="RoleInfoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentSignUps">
+            <EntityTypeMapping TypeName="LearningFivesEntities.StudentSignUp">
+              <MappingFragment StoreEntitySet="StudentSignUp">
+                <ScalarProperty Name="EmailSignUp" ColumnName="EmailSignUp" />
+                <ScalarProperty Name="MoreInformation" ColumnName="MoreInformation" />
+                <ScalarProperty Name="ToxicID" ColumnName="ToxicID" />
+                <ScalarProperty Name="CommitmentID" ColumnName="CommitmentID" />
+                <ScalarProperty Name="PlayerExpectations" ColumnName="PlayerExpectations" />
+                <ScalarProperty Name="PlayerImprovement" ColumnName="PlayerImprovement" />
+                <ScalarProperty Name="PlayerStrengths" ColumnName="PlayerStrengths" />
+                <ScalarProperty Name="PairedPlayers" ColumnName="PairedPlayers" />
+                <ScalarProperty Name="Languages" ColumnName="Languages" />
+                <ScalarProperty Name="AvailabilityInfoID" ColumnName="AvailabilityInfoID" />
+                <ScalarProperty Name="RoleInfoID" ColumnName="RoleInfoID" />
+                <ScalarProperty Name="SummonerInfoID" ColumnName="SummonerInfoID" />
+                <ScalarProperty Name="StudentStatus" ColumnName="StudentStatus" />
+                <ScalarProperty Name="StudentSignUpID" ColumnName="StudentSignUpID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SummonerInfoes">
+            <EntityTypeMapping TypeName="LearningFivesEntities.SummonerInfo">
+              <MappingFragment StoreEntitySet="SummonerInfo">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="SummonerName" ColumnName="SummonerName" />
+                <ScalarProperty Name="SummonerInfoID" ColumnName="SummonerInfoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Toxics">
+            <EntityTypeMapping TypeName="LearningFivesEntities.Toxic">
+              <MappingFragment StoreEntitySet="Toxic">
+                <ScalarProperty Name="HadPermanentBan" ColumnName="HadPermanentBan" />
+                <ScalarProperty Name="HadTemporaryBan" ColumnName="HadTemporaryBan" />
+                <ScalarProperty Name="HadRankedRestrictions" ColumnName="HadRankedRestrictions" />
+                <ScalarProperty Name="HadChatRestriction" ColumnName="HadChatRestriction" />
+                <ScalarProperty Name="HadLowPriorityPunish" ColumnName="HadLowPriorityPunish" />
+                <ScalarProperty Name="ToxicLevel" ColumnName="ToxicLevel" />
+                <ScalarProperty Name="ToxicID" ColumnName="ToxicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoachPlayers">
+            <EntityTypeMapping TypeName="LearningFivesEntities.CoachPlayer">
+              <MappingFragment StoreEntitySet="CoachPlayers">
+                <ScalarProperty Name="StudentSignUpID" ColumnName="StudentSignUpID" />
+                <ScalarProperty Name="CoachSignUpID" ColumnName="CoachSignUpID" />
+                <ScalarProperty Name="CoachPlayerID" ColumnName="CoachPlayerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,36 +1,29 @@
-﻿@using ViewModels.SignUp
-@model StudentSignUpVM
+﻿@model Entities.StudentSignUp
 @{
     ViewBag.Title = "Student Registration";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Student", "SignUp", FormMethod.Post, new { @role = "form" }))
+@using (Html.BeginForm("Student", "SignUp", FormMethod.Post, new { role = "form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
     <div class="form-group">
         @Html.LabelFor(m => m.StudentStatus)
-        <label>@Html.RadioButtonFor(m => m.StudentStatus, 1) Student, I want to play with a team for the next five weeks</label>
-        <label>@Html.RadioButtonFor(m => m.StudentStatus, 0) Substitute, I'm available to fill in for a player if they are not available</label>
+        <label>@Html.RadioButtonFor(m => m.StudentStatus, 1) Student</label>
+        <label>@Html.RadioButtonFor(m => m.StudentStatus, 0) Substitute</label>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.SummonerInfo.SummonerName)
-        @Html.TextBoxFor(m => m.SummonerInfo.SummonerName, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.SummonerInfo.SummonerName, new { @class = "form-control", placeholder = "Summoner Name" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.SummonerInfo.Server)
-        @Html.DropDownListFor(m => m.SummonerInfo.Server, SummonerSignUpVM.ServerOptions, null, new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.SummonerInfo.RankTier)
-        @Html.DropDownListFor(m => m.SummonerInfo.RankTier, SummonerSignUpVM.RankTierOptions, null, new { @class = "form-control" })
-        @Html.DropDownListFor(m => m.SummonerInfo.RankDivision, SummonerSignUpVM.RankDivionOptions, null, new { @class = "form-control" })
+        @Html.LabelFor(m => m.SummonerInfo.ServerName)
+        @Html.DropDownListFor(m => m.SummonerInfo.ServerName, SignUp.ServerOptions, null, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
@@ -43,41 +36,36 @@
         @Html.TextBoxFor(m => m.SummonerInfo.Email, new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.SummonerInfo.HasSlackAccount)
-        <label>@Html.RadioButtonFor(m => m.SummonerInfo.HasSlackAccount, true) Yes</label>
-        <label>@Html.RadioButtonFor(m => m.SummonerInfo.HasSlackAccount, false) No</label>
-    </div>
     <hr/>
 
     <div class="form-group">
         @Html.LabelFor(m => m.RoleInfo.PreferredRole)
-        @Html.DropDownListFor(m => m.RoleInfo.PreferredRole, RoleSignUpVM.PreferredRoleOptions, null, new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.RoleInfo.PreferredRole, SignUp.PreferredRoleOptions, null, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.RoleInfo.TopLaneComfort)
-        @Html.DropDownListFor(m => m.RoleInfo.TopLaneComfort, RoleSignUpVM.TopLaneComfortOptions, null, new { @class = "form-control" })
+        @Html.LabelFor(m => m.RoleInfo.TopLane)
+        @Html.CheckBoxFor(m => m.RoleInfo.TopLane, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.RoleInfo.JungleComfort)
-        @Html.DropDownListFor(m => m.RoleInfo.JungleComfort, RoleSignUpVM.JungleComfortOptions, null, new { @class = "form-control" })
+        @Html.LabelFor(m => m.RoleInfo.Jungle)
+        @Html.CheckBoxFor(m => m.RoleInfo.Jungle, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.RoleInfo.MidComfort)
-        @Html.DropDownListFor(m => m.RoleInfo.MidComfort, RoleSignUpVM.MidComfortOptions, null, new { @class = "form-control" })
+        @Html.LabelFor(m => m.RoleInfo.MidLane)
+        @Html.CheckBoxFor(m => m.RoleInfo.MidLane, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.RoleInfo.MarksmanComfort)
-        @Html.DropDownListFor(m => m.RoleInfo.MarksmanComfort, RoleSignUpVM.MarksmanComfortOptions, null, new { @class = "form-control" })
+        @Html.LabelFor(m => m.RoleInfo.Adc)
+        @Html.CheckBoxFor(m => m.RoleInfo.Adc, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.RoleInfo.SupportComfort)
-        @Html.DropDownListFor(m => m.RoleInfo.SupportComfort, RoleSignUpVM.SupportComfortOptions, null, new { @class = "form-control" })
+        @Html.LabelFor(m => m.RoleInfo.Support)
+        @Html.CheckBoxFor(m => m.RoleInfo.Support, new { @class = "form-control" })
     </div>
     <hr/>
 
@@ -156,6 +144,7 @@
             @Html.TextBoxFor(m => m.AvailabilityInfo.SundayEnd, new { @type = "time", @class = "form-control" })
         </div>
     </div>
+
     <hr/>
 
     <div class="form-group">
@@ -185,9 +174,9 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Commitment.CommitmentLevel)
-        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 2) Yes, I am fully committed</label>
-        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 1) I'll try my best to be online and available, but I can't formally commit</label>
-        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 0) No, but I really want to be a part of it!</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 2) Fully committed</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 1) Mostly committed</label>
+        <label>@Html.RadioButtonFor(m => m.Commitment.CommitmentLevel, 0) Slightly comimitted</label>
     </div>
 
     <div class="form-group">
@@ -199,18 +188,18 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Toxic.ToxicLevel)
-        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 2) Yes, I am quite toxic</label>
-        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 1) Sometimes I can be toxic</label>
-        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 0) No, I am not toxic</label>
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 2) Yes</label>
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 1) Sometimes</label>
+        <label>@Html.RadioButtonFor(m => m.Toxic.ToxicLevel, 0) No</label>
     </div>
 
     <div class="form-group">
         @Html.Label("Select any punishments you have received:")
         <label>@Html.CheckBoxFor(m => m.Toxic.HadLowPriorityPunish) Low priority queue</label>
-        <label>@Html.CheckBoxFor(m => m.Toxic.HadChatRestrictions) Chat restrictions</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadChatRestriction) Chat restrictions</label>
         <label>@Html.CheckBoxFor(m => m.Toxic.HadRankedRestrictions) Ranked restrictions</label>
-        <label>@Html.CheckBoxFor(m => m.Toxic.HadTemporaryBan) Temporary account ban</label>
-        <label>@Html.CheckBoxFor(m => m.Toxic.HadPermanentBan) Permanent account ban</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadTemporaryBan) Temporary ban</label>
+        <label>@Html.CheckBoxFor(m => m.Toxic.HadPermanentBan) Permanent ban</label>
     </div>
 
     <div class="form-group">

@@ -1,0 +1,108 @@
+﻿@model List<DataAccessors.StudentSignUp>
+
+@foreach (var student in Model)
+{
+    var positionIcon = "/Content/role/";
+    switch (student.RoleInfo.PreferredRole)
+    {
+        case "TopLane":
+            positionIcon += "top.png";
+            break;
+        case "Jungle":
+            positionIcon += "jungle.png";
+            break;
+        case "MidLane":
+            positionIcon += "mid.png";
+            break;
+        case "Adc":
+            positionIcon += "bot.png";
+            break;
+        case "Support":
+            positionIcon += "support.png";
+            break;
+        default:
+            positionIcon += "fill.png";
+            break;
+    }
+
+    var seriousLevel = string.Empty;
+    switch (student.Commitment.SeriousnessLevel)
+    {
+        case 0:
+            seriousLevel = "C";
+            break;
+        case 1:
+            seriousLevel = "SS";
+            break;
+        case 2:
+            seriousLevel = "S";
+            break;
+    }
+
+    var rankIcon = "/Content/rank/";
+    if (student.SummonerInfo.RiotAPISummoners == null || student.SummonerInfo.RiotAPISummoners.Count < 1)
+    {
+        rankIcon = string.Empty;
+    }
+    else
+    {
+        switch (student.SummonerInfo.RiotAPISummoners.First().RiotAPILeagues.First(x => x.QueueType == "RANKED_SOLO_5x5").Tier)
+        {
+            case "BRONZE":
+                rankIcon += "bronze.png";
+                break;
+            case "SILVER":
+                rankIcon += "silver.png";
+                break;
+            case "GOLD":
+                rankIcon += "gold.png";
+                break;
+            case "PLATINUM":
+                rankIcon += "platinum.png";
+                break;
+            case "DIAMOND":
+                rankIcon += "diamond.png";
+                break;
+            case "MASTER":
+                rankIcon += "master.png";
+                break;
+            case "CHALLENGER":
+                rankIcon += "challenger.png";
+                break;
+            default:
+                rankIcon += "provisional.png";
+                break;
+        }
+    }
+    var isToxic = student.Toxic.ToxicLevel > 0;
+    var isRedFlag = student.Toxic.HadLowPriorityPunish || student.Toxic.HadChatRestriction || student.Toxic.HadRankedRestrictions || student.Toxic.HadTemporaryBan || student.Toxic.HadPermanentBan;
+
+    <div class="col-md-4 summoner-card student-card">
+        <div class="student-signup-id" hidden="hidden">@student.StudentSignUpID</div>
+        <div class="row">
+            <span class="col-md-2 server-name" style="background-color: #2f8bcb; border-radius: 2px">@student.SummonerInfo.ServerName</span>
+            <span class="col-md-7 summoner-name">@student.SummonerInfo.SummonerName</span>
+            <span class="col-md-1 position-icon small-icon"><img src="@positionIcon"/></span>
+            <span class="col-md-2 serious-level" style="text-align: right">[@seriousLevel]</span>
+        </div>
+        <div class="row">
+            <div class="col-md-2 rank-icon"><img src="@rankIcon" style="width: 50px"/>
+            </div>
+            <div class="col-md-10" style="text-align: right">
+                Speaks: @student.Languages<br/>
+                Team: @student.PairedPlayers
+            </div>
+        </div>
+        <div class="row">
+            @if (isToxic)
+            {
+                <span>Toxic</span>
+            }
+
+            @if (isRedFlag)
+            {
+                <span>RedFlag</span>
+            }
+        </div>
+    </div>
+}

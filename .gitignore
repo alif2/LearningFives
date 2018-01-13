@@ -36,6 +36,7 @@ _ReSharper*/
 *.[Cc]ache
 !*.[Cc]ache/
 *.cachefile
+*.etl
 *.exe
 .fake
 *_i.c

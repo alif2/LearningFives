@@ -1,0 +1,118 @@
+﻿@model List<DataAccessors.CoachSignUp>
+
+@foreach (var coach in Model)
+{
+    var teachRankIcon = "/Content/rank/";
+    switch (coach.InterestedRank)
+    {
+        case "Bronze":
+            teachRankIcon += "bronze.png";
+            break;
+        case "Silver":
+            teachRankIcon += "silver.png";
+            break;
+        case "Gold":
+            teachRankIcon += "gold.png";
+            break;
+        case "Platinum":
+            teachRankIcon += "platinum.png";
+            break;
+        case "Diamond":
+            teachRankIcon += "diamond.png";
+            break;
+        default:
+            teachRankIcon += "provisional.png";
+            break;
+    }
+
+    var seriousLevel = string.Empty;
+    switch (coach.Commitment.SeriousnessLevel)
+    {
+        case 0:
+            seriousLevel = "C";
+            break;
+        case 1:
+            seriousLevel = "SS";
+            break;
+        case 2:
+            seriousLevel = "S";
+            break;
+        default:
+            seriousLevel = "?";
+            break;
+    }
+
+    var rankIcon = "/Content/rank/";
+    if (coach.SummonerInfo.RiotAPISummoners == null || coach.SummonerInfo.RiotAPISummoners.Count < 1)
+    {
+        rankIcon = string.Empty;
+    }
+    else
+    {
+        switch (coach.SummonerInfo.RiotAPISummoners.First().RiotAPILeagues.First(x => x.QueueType == "RANKED_SOLO_5x5").Tier)
+        {
+            case "BRONZE":
+                rankIcon += "bronze.png";
+                break;
+            case "SILVER":
+                rankIcon += "silver.png";
+                break;
+            case "GOLD":
+                rankIcon += "gold.png";
+                break;
+            case "PLATINUM":
+                rankIcon += "platinum.png";
+                break;
+            case "DIAMOND":
+                rankIcon += "diamond.png";
+                break;
+            case "MASTER":
+                rankIcon += "master.png";
+                break;
+            case "CHALLENGER":
+                rankIcon += "challenger.png";
+                break;
+            default:
+                rankIcon += "provisional.png";
+                break;
+        }
+    }
+
+    var isToxic = coach.Toxic.ToxicLevel > 0;
+    var isRedFlag = coach.Toxic.HadLowPriorityPunish || coach.Toxic.HadChatRestriction || coach.Toxic.HadRankedRestrictions || coach.Toxic.HadTemporaryBan || coach.Toxic.HadPermanentBan;
+
+    <div class="col-md-4 card-container coach-card">
+        <div class="col-md-12 summoner-card">
+            <div class="coach-signup-id" hidden="hidden">@coach.CoachSignUpID</div>
+            <div class="row">
+                <span class="col-md-2" style="background-color: #2f8bcb; border-radius: 2px">@coach.SummonerInfo.ServerName</span>
+                <span class="col-md-7">@coach.SummonerInfo.SummonerName</span>
+                <span class="col-md-1 small-icon"><img src="@teachRankIcon"/></span>
+                <span class="col-md-2" style="text-align: right">[@seriousLevel]</span>
+            </div>
+            <div class="row">
+                <div class="col-md-2 rank-icon"><img src="@rankIcon" style="width: 50px"/>
+                </div>
+                <div class="col-md-10" style="text-align: right">
+                    Speaks: @coach.Languages<br/>
+                    Team: @coach.PairedPlayers
+                </div>
+            </div>
+            <div class="row">
+                @if (isToxic)
+                {
+                    <span>Toxic</span>
+                }
+
+                @if (isRedFlag)
+                {
+                    <span>RedFlag</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-12 coach-team" hidden="hidden">
+            <ul class="list-unstyled">
+            </ul>
+        </div>
+    </div>
+}

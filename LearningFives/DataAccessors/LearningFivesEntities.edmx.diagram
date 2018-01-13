@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f24439a3bab54413ade4227f4c4d966c" Name="Diagram1">
+        <EntityTypeShape EntityType="LearningFivesEntities.AvailabilityInfo" Width="1.5" PointX="3.75" PointY="22.75" />
+        <EntityTypeShape EntityType="LearningFivesEntities.CoachSignUp" Width="1.5" PointX="6" PointY="6.25" />
+        <EntityTypeShape EntityType="LearningFivesEntities.Commitment" Width="1.5" PointX="3.75" PointY="3.625" />
+        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPILeague" Width="1.5" PointX="5.25" PointY="19.125" />
+        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPILeagueEntry" Width="1.5" PointX="7.5" PointY="18.625" />
+        <EntityTypeShape EntityType="LearningFivesEntities.RiotAPISummoner" Width="1.5" PointX="3" PointY="19.125" />
+        <EntityTypeShape EntityType="LearningFivesEntities.RoleInfo" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.StudentSignUp" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.SummonerInfo" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.Toxic" Width="1.5" PointX="3.75" PointY="12.25" />
+        <AssociationConnector Association="LearningFivesEntities.CoachSignUp_ibfk_2" />
+        <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_3" />
+        <AssociationConnector Association="LearningFivesEntities.CoachSignUp_ibfk_1" />
+        <AssociationConnector Association="LearningFivesEntities.CoachSignUp_ibfk_3" />
+        <AssociationConnector Association="LearningFivesEntities.CoachSignUp_ibfk_4" />
+        <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_4" />
+        <AssociationConnector Association="LearningFivesEntities.RiotAPILeague_ibfk_1" />
+        <AssociationConnector Association="LearningFivesEntities.RiotAPILeagueEntry_ibfk_1" />
+        <AssociationConnector Association="LearningFivesEntities.RiotAPISummoner_ibfk_1" />
+        <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_2" />
+        <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_1" />
+        <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.CoachPlayer" Width="1.5" PointX="8.25" PointY="8" />
+        <AssociationConnector Association="LearningFivesEntities.CoachPlayers_ibfk_1" />
+        <AssociationConnector Association="LearningFivesEntities.CoachPlayers_ibfk_2" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
