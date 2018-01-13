@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using RiotAPI.Enums;
+using System;
 using System.Linq;
-using RiotAPI.Enums;
 
 namespace RiotAPI
 {
@@ -19,52 +18,33 @@ namespace RiotAPI
 
         public static RiotApiServers GetServerByRegion(RiotApiEnums.Regions region)
         {
+            if (region == RiotApiEnums.Regions.GLOBAL)
+                return new RiotApiServers
+                {
+                    Region = region.ToString()
+                };
+
             var regions = Enum.GetValues(typeof(RiotApiEnums.Regions));
             var platforms = Enum.GetValues(typeof(RiotApiEnums.Platforms));
             for (var i = 0; i < regions.Length; i++)
             {
+                if (!regions.GetValue(i).Equals(region))
+                    continue;
+
                 string platformId = null;
                 if (i <= platforms.Length)
                 {
-                    platformId = regions.GetValue(i).ToString();
+                    platformId = platforms.GetValue(i).ToString();
                 }
 
-                if (regions.GetValue(i).Equals(region))
+                return new RiotApiServers
                 {
-                    return new RiotApiServers
-                    {
-                        Region = regions.GetValue(i).ToString(),
-                        PlatformId = platformId,
-                        HostName = regions.GetValue(i).ToString().ToLower() + ".api.pvp.net"
-                    };
-                }
+                    Region = regions.GetValue(i).ToString(),
+                    PlatformId = platformId,
+                    HostName = platformId?.ToLower() + ".api.riotgames.com"
+                };
             }
             return null;
-        }
-
-        public static IEnumerable<RiotApiServers> GetAllServers()
-        {
-            var allServers = new List<RiotApiServers>();
-
-            var regions = (string[])Enum.GetValues(typeof(RiotApiEnums.Regions));
-            var platforms = (string[])Enum.GetValues(typeof(RiotApiEnums.Platforms));
-            for (var i = 0; i < regions.Length; i++)
-            {
-                string platformId = null;
-                if (i <= platforms.Length)
-                {
-                    platformId = regions[i];
-                }
-
-                allServers.Add(new RiotApiServers
-                {
-                    Region = regions[i],
-                    PlatformId = platformId,
-                    HostName = regions[i].ToLower() + ".api.pvp.net"
-                });
-            }
-
-            return allServers;
         }
     }
 }

@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using DataAccessors;
 using DataAccessors.Models;
+using LearningFives.Models.Teams;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using LearningFives.Models.Teams;
 
 namespace LearningFives.Controllers
 {
@@ -44,9 +43,18 @@ namespace LearningFives.Controllers
             });
         }
 
-        public async Task AddStudentToCoachAsync(string coachName, string coachServer, string studentName, string studentServer)
+        [HttpPost]
+        public async Task<string> AddStudentToCoachAsync(int coachSignUpId, int studentSignUpId)
         {
-            
+            var added = await _teamsDataAccessor.AddStudentToCoachAsync(coachSignUpId, studentSignUpId);
+            return added != null ? "true" : "false";
+        }
+
+        [HttpPost]
+        public async Task<string> RemoveStudentFromCoachAsync(int coachSignUpId, int studentSignUpId)
+        {
+            var removed = await _teamsDataAccessor.RemoveStudentFromCoachAsync(coachSignUpId, studentSignUpId);
+            return removed != null ? "true" : "false";
         }
     }
 }

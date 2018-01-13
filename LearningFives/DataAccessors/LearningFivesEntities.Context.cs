@@ -35,5 +35,6 @@ namespace DataAccessors
         public virtual DbSet<StudentSignUp> StudentSignUps { get; set; }
         public virtual DbSet<SummonerInfo> SummonerInfoes { get; set; }
         public virtual DbSet<Toxic> Toxics { get; set; }
+        public virtual DbSet<CoachPlayer> CoachPlayers { get; set; }
     }
 }

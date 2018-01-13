@@ -4,7 +4,7 @@
     {
         public enum Regions
         {
-            BR,
+            BR = 0,
             EUNE,
             EUW,
             JP,
@@ -21,10 +21,10 @@
 
         public enum Platforms
         {
-            BR1,
+            BR1 = 0,
             EUN1,
             EUW1,
-            JP,
+            JP1,
             KR,
             LA1,
             LA2,
@@ -37,30 +37,13 @@
 
         public enum LeagueTier
         {
-            CHALLENGER,
+            CHALLENGER = 0,
             MASTER,
             DIAMOND,
             PLATINUM,
             GOLD,
             SILVER,
             BRONZE
-        }
-
-        public enum LeagueEntryDivision
-        {
-            I,
-            II,
-            III,
-            IV,
-            V
-        }
-
-        public enum Playstyle
-        {
-            NONE,
-            SOLO,
-            SQUAD,
-            TEAM
         }
     }
 }

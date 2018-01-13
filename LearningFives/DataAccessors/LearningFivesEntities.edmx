@@ -25,6 +25,14 @@
           <Property Name="SundayStart" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="SundayEnd" Type="datetime" Precision="0" Nullable="false" />
         </EntityType>
+        <EntityType Name="CoachPlayers">
+          <Key>
+            <PropertyRef Name="CoachPlayerID" />
+          </Key>
+          <Property Name="CoachPlayerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CoachSignUpID" Type="int" Nullable="false" />
+          <Property Name="StudentSignUpID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="CoachSignUp">
           <Key>
             <PropertyRef Name="CoachSignUpID" />
@@ -72,7 +80,7 @@
           </Key>
           <Property Name="RiotAPILeagueEntryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RiotAPILeagueID" Type="int" Nullable="false" />
-          <Property Name="Division" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Rank" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="IsFreshBlood" Type="bool" Nullable="false" />
           <Property Name="IsHotStreak" Type="bool" Nullable="false" />
           <Property Name="IsInactive" Type="bool" Nullable="false" />
@@ -144,6 +152,30 @@
           <Property Name="HadTemporaryBan" Type="bool" Nullable="false" />
           <Property Name="HadPermanentBan" Type="bool" Nullable="false" />
         </EntityType>
+        <Association Name="CoachPlayers_ibfk_1">
+          <End Role="CoachSignUp" Type="Self.CoachSignUp" Multiplicity="1" />
+          <End Role="CoachPlayers" Type="Self.CoachPlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CoachSignUp">
+              <PropertyRef Name="CoachSignUpID" />
+            </Principal>
+            <Dependent Role="CoachPlayers">
+              <PropertyRef Name="CoachSignUpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachPlayers_ibfk_2">
+          <End Role="StudentSignUp" Type="Self.StudentSignUp" Multiplicity="1" />
+          <End Role="CoachPlayers" Type="Self.CoachPlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentSignUp">
+              <PropertyRef Name="StudentSignUpID" />
+            </Principal>
+            <Dependent Role="CoachPlayers">
+              <PropertyRef Name="StudentSignUpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="CoachSignUp_ibfk_1">
           <End Role="SummonerInfo" Type="Self.SummonerInfo" Multiplicity="1" />
           <End Role="CoachSignUp" Type="Self.CoachSignUp" Multiplicity="*" />
@@ -290,6 +322,7 @@
         </Association>
         <EntityContainer Name="LearningFivesEntitiesStoreContainer">
           <EntitySet Name="AvailabilityInfo" EntityType="Self.AvailabilityInfo" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <EntitySet Name="CoachPlayers" EntityType="Self.CoachPlayers" Schema="sornvruc_learningfives" store:Type="Tables" />
           <EntitySet Name="CoachSignUp" EntityType="Self.CoachSignUp" Schema="sornvruc_learningfives" store:Type="Tables" />
           <EntitySet Name="Commitment" EntityType="Self.Commitment" Schema="sornvruc_learningfives" store:Type="Tables" />
           <EntitySet Name="RiotAPILeague" EntityType="Self.RiotAPILeague" Schema="sornvruc_learningfives" store:Type="Tables" />
@@ -299,6 +332,14 @@
           <EntitySet Name="StudentSignUp" EntityType="Self.StudentSignUp" Schema="sornvruc_learningfives" store:Type="Tables" />
           <EntitySet Name="SummonerInfo" EntityType="Self.SummonerInfo" Schema="sornvruc_learningfives" store:Type="Tables" />
           <EntitySet Name="Toxic" EntityType="Self.Toxic" Schema="sornvruc_learningfives" store:Type="Tables" />
+          <AssociationSet Name="CoachPlayers_ibfk_1" Association="Self.CoachPlayers_ibfk_1">
+            <End Role="CoachSignUp" EntitySet="CoachSignUp" />
+            <End Role="CoachPlayers" EntitySet="CoachPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="CoachPlayers_ibfk_2" Association="Self.CoachPlayers_ibfk_2">
+            <End Role="StudentSignUp" EntitySet="StudentSignUp" />
+            <End Role="CoachPlayers" EntitySet="CoachPlayers" />
+          </AssociationSet>
           <AssociationSet Name="CoachSignUp_ibfk_1" Association="Self.CoachSignUp_ibfk_1">
             <End Role="SummonerInfo" EntitySet="SummonerInfo" />
             <End Role="CoachSignUp" EntitySet="CoachSignUp" />
@@ -411,6 +452,15 @@
             <End Role="Toxic" EntitySet="Toxics" />
             <End Role="StudentSignUp" EntitySet="StudentSignUps" />
           </AssociationSet>
+          <EntitySet Name="CoachPlayers" EntityType="LearningFivesEntities.CoachPlayer" />
+          <AssociationSet Name="CoachPlayers_ibfk_1" Association="LearningFivesEntities.CoachPlayers_ibfk_1">
+            <End Role="CoachSignUp" EntitySet="CoachSignUps" />
+            <End Role="CoachPlayer" EntitySet="CoachPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="CoachPlayers_ibfk_2" Association="LearningFivesEntities.CoachPlayers_ibfk_2">
+            <End Role="StudentSignUp" EntitySet="StudentSignUps" />
+            <End Role="CoachPlayer" EntitySet="CoachPlayers" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AvailabilityInfo">
           <Key>
@@ -460,6 +510,7 @@
           <NavigationProperty Name="SummonerInfo" Relationship="LearningFivesEntities.CoachSignUp_ibfk_1" FromRole="CoachSignUp" ToRole="SummonerInfo" />
           <NavigationProperty Name="Commitment" Relationship="LearningFivesEntities.CoachSignUp_ibfk_3" FromRole="CoachSignUp" ToRole="Commitment" />
           <NavigationProperty Name="Toxic" Relationship="LearningFivesEntities.CoachSignUp_ibfk_4" FromRole="CoachSignUp" ToRole="Toxic" />
+          <NavigationProperty Name="CoachPlayers" Relationship="LearningFivesEntities.CoachPlayers_ibfk_1" FromRole="CoachSignUp" ToRole="CoachPlayer" />
         </EntityType>
         <EntityType Name="Commitment">
           <Key>
@@ -489,7 +540,7 @@
           </Key>
           <Property Name="RiotAPILeagueEntryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RiotAPILeagueID" Type="Int32" Nullable="false" />
-          <Property Name="Division" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Rank" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="IsFreshBlood" Type="Boolean" Nullable="false" />
           <Property Name="IsHotStreak" Type="Boolean" Nullable="false" />
           <Property Name="IsInactive" Type="Boolean" Nullable="false" />
@@ -547,6 +598,7 @@
           <NavigationProperty Name="RoleInfo" Relationship="LearningFivesEntities.StudentSignUp_ibfk_2" FromRole="StudentSignUp" ToRole="RoleInfo" />
           <NavigationProperty Name="SummonerInfo" Relationship="LearningFivesEntities.StudentSignUp_ibfk_1" FromRole="StudentSignUp" ToRole="SummonerInfo" />
           <NavigationProperty Name="Toxic" Relationship="LearningFivesEntities.StudentSignUp_ibfk_5" FromRole="StudentSignUp" ToRole="Toxic" />
+          <NavigationProperty Name="CoachPlayers" Relationship="LearningFivesEntities.CoachPlayers_ibfk_2" FromRole="StudentSignUp" ToRole="CoachPlayer" />
         </EntityType>
         <EntityType Name="SummonerInfo">
           <Key>
@@ -719,6 +771,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CoachPlayer">
+          <Key>
+            <PropertyRef Name="CoachPlayerID" />
+          </Key>
+          <Property Name="CoachPlayerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoachSignUpID" Type="Int32" Nullable="false" />
+          <Property Name="StudentSignUpID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CoachSignUp" Relationship="LearningFivesEntities.CoachPlayers_ibfk_1" FromRole="CoachPlayer" ToRole="CoachSignUp" />
+          <NavigationProperty Name="StudentSignUp" Relationship="LearningFivesEntities.CoachPlayers_ibfk_2" FromRole="CoachPlayer" ToRole="StudentSignUp" />
+        </EntityType>
+        <Association Name="CoachPlayers_ibfk_1">
+          <End Type="LearningFivesEntities.CoachSignUp" Role="CoachSignUp" Multiplicity="1" />
+          <End Type="LearningFivesEntities.CoachPlayer" Role="CoachPlayer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CoachSignUp">
+              <PropertyRef Name="CoachSignUpID" />
+            </Principal>
+            <Dependent Role="CoachPlayer">
+              <PropertyRef Name="CoachSignUpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CoachPlayers_ibfk_2">
+          <End Type="LearningFivesEntities.StudentSignUp" Role="StudentSignUp" Multiplicity="1" />
+          <End Type="LearningFivesEntities.CoachPlayer" Role="CoachPlayer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentSignUp">
+              <PropertyRef Name="StudentSignUpID" />
+            </Principal>
+            <Dependent Role="CoachPlayer">
+              <PropertyRef Name="StudentSignUpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -800,7 +886,7 @@
                 <ScalarProperty Name="IsInactive" ColumnName="IsInactive" />
                 <ScalarProperty Name="IsHotStreak" ColumnName="IsHotStreak" />
                 <ScalarProperty Name="IsFreshBlood" ColumnName="IsFreshBlood" />
-                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
                 <ScalarProperty Name="RiotAPILeagueID" ColumnName="RiotAPILeagueID" />
                 <ScalarProperty Name="RiotAPILeagueEntryID" ColumnName="RiotAPILeagueEntryID" />
               </MappingFragment>
@@ -871,6 +957,15 @@
                 <ScalarProperty Name="HadLowPriorityPunish" ColumnName="HadLowPriorityPunish" />
                 <ScalarProperty Name="ToxicLevel" ColumnName="ToxicLevel" />
                 <ScalarProperty Name="ToxicID" ColumnName="ToxicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoachPlayers">
+            <EntityTypeMapping TypeName="LearningFivesEntities.CoachPlayer">
+              <MappingFragment StoreEntitySet="CoachPlayers">
+                <ScalarProperty Name="StudentSignUpID" ColumnName="StudentSignUpID" />
+                <ScalarProperty Name="CoachSignUpID" ColumnName="CoachSignUpID" />
+                <ScalarProperty Name="CoachPlayerID" ColumnName="CoachPlayerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,23 +1,22 @@
 ﻿using Newtonsoft.Json;
-using RiotAPI.Enums;
 
 namespace RiotAPI.Models
 {
-    public class RiotApiLeagueEntryDM : RiotApiObject
+    public class RiotApiLeagueEntry : RiotApiObject
     {
-        [JsonProperty("division")]
-        public string Division { get; set; }
+        [JsonProperty("rank")]
+        public string Rank { get; set; }
 
-        [JsonProperty("isFreshBlood")]
+        [JsonProperty("freshBlood")]
         public bool IsFreshBlood { get; set; }
 
-        [JsonProperty("isHotStreak")]
+        [JsonProperty("hotStreak")]
         public bool IsHotStreak { get; set; }
 
-        [JsonProperty("isInactive")]
+        [JsonProperty("inactive")]
         public bool IsInactive { get; set; }
 
-        [JsonProperty("isVeteran")]
+        [JsonProperty("veteran")]
         public bool IsVeteran { get; set; }
 
         [JsonProperty("leaguePoints")]
@@ -34,9 +33,6 @@ namespace RiotAPI.Models
 
         [JsonProperty("playerOrTeamName")]
         public string PlayerOrTeamName { get; set; }
-
-        [JsonProperty("playstyle")]
-        public RiotApiEnums.Playstyle Playstyle { get; set; }
 
         [JsonProperty("wins")]
         public int Wins { get; set; }

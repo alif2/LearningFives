@@ -27,6 +27,9 @@
         <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_2" />
         <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_1" />
         <AssociationConnector Association="LearningFivesEntities.StudentSignUp_ibfk_5" />
+        <EntityTypeShape EntityType="LearningFivesEntities.CoachPlayer" Width="1.5" PointX="8.25" PointY="8" />
+        <AssociationConnector Association="LearningFivesEntities.CoachPlayers_ibfk_1" />
+        <AssociationConnector Association="LearningFivesEntities.CoachPlayers_ibfk_2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

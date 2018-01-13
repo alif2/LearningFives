@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
+using DataAccessors;
 
 namespace RiotAPITests
 {
@@ -9,9 +10,12 @@ namespace RiotAPITests
         [TestMethod]
         public async Task CallTest()
         {
+            var test = new RiotApiDataAccessor();
+            test.GetSummonerByName("Dyrus", "NA");
+
             //var test = new RiotApiDataAccessor();
             //test.UpdateRiotApiSummoner("Tsundraki", "NA");
-            
+
 
             /*var tda = new TeamsDataAccessor();
             var one = await tda.GetAllStudentsAsync(new StudentFilterDM

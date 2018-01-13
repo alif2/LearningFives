@@ -8,6 +8,8 @@ namespace DataAccessors
 {
     public class TeamsDataAccessor
     {
+        public const int TeamSizeLimit = 5;
+
         public async Task<List<StudentSignUp>> GetAllStudentsAsync(StudentFilterDM studentFilter)
         {
             using (var context = new LearningFivesEntities())
@@ -82,6 +84,37 @@ namespace DataAccessors
                 }
 
                 return await filter.OrderBy(i => i.SummonerInfo.SummonerName).ToListAsync();
+            }
+        }
+
+        public async Task<CoachPlayer> AddStudentToCoachAsync(int coachSignUpId, int studentSignUpId)
+        {
+            using (var context = new LearningFivesEntities())
+            {
+                var teamSize = await context.CoachPlayers.Where(i => i.CoachSignUpID == coachSignUpId).CountAsync();
+                if (teamSize >= TeamSizeLimit) return null;
+
+                var coachPlayer = context.CoachPlayers.Add(new CoachPlayer
+                {
+                    CoachSignUp = context.CoachSignUps.FirstOrDefault(i => i.CoachSignUpID == coachSignUpId),
+                    StudentSignUp = context.StudentSignUps.FirstOrDefault(i => i.StudentSignUpID == studentSignUpId)
+                });
+
+                await context.SaveChangesAsync();
+                return coachPlayer;
+            }
+        }
+
+        public async Task<CoachPlayer> RemoveStudentFromCoachAsync(int coachSignUpId, int studentSignUpId)
+        {
+            using (var context = new LearningFivesEntities())
+            {
+                var coachPlayer = context.CoachPlayers.FirstOrDefault(i => i.CoachSignUpID == coachSignUpId && i.StudentSignUpID == studentSignUpId);
+                if (coachPlayer == null) return null;
+
+                var result = context.CoachPlayers.Remove(coachPlayer);
+                await context.SaveChangesAsync();
+                return result;
             }
         }
     }

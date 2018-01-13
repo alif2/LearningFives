@@ -3,10 +3,13 @@
 namespace RiotAPI.Models
 {
     [JsonObject]
-    public class RiotApiSummonerDM : RiotApiObject
+    public class RiotApiSummoner : RiotApiObject
     {
         [JsonProperty("id")]
         public long Id { get; set; }
+
+        [JsonProperty("accountId")]
+        public long AccountId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }

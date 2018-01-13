@@ -14,6 +14,12 @@ namespace DataAccessors
     
     public partial class StudentSignUp
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public StudentSignUp()
+        {
+            this.CoachPlayers = new HashSet<CoachPlayer>();
+        }
+    
         public int StudentSignUpID { get; set; }
         public int StudentStatus { get; set; }
         public int SummonerInfoID { get; set; }
@@ -34,5 +40,7 @@ namespace DataAccessors
         public virtual RoleInfo RoleInfo { get; set; }
         public virtual SummonerInfo SummonerInfo { get; set; }
         public virtual Toxic Toxic { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoachPlayer> CoachPlayers { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using RiotAPI;
+﻿using System;
+using RiotAPI;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -48,7 +49,7 @@ namespace DataAccessors
                         {
                             new RiotAPILeagueEntry
                             {
-                                Division = leagueEntry.Division,
+                                Division = leagueEntry.Rank,
                                 IsFreshBlood = leagueEntry.IsFreshBlood,
                                 IsHotStreak = leagueEntry.IsHotStreak,
                                 IsInactive = leagueEntry.IsInactive,

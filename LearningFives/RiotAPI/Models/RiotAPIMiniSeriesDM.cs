@@ -4,6 +4,9 @@ namespace RiotAPI.Models
 {
     public class RiotApiMiniSeriesDM : RiotApiObject
     {
+        [JsonProperty("wins")]
+        public int Wins { get; set; }
+
         [JsonProperty("losses")]
         public int Losses { get; set; }
 
@@ -12,8 +15,5 @@ namespace RiotAPI.Models
 
         [JsonProperty("target")]
         public int Target { get; set; }
-
-        [JsonProperty("wins")]
-        public int Wins { get; set; }
     }
 }

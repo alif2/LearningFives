@@ -4,16 +4,16 @@ using System.Collections.Generic;
 
 namespace RiotAPI.Models
 {
-    public class RiotApiLeagueDM : RiotApiObject
+    public class RiotApiLeague : RiotApiObject
     {
+        [JsonProperty("leagueId")]
+        public string LeagueId { get; set; }
+
         [JsonProperty("entries")]
-        public IEnumerable<RiotApiLeagueEntryDM> Entries { get; set; }
+        public IEnumerable<RiotApiLeagueEntry> Entries { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
-
-        [JsonProperty("participantId")]
-        public string ParticipantId { get; set; }
 
         [JsonProperty("queue")]
         public string Queue { get; set; }

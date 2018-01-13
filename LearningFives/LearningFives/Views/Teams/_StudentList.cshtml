@@ -78,14 +78,16 @@
     var isRedFlag = student.Toxic.HadLowPriorityPunish || student.Toxic.HadChatRestriction || student.Toxic.HadRankedRestrictions || student.Toxic.HadTemporaryBan || student.Toxic.HadPermanentBan;
 
     <div class="col-md-4 summoner-card student-card">
+        <div class="student-signup-id" hidden="hidden">@student.StudentSignUpID</div>
         <div class="row">
-            <span class="col-md-2" style="background-color: #2f8bcb;border-radius: 2px">@student.SummonerInfo.ServerName</span>
-            <span class="col-md-7">@student.SummonerInfo.SummonerName</span>
-            <span class="col-md-1"><img src="@positionIcon" style="width:25px"/></span>
-            <span class="col-md-2" style="text-align:right">[@seriousLevel]</span>
+            <span class="col-md-2 server-name" style="background-color: #2f8bcb; border-radius: 2px">@student.SummonerInfo.ServerName</span>
+            <span class="col-md-7 summoner-name">@student.SummonerInfo.SummonerName</span>
+            <span class="col-md-1 position-icon small-icon"><img src="@positionIcon"/></span>
+            <span class="col-md-2 serious-level" style="text-align: right">[@seriousLevel]</span>
         </div>
         <div class="row">
-            <div class="col-md-2"><img src="@rankIcon" style="width:50px"/></div>
+            <div class="col-md-2 rank-icon"><img src="@rankIcon" style="width: 50px"/>
+            </div>
             <div class="col-md-10" style="text-align: right">
                 Speaks: @student.Languages<br/>
                 Team: @student.PairedPlayers
